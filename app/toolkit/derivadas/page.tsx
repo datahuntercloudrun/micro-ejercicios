@@ -53,6 +53,55 @@ const quizData = [
   },
 ];
 
+function ResolucionPasoAPaso({ id }: { id: number }) {
+  if (id === 1) return (
+    <div className="space-y-1">
+      <p>Tenemos <InlineMath math="2x = 2 \cdot x^1" /></p>
+      <p>Regla: baja el 1, resta 1 al exponente:</p>
+      <FormulaDisplay math="CMg = 2 \cdot 1 \cdot x^{1-1} = 2 \cdot x^0 = 2" />
+      <p>El coste marginal es constante: cada unidad extra cuesta 2.</p>
+    </div>
+  );
+  if (id === 2) return (
+    <div className="space-y-1">
+      <p>Tenemos <InlineMath math="2x^{0.5}" /></p>
+      <p>Regla de la potencia con factor constante:</p>
+      <FormulaDisplay math="CMg = 2 \cdot 0.5 \cdot x^{0.5-1} = x^{-0.5} = \frac{1}{\sqrt{x}}" />
+      <p>El coste marginal disminuye: cuanto mas produces, mas barata es cada unidad extra.</p>
+    </div>
+  );
+  if (id === 3) return (
+    <div className="space-y-1">
+      <p>Tenemos <InlineMath math="40L^2" /></p>
+      <p>Derivamos respecto a L (baja el 2, resta 1):</p>
+      <FormulaDisplay math="PMg_L = 40 \cdot 2 \cdot L^{2-1} = 80L" />
+      <p>La productividad marginal del trabajo crece con L (rendimientos crecientes del factor).</p>
+    </div>
+  );
+  if (id === 4) return (
+    <div className="space-y-1">
+      <p>Derivamos cada termino por separado:</p>
+      <FormulaDisplay math="\frac{d}{dx}(x^3) = 3x^2" />
+      <FormulaDisplay math="\frac{d}{dx}(-2x^2) = -2 \cdot 2x = -4x" />
+      <FormulaDisplay math="\frac{d}{dx}(2x) = 2" />
+      <p>Sumamos:</p>
+      <FormulaDisplay math="CMg = 3x^2 - 4x + 2" />
+    </div>
+  );
+  if (id === 5) return (
+    <div className="space-y-1">
+      <p>Derivamos cada termino:</p>
+      <FormulaDisplay math="\frac{d}{dx}(x^2) = 2x" />
+      <FormulaDisplay math="\frac{d}{dx}(4x) = 4" />
+      <FormulaDisplay math="\frac{d}{dx}(4) = 0 \quad \text{(constante, desaparece)}" />
+      <p>Sumamos:</p>
+      <FormulaDisplay math="CMg = 2x + 4" />
+      <p>El &laquo;4&raquo; suelto (coste fijo) no aparece en el marginal.</p>
+    </div>
+  );
+  return null;
+}
+
 function QuizPractica() {
   const [respuestas, setRespuestas] = useState<Record<number, number | null>>({});
 
@@ -152,12 +201,22 @@ function QuizPractica() {
               </div>
 
               {respondida && (
-                <div className={`text-xs leading-relaxed p-2.5 rounded-lg ${
-                  esCorrecta
-                    ? "bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200"
-                    : "bg-rose-100/50 dark:bg-rose-900/20 text-rose-800 dark:text-rose-200"
-                }`}>
-                  {q.explicacion}
+                <div className="space-y-2">
+                  <div className={`text-xs leading-relaxed p-2.5 rounded-lg ${
+                    esCorrecta
+                      ? "bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200"
+                      : "bg-rose-100/50 dark:bg-rose-900/20 text-rose-800 dark:text-rose-200"
+                  }`}>
+                    {q.explicacion}
+                  </div>
+                  <details className="group">
+                    <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium text-xs hover:underline">
+                      Ver resolucion paso a paso
+                    </summary>
+                    <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 text-sm space-y-1">
+                      <ResolucionPasoAPaso id={q.id} />
+                    </div>
+                  </details>
                 </div>
               )}
             </CardContent>
