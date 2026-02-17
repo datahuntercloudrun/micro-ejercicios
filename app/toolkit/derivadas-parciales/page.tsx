@@ -386,16 +386,6 @@ export default function DerivadasParciales() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gray-50 dark:bg-gray-800 border mt-3">
-          <CardContent className="p-4 text-sm space-y-2">
-            <p className="font-semibold">Truco rápido para la Cobb-Douglas</p>
-            <p className="text-muted-foreground">
-              Para derivar <InlineMath math="L^\alpha \cdot K^\beta" /> respecto a L:
-              baja el <InlineMath math="\alpha" />, restale 1 al exponente de L,
-              y deja K intacto. Es la misma regla de la potencia, solo que K no se toca.
-            </p>
-          </CardContent>
-        </Card>
       </StepCard>
 
       {/* ========== PASO 6: Practica ========== */}
