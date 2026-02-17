@@ -390,6 +390,9 @@ export default function DerivadasParciales() {
 
       {/* ========== PASO 6: Practica ========== */}
       <StepCard stepNumber={6} title="Práctica con funciones del curso" variant="result">
+        <p className="text-muted-foreground text-sm mb-2">
+          Calcula las dos derivadas parciales (<InlineMath math="\frac{\partial f}{\partial L}" /> y <InlineMath math="\frac{\partial f}{\partial K}" />) de cada función. Intenta hacerlo antes de ver la solución.
+        </p>
         <div className="space-y-4">
           <Card className="border">
             <CardContent className="p-4 text-sm space-y-2">
@@ -400,9 +403,21 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <FormulaDisplay math="\frac{\partial f}{\partial L} = 0.5 \cdot L^{-0.5} \cdot K^{0.5} = \frac{K^{0.5}}{2L^{0.5}} = \frac{1}{2}\sqrt{\frac{K}{L}}" />
-                  <FormulaDisplay math="\frac{\partial f}{\partial K} = L^{0.5} \cdot 0.5 \cdot K^{-0.5} = \frac{L^{0.5}}{2K^{0.5}} = \frac{1}{2}\sqrt{\frac{L}{K}}" />
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos K como constante):</p>
+                    <p>Tenemos <InlineMath math="L^{0.5}" />. Bajamos el 0.5 y restamos 1 al exponente: <InlineMath math="0.5 \cdot L^{0.5-1} = 0.5 \cdot L^{-0.5}" />.</p>
+                    <p>La constante <InlineMath math="K^{0.5}" /> no se toca:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 0.5 \cdot L^{-0.5} \cdot K^{0.5} = \frac{K^{0.5}}{2L^{0.5}} = \frac{1}{2}\sqrt{\frac{K}{L}}" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos L como constante):</p>
+                    <p>Ahora <InlineMath math="L^{0.5}" /> es la constante. Derivamos <InlineMath math="K^{0.5}" />: bajamos el 0.5 y restamos 1.</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial K} = L^{0.5} \cdot 0.5 \cdot K^{-0.5} = \frac{L^{0.5}}{2K^{0.5}} = \frac{1}{2}\sqrt{\frac{L}{K}}" />
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Fíjate que ambas derivadas son simétricas: si intercambias L y K en una, obtienes la otra. Esto pasa porque los exponentes son iguales (0.5 y 0.5).
+                  </p>
                 </div>
               </details>
             </CardContent>
@@ -417,10 +432,21 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Es <InlineMath math="L^1 \cdot K^1" />, así que <InlineMath math="\alpha = \beta = 1" />:</p>
-                  <FormulaDisplay math="\frac{\partial f}{\partial L} = 1 \cdot K = K \qquad \frac{\partial f}{\partial K} = L \cdot 1 = L" />
-                  <p>La PMg de cada factor es simplemente la cantidad del otro factor.</p>
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
+                  <p>Primero, reescribimos para ver los exponentes: <InlineMath math="f = L^1 \cdot K^1" /> (es decir, <InlineMath math="\alpha = 1, \beta = 1" />).</p>
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (K es constante):</p>
+                    <p>Bajamos el exponente de L (que es 1) y le restamos 1: <InlineMath math="1 \cdot L^{1-1} = L^0 = 1" />. Multiplicamos por la constante K:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 1 \cdot K = K" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (L es constante):</p>
+                    <p>Lo mismo pero con K: <InlineMath math="1 \cdot K^{1-1} = K^0 = 1" />. Multiplicamos por la constante L:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial K} = L \cdot 1 = L" />
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Resultado: la PMg de cada factor es la cantidad del otro. Si tienes 10 máquinas, cada trabajador extra produce 10 unidades más.
+                  </p>
                 </div>
               </details>
             </CardContent>
@@ -435,9 +461,21 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <FormulaDisplay math="\frac{\partial f}{\partial L} = 2 \cdot \frac{1}{4} \cdot L^{-3/4} \cdot K^{1/2} = \frac{K^{1/2}}{2L^{3/4}}" />
-                  <FormulaDisplay math="\frac{\partial f}{\partial K} = 2 \cdot L^{1/4} \cdot \frac{1}{2} \cdot K^{-1/2} = \frac{L^{1/4}}{K^{1/2}}" />
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
+                  <p>Aquí <InlineMath math="A=2" />, <InlineMath math="\alpha = 1/4" />, <InlineMath math="\beta = 1/2" />.</p>
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos <InlineMath math="2K^{1/2}" /> como constante):</p>
+                    <p>Bajamos <InlineMath math="1/4" /> y restamos 1 al exponente: <InlineMath math="\frac{1}{4} - 1 = -\frac{3}{4}" />.</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 2 \cdot \tfrac{1}{4} \cdot L^{-3/4} \cdot K^{1/2} = \frac{1}{2} \cdot L^{-3/4} \cdot K^{1/2} = \frac{K^{1/2}}{2L^{3/4}}" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos <InlineMath math="2L^{1/4}" /> como constante):</p>
+                    <p>Bajamos <InlineMath math="1/2" /> y restamos 1: <InlineMath math="\frac{1}{2} - 1 = -\frac{1}{2}" />.</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial K} = 2 \cdot L^{1/4} \cdot \tfrac{1}{2} \cdot K^{-1/2} = L^{1/4} \cdot K^{-1/2} = \frac{L^{1/4}}{K^{1/2}}" />
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Recuerda: exponente negativo = pasa al denominador. Por eso <InlineMath math="L^{-3/4} = \frac{1}{L^{3/4}}" />.
+                  </p>
                 </div>
               </details>
             </CardContent>
