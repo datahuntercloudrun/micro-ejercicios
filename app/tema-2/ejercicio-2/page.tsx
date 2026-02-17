@@ -279,7 +279,7 @@ export default function Ejercicio2() {
               Condicion: igualar CL y Cc
             </p>
             <p>
-              Para el K optimo, <InlineMath math="C^L(x) = C^c(x, \\bar{K})" />{" "}
+              Para el K optimo, <InlineMath math="C^L(x) = C^c(x, \bar{K})" />{" "}
               para todo x. Igualamos los coeficientes:
             </p>
             <FormulaDisplay math="C^L(x) = 0.5x^3 - 4.1x^2 + 20x" />
@@ -346,7 +346,7 @@ export default function Ejercicio2() {
                 <p className="text-amber-800 dark:text-amber-200">
                   Los valores son practicamente iguales (la pequena diferencia
                   se debe al redondeo). Queda verificado que{" "}
-                  <InlineMath math="C^L(4.1) \\approx C^c(4.1, 0.82)" />.
+                  <InlineMath math="C^L(4.1) \approx C^c(4.1, 0.82)" />.
                 </p>
               </CardContent>
             </Card>
@@ -370,7 +370,7 @@ export default function Ejercicio2() {
             <p className="text-muted-foreground">
               A corto plazo, K esta fijo. A largo plazo, se puede ajustar. Tener
               mas flexibilidad nunca puede ser peor, asi que{" "}
-              <InlineMath math="CMeL \\leq CMeCP" /> siempre. La curva CMeL
+              <InlineMath math="CMeL \leq CMeCP" /> siempre. La curva CMeL
               es tangente a cada curva CMeCP en el punto optimo.
             </p>
           </CardContent>

@@ -368,7 +368,7 @@ export default function Optimizacion() {
               Para el <strong>Excedente del Productor</strong>: EP = area entre la linea de
               precio y la curva de CMg. En la practica, se calcula como:
             </p>
-            <FormulaDisplay math="EP = p \\cdot x^* - \\int_0^{x^*} CMg(x) \\, dx" />
+            <FormulaDisplay math="EP = p \cdot x^* - \int_0^{x^*} CMg(x) \, dx" />
           </CardContent>
         </Card>
 
@@ -379,7 +379,7 @@ export default function Optimizacion() {
               Si <InlineMath math="CMg = 2x + 4" /> y <InlineMath math="x^* = 3" />, <InlineMath math="p = 10" />:
             </p>
             <FormulaDisplay math="\int_0^3 (2x+4)\,dx = \left[x^2 + 4x\right]_0^3 = (9+12) - (0+0) = 21" />
-            <FormulaDisplay math="EP = 10 \\cdot 3 - 21 = 30 - 21 = 9" />
+            <FormulaDisplay math="EP = 10 \cdot 3 - 21 = 30 - 21 = 9" />
             <p className="text-muted-foreground">
               Graficamente, es el area del triangulo entre la recta de precio (p=10) y la curva CMg.
             </p>

@@ -183,7 +183,7 @@ export default function Ejercicio3() {
                   ¿Por que es falso?
                 </p>
                 <p className="text-muted-foreground">
-                  Recuerda que <InlineMath math="CMe = CVMe + \\frac{CF}{x}" />.
+                  Recuerda que <InlineMath math="CMe = CVMe + \frac{CF}{x}" />.
                   El CMe puede decrecer porque el termino{" "}
                   <InlineMath math="\frac{CF}{x}" /> baja rapidamente (al
                   repartir los costes fijos entre mas unidades), incluso si el

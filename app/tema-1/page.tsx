@@ -176,7 +176,7 @@ export default function Tema1() {
                 </p>
                 <p className="text-muted-foreground text-sm">
                   Al menos un factor est&aacute; fijo. Normalmente{" "}
-                  <InlineMath math="K = \\bar{K}" /> (el capital est&aacute; fijo).
+                  <InlineMath math="K = \bar{K}" /> (el capital est&aacute; fijo).
                 </p>
                 <p className="text-muted-foreground text-sm italic">
                   Analog&iacute;a: tienes el local alquilado (no puedes cambiarlo ma&ntilde;ana),
@@ -229,7 +229,7 @@ export default function Tema1() {
               <strong>Cobb-Douglas</strong>:
             </p>
 
-            <FormulaDisplay math="x = A \\cdot L^{\\alpha} \\cdot K^{\\beta}" />
+            <FormulaDisplay math="x = A \cdot L^{\alpha} \cdot K^{\beta}" />
 
             <div className="rounded-lg bg-white dark:bg-gray-900/50 border border-blue-200 dark:border-blue-800 p-3 space-y-2">
               <p className="font-semibold text-blue-800 dark:text-blue-200 text-sm">
@@ -240,7 +240,7 @@ export default function Tema1() {
                 usa <InlineMath math="L=4" /> trabajadores y <InlineMath math="K=9" />{" "}
                 m&aacute;quinas:
               </p>
-              <FormulaDisplay math="x = 10 \\cdot 4^{0.5} \\cdot 9^{0.5} = 10 \\cdot 2 \\cdot 3 = 60 \\text{ unidades}" />
+              <FormulaDisplay math="x = 10 \cdot 4^{0.5} \cdot 9^{0.5} = 10 \cdot 2 \cdot 3 = 60 \text{ unidades}" />
               <p className="text-sm text-muted-foreground">
                 Con 4 trabajadores y 9 m&aacute;quinas, la empresa produce 60 unidades. As&iacute;
                 de directo.
@@ -287,7 +287,7 @@ export default function Tema1() {
             <p className="font-semibold text-blue-800 dark:text-blue-200">
               La f&oacute;rmula central que conecta todo
             </p>
-            <FormulaDisplay math="x = A \\cdot L^{\\alpha} \\cdot K^{\\beta}" />
+            <FormulaDisplay math="x = A \cdot L^{\alpha} \cdot K^{\beta}" />
             <p className="text-center text-muted-foreground">
               De aqu&iacute; se derivan PMe, PMg, isocuantas, RMST y rendimientos. Todo sale de
               la misma f&oacute;rmula.

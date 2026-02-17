@@ -298,7 +298,7 @@ export default function Ejercicio1() {
             <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800">
               <CardContent className="p-3 sm:p-4 text-sm space-y-2">
                 <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-                  c) <InlineMath math="C(x) = 2\\sqrt{x} = 2x^{0.5}" />
+                  c) <InlineMath math="C(x) = 2\sqrt{x} = 2x^{0.5}" />
                 </p>
                 <div className="space-y-1">
                   <p>Coste Medio:</p>
@@ -319,7 +319,7 @@ export default function Ejercicio1() {
                 <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
                   <CardContent className="p-2 text-sm">
                     <p className="text-amber-800 dark:text-amber-200">
-                      Observa: <InlineMath math="CMg = \\frac{1}{\\sqrt{x}} = \\frac{CMe}{2}" />.
+                      Observa: <InlineMath math="CMg = \frac{1}{\sqrt{x}} = \frac{CMe}{2}" />.
                       El marginal es siempre la mitad del medio.
                     </p>
                   </CardContent>

@@ -218,12 +218,12 @@ export default function TestTema2() {
                 A largo plazo puedes elegir el tamano de fabrica optimo para cada nivel de produccion; a corto plazo estas atrapado con la fabrica que tienes. Mas flexibilidad siempre da un resultado igual o mejor, nunca peor. Es como comparar comprar ropa a medida (LP) vs usar la talla que ya tienes (CP): la ropa a medida siempre te queda igual o mejor.
               </p>
               <p>
-                La curva de <strong>CMe a LP es la envolvente inferior</strong> de todas las curvas de CMe a CP. Esto significa que <InlineMath math="CMeLP \\leq CMeCP" /> para todo x. A LP la empresa elige K optimamente, asi que nunca le cuesta mas que a CP.
+                La curva de <strong>CMe a LP es la envolvente inferior</strong> de todas las curvas de CMe a CP. Esto significa que <InlineMath math="CMeLP \leq CMeCP" /> para todo x. A LP la empresa elige K optimamente, asi que nunca le cuesta mas que a CP.
               </p>
               <ul className="list-disc pl-4 space-y-1">
                 <li><strong>a)</strong> Incorrecta: la envolvente es del CMe, no del CMg. El CMg a LP no es envolvente de los CMg a CP.</li>
                 <li><strong>b)</strong> Incorrecta: invierte la desigualdad. El CT a LP es menor o igual al CT a CP, no mayor.</li>
-                <li><strong>c)</strong> Correcta: <InlineMath math="CMeCP \\geq CMeLP" /> siempre, por la propiedad de envolvente.</li>
+                <li><strong>c)</strong> Correcta: <InlineMath math="CMeCP \geq CMeLP" /> siempre, por la propiedad de envolvente.</li>
                 <li><strong>d)</strong> Incorrecta: claro que existe relacion. El LP es la version &laquo;optimizada&raquo; del CP.</li>
               </ul>
               <p className="text-sm text-muted-foreground">
@@ -323,7 +323,7 @@ export default function TestTema2() {
                 <li><strong>a)</strong> Verdadera: con Cobb-Douglas simetrica (<InlineMath math="\alpha = \beta = 1" />), si w = r la senda de expansion es <InlineMath math="K = L" />, una linea recta. En general, <InlineMath math="K = (w/r)L" />, tambien recta.</li>
                 <li><strong>b)</strong> Verdadera: rendimientos crecientes (grado 2 &gt; 1) implican CMe LP decreciente para todo x. Producir mas siempre abarata el coste por unidad.</li>
                 <li><strong>c)</strong> Falsa (la correcta): dice CMg &gt; CMe LP, pero con rendimientos crecientes es al reves: CMg &lt; CMe. Cada unidad extra cuesta menos que el promedio.</li>
-                <li><strong>d)</strong> Verdadera: a CP con K fijo, <InlineMath math="L = Y/\\bar{K}" />, asi que <InlineMath math="CT = w(Y/\\bar{K}) + r\\bar{K}" />, que es lineal en Y.</li>
+                <li><strong>d)</strong> Verdadera: a CP con K fijo, <InlineMath math="L = Y/\bar{K}" />, asi que <InlineMath math="CT = w(Y/\bar{K}) + r\bar{K}" />, que es lineal en Y.</li>
               </ul>
               <p className="text-sm text-muted-foreground">
                 Repasa esto en el <Link href="/tema-2/ejercicio-3" className="text-emerald-600 dark:text-emerald-400 underline">Ejercicio 3</Link> donde se analizan proposiciones V/F sobre costes.
@@ -366,7 +366,7 @@ export default function TestTema2() {
                 La empresa busca el punto donde el &laquo;valor&raquo; de sustituir un factor por otro se iguala a su &laquo;precio relativo&raquo;. Es como hacer la compra: si las manzanas y las naranjas te gustan igual pero las manzanas cuestan el doble, compras mas naranjas. La senda de expansion es el &laquo;camino optimo de compra&raquo; para cada presupuesto, donde la RMST (cuanto K puedes sustituir por L sin perder produccion) se iguala al ratio de precios <InlineMath math="w/r" />.
               </p>
               <p>
-                La <strong>senda de expansion</strong> es el lugar geometrico de todos los puntos donde la empresa minimiza costes para cada nivel de produccion. En esos puntos, la isocuanta es tangente a la isocoste: <InlineMath math="RMST = \\frac{w}{r}" />.
+                La <strong>senda de expansion</strong> es el lugar geometrico de todos los puntos donde la empresa minimiza costes para cada nivel de produccion. En esos puntos, la isocuanta es tangente a la isocoste: <InlineMath math="RMST = \frac{w}{r}" />.
               </p>
               <ul className="list-disc pl-4 space-y-1">
                 <li><strong>a)</strong> Incorrecta: producir sobre la funcion de produccion a CP solo garantiza que no desperdicias inputs, pero no que uses la combinacion mas barata. Estas atado a un K fijo.</li>
