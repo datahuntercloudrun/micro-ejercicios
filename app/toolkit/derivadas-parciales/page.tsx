@@ -273,19 +273,44 @@ export default function DerivadasParciales() {
               ¿Qué significa el resultado?
             </p>
             <p className="text-amber-900 dark:text-amber-100">
-              <InlineMath math={`PMg_L = ${20 * kFijo}L`} /> nos dice que la producción
-              extra de un trabajador adicional <strong>depende de cuántos trabajadores ya
-              tengas</strong>. Con K={kFijo}:
+              <InlineMath math={`PMg_L = ${20 * kFijo}L`} /> nos dice la <strong>velocidad a la que
+              crece la producción</strong> cuando tienes L trabajadores. Es como un velocímetro:
+              no te dice cuánto has producido en total, sino lo rápido que está creciendo en ese momento.
+            </p>
+            <p className="text-amber-900 dark:text-amber-100">
+              Sustituimos L para ver esa &laquo;velocidad&raquo; en distintos puntos (con K={kFijo}):
             </p>
             <ul className="list-disc pl-5 text-amber-900 dark:text-amber-100 space-y-1">
-              <li>Si tienes 1 trabajador: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 1 = ${20 * kFijo}`} /> unidades extra.</li>
-              <li>Si tienes 2: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 2 = ${40 * kFijo}`} /> unidades extra.</li>
-              <li>Si tienes 3: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 3 = ${60 * kFijo}`} /> unidades extra.</li>
+              <li>Con 1 trabajador: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 1 = ${20 * kFijo}`} /> &rarr; la producción crece a ritmo {20 * kFijo}.</li>
+              <li>Con 2 trabajadores: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 2 = ${40 * kFijo}`} /> &rarr; ahora crece más rápido.</li>
+              <li>Con 3 trabajadores: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 3 = ${60 * kFijo}`} /> &rarr; aún más rápido.</li>
             </ul>
             <p className="text-amber-900 dark:text-amber-100">
-              En este caso, cada trabajador nuevo aporta <strong>más que el anterior</strong>
-              (productividad marginal creciente). Mueve el slider de arriba y verás que con más
-              máquinas, cada trabajador es aún más productivo.
+              Esto pasa porque en nuestra función el exponente de L es 2 (mayor que 1).
+              Cuantos más trabajadores, más rápido crece la producción &mdash; se llama <strong>productividad
+              marginal creciente</strong>.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-rose-50 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-rose-800 dark:text-rose-200">
+              Ojo: en la vida real suele pasar lo contrario
+            </p>
+            <p className="text-rose-900 dark:text-rose-100">
+              En la mayoría de empresas reales (y en los ejercicios del curso), el exponente
+              de L es <strong>menor que 1</strong> (por ejemplo 0.5). Eso hace que cada trabajador
+              adicional aporte <strong>menos</strong> que el anterior:
+            </p>
+            <ul className="list-disc pl-5 text-rose-900 dark:text-rose-100 space-y-1">
+              <li>El 1.&ordm; trabajador aporta mucho (la fábrica estaba vacía).</li>
+              <li>El 10.&ordm; ya aporta menos (la fábrica se va llenando).</li>
+              <li>El 100.&ordm; apenas aporta (se estorban entre ellos).</li>
+            </ul>
+            <p className="text-rose-900 dark:text-rose-100">
+              Esto se llama <strong>productividad marginal decreciente</strong> y es lo habitual.
+              Aquí usamos exponente 2 solo como ejemplo numérico sencillo para practicar la derivada.
             </p>
           </CardContent>
         </Card>
@@ -312,27 +337,52 @@ export default function DerivadasParciales() {
               Derivadas parciales de la Cobb-Douglas
             </p>
 
-            <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+            <div className="border-b pb-4 border-emerald-200 dark:border-emerald-700 space-y-3">
               <p className="font-medium">Respecto a L:</p>
               <p className="text-emerald-900 dark:text-emerald-100">
-                Tratamos <InlineMath math="A \cdot K^\beta" /> como constante, derivamos <InlineMath math="L^\alpha" />:
+                <strong>Paso 1:</strong> Tratamos <InlineMath math="A \cdot K^\beta" /> como si fuera un número
+                fijo (una constante), porque solo nos interesa cómo cambia L.
               </p>
-              <FormulaDisplay math="\frac{\partial f}{\partial L} = A \cdot \alpha L^{\alpha-1} \cdot K^\beta = \alpha \cdot \frac{f(L,K)}{L}" />
-              <p className="text-emerald-900 dark:text-emerald-100 text-xs">
-                Resultado bonito: <InlineMath math="PMg_L = \alpha \cdot PMe_L" />. La marginal es <InlineMath math="\alpha" /> veces la media.
+              <p className="text-emerald-900 dark:text-emerald-100">
+                <strong>Paso 2:</strong> Aplicamos la regla de la potencia a <InlineMath math="L^\alpha" />:
+                bajamos el exponente y le restamos 1.
+              </p>
+              <FormulaDisplay math="\frac{\partial f}{\partial L} = \underbrace{A \cdot K^\beta}_{\text{constante}} \cdot \underbrace{\alpha \cdot L^{\alpha - 1}}_{\text{regla potencia}} = A \cdot \alpha L^{\alpha-1} \cdot K^\beta" />
+              <p className="text-emerald-900 dark:text-emerald-100">
+                Eso es todo &mdash; ya está derivada. El resultado es <InlineMath math="A \cdot \alpha L^{\alpha-1} \cdot K^\beta" /> y
+                no hay que transformarlo más. Solo necesitas sustituir los números de tu ejercicio.
               </p>
             </div>
 
-            <div>
+            <div className="space-y-3">
               <p className="font-medium">Respecto a K:</p>
               <p className="text-emerald-900 dark:text-emerald-100">
-                Tratamos <InlineMath math="A \cdot L^\alpha" /> como constante, derivamos <InlineMath math="K^\beta" />:
+                Exactamente lo mismo pero al revés: ahora <InlineMath math="A \cdot L^\alpha" /> es la constante
+                y derivamos <InlineMath math="K^\beta" />.
               </p>
-              <FormulaDisplay math="\frac{\partial f}{\partial K} = A \cdot L^\alpha \cdot \beta K^{\beta-1} = \beta \cdot \frac{f(L,K)}{K}" />
-              <p className="text-emerald-900 dark:text-emerald-100 text-xs">
-                Igualmente: <InlineMath math="PMg_K = \beta \cdot PMe_K" />.
-              </p>
+              <FormulaDisplay math="\frac{\partial f}{\partial K} = \underbrace{A \cdot L^\alpha}_{\text{constante}} \cdot \underbrace{\beta \cdot K^{\beta - 1}}_{\text{regla potencia}} = A \cdot L^\alpha \cdot \beta K^{\beta-1}" />
             </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-blue-800 dark:text-blue-200">
+              Ejemplo numérico: <InlineMath math="f(L,K) = 5L^{0.6}K^{0.4}" />
+            </p>
+            <p className="text-blue-900 dark:text-blue-100">
+              Aquí <InlineMath math="A = 5" />, <InlineMath math="\alpha = 0.6" />, <InlineMath math="\beta = 0.4" />.
+              Derivemos respecto a L:
+            </p>
+            <FormulaDisplay math="\frac{\partial f}{\partial L} = 5 \cdot 0.6 \cdot L^{0.6-1} \cdot K^{0.4} = 3L^{-0.4}K^{0.4}" />
+            <p className="text-blue-900 dark:text-blue-100">
+              Y respecto a K:
+            </p>
+            <FormulaDisplay math="\frac{\partial f}{\partial K} = 5 \cdot L^{0.6} \cdot 0.4 \cdot K^{0.4-1} = 2L^{0.6}K^{-0.6}" />
+            <p className="text-blue-900 dark:text-blue-100 text-xs">
+              Truco: exponente negativo significa que va al denominador.
+              Por ejemplo, <InlineMath math="L^{-0.4} = \frac{1}{L^{0.4}}" />.
+            </p>
           </CardContent>
         </Card>
 
