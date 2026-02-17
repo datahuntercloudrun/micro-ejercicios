@@ -252,8 +252,23 @@ export default function Optimizacion() {
               <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
                 <p className="font-medium">Paso 1: Derivar el beneficio</p>
                 <p>Partimos de <InlineMath math="\pi(x) = p \cdot x - C(x)" /> y derivamos término a término:</p>
-                <div className="ml-2 space-y-1 mt-1">
-                  <p>Término 1: <InlineMath math="p \cdot x" /> → <InlineMath math="p" /> es un número fijo (la empresa no controla el precio), así que la derivada es simplemente <InlineMath math="p" /></p>
+                <div className="ml-2 space-y-2 mt-1">
+                  <div>
+                    <p>Término 1: <InlineMath math="p \cdot x" /></p>
+                    <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 p-2 mt-1">
+                      <p className="text-xs text-amber-900 dark:text-amber-100">
+                        <strong>Ojo, no confundir dos reglas distintas:</strong>
+                      </p>
+                      <div className="text-xs text-amber-900 dark:text-amber-100 mt-1 space-y-1">
+                        <p>- Un número <strong>solo</strong>, sin x (como +5 o +2): su derivada es <strong>0</strong>. Ejemplo: la derivada de 2 es 0.</p>
+                        <p>- Un número <strong>multiplicado por x</strong> (como <InlineMath math="p \cdot x" />): su derivada es <strong>ese número</strong>. Ejemplo: la derivada de <InlineMath math="10 \cdot x" /> es 10.</p>
+                      </div>
+                      <p className="text-xs text-amber-900 dark:text-amber-100 mt-1">
+                        ¿Por qué? Porque <InlineMath math="p \cdot x = p \cdot x^1" />. Aplicamos la regla de la potencia: <InlineMath math="p \cdot 1 \cdot x^{1-1} = p \cdot x^0 = p \cdot 1 = p" />.
+                      </p>
+                    </Card>
+                    <p className="mt-1">Así que la derivada de <InlineMath math="p \cdot x" /> es <InlineMath math="p" />.</p>
+                  </div>
                   <p>Término 2: <InlineMath math="-C(x)" /> → la derivada de <InlineMath math="C(x)" /> es <InlineMath math="C'(x)" />, que llamamos <strong>Coste Marginal</strong> (<InlineMath math="CMg" />). Como tiene un signo menos delante, queda <InlineMath math="-CMg(x)" /></p>
                 </div>
                 <p className="mt-1">Juntamos los dos términos:</p>
