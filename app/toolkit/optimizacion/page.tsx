@@ -95,15 +95,46 @@ export default function Optimizacion() {
               Ejemplo: encontrar el mínimo de CMe
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              Con <InlineMath math="CMe(x) = x^2 - 2x + 2" />, buscamos el mínimo:
+              Tenemos esta función de coste medio: <InlineMath math="CMe(x) = x^2 - 2x + 2" />. Queremos saber para qué cantidad <InlineMath math="x" /> el coste medio es el más bajo posible.
             </p>
-            <div className="space-y-1">
-              <p className="text-emerald-900 dark:text-emerald-100">Paso 1: Derivamos CMe:</p>
-              <FormulaDisplay math="CMe'(x) = 2x - 2" />
-              <p className="text-emerald-900 dark:text-emerald-100">Paso 2: Igualamos a cero:</p>
-              <FormulaDisplay math="2x - 2 = 0 \implies 2x = 2 \implies x^* = 1" />
-              <p className="text-emerald-900 dark:text-emerald-100">Paso 3: Evaluamos el CMe en ese punto:</p>
-              <FormulaDisplay math="CMe(1) = 1^2 - 2(1) + 2 = 1" />
+
+            <div className="space-y-3 text-emerald-900 dark:text-emerald-100">
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+                <p className="font-medium">Paso 1: Derivamos CMe término a término</p>
+                <p className="text-xs text-muted-foreground mb-1">Aplicamos la regla de la potencia a cada término por separado:</p>
+                <div className="space-y-1 ml-2">
+                  <p>Término 1: <InlineMath math="x^2" /> → regla de la potencia: <InlineMath math="2 \cdot x^{2-1} = 2x" /></p>
+                  <p>Término 2: <InlineMath math="-2x" /> → la derivada de <InlineMath math="x" /> es 1, así que: <InlineMath math="-2 \cdot 1 = -2" /></p>
+                  <p>Término 3: <InlineMath math="+2" /> → la derivada de un número suelto siempre es 0</p>
+                </div>
+                <p className="mt-1">Juntamos todo:</p>
+                <FormulaDisplay math="CMe'(x) = 2x - 2 + 0 = 2x - 2" />
+              </div>
+
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+                <p className="font-medium">Paso 2: Igualamos a cero y despejamos x</p>
+                <p className="text-xs text-muted-foreground mb-1">Queremos encontrar dónde la pendiente es cero:</p>
+                <div className="space-y-1 ml-2">
+                  <p>Planteamos la ecuación:</p>
+                  <FormulaDisplay math="2x - 2 = 0" />
+                  <p>Sumamos 2 a ambos lados:</p>
+                  <FormulaDisplay math="2x = 2" />
+                  <p>Dividimos ambos lados entre 2:</p>
+                  <FormulaDisplay math="x = \frac{2}{2} = 1" />
+                </div>
+                <p className="mt-1">El punto candidato a mínimo es <InlineMath math="x^* = 1" />.</p>
+              </div>
+
+              <div>
+                <p className="font-medium">Paso 3: ¿Cuánto vale el CMe en ese punto?</p>
+                <p className="text-xs text-muted-foreground mb-1">Sustituimos <InlineMath math="x = 1" /> en la función original:</p>
+                <FormulaDisplay math="CMe(1) = (1)^2 - 2 \cdot (1) + 2" />
+                <div className="space-y-1 ml-2">
+                  <p><InlineMath math="(1)^2 = 1" /></p>
+                  <p><InlineMath math="2 \cdot 1 = 2" /></p>
+                  <p>Entonces: <InlineMath math="1 - 2 + 2 = 1" /></p>
+                </div>
+              </div>
             </div>
             <p className="text-emerald-900 dark:text-emerald-100">
               El coste medio mínimo es <strong>1</strong>, y se alcanza produciendo <strong>1 unidad</strong>.
@@ -159,14 +190,22 @@ export default function Optimizacion() {
         </Card>
 
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
-          <CardContent className="p-4 text-sm space-y-2">
+          <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              Verificación del ejemplo anterior
+              Verificación del ejemplo anterior: ¿es mínimo o máximo?
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              <InlineMath math="CMe'(x) = 2x - 2" />, segunda derivada:
+              Ya sabemos que <InlineMath math="CMe'(x) = 2x - 2" />. Ahora derivamos <strong>otra vez</strong> para obtener la segunda derivada:
             </p>
-            <FormulaDisplay math="CMe''(x) = 2 > 0 \implies \text{es un MINIMO}" />
+            <div className="space-y-1 ml-2 text-emerald-900 dark:text-emerald-100">
+              <p>Derivamos <InlineMath math="2x - 2" /> término a término:</p>
+              <p>Término 1: <InlineMath math="2x" /> → la derivada de <InlineMath math="x" /> es 1, así que: <InlineMath math="2 \cdot 1 = 2" /></p>
+              <p>Término 2: <InlineMath math="-2" /> → la derivada de un número suelto es 0</p>
+            </div>
+            <FormulaDisplay math="CMe''(x) = 2" />
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Como <InlineMath math="2 > 0" />, la curva mira &laquo;hacia arriba&raquo; (forma de U) → es un <strong>mínimo</strong>.
+            </p>
             <p className="text-emerald-900 dark:text-emerald-100">
               Confirmado: <InlineMath math="x^* = 1" /> es un mínimo del CMe, no un máximo.
             </p>
@@ -182,40 +221,76 @@ export default function Optimizacion() {
               ¿Cuánto producir para ganar lo máximo?
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              El beneficio es: <InlineMath math="\pi(x) = p \cdot x - C(x)" /> (ingresos menos costes).
-              Para maximizarlo, aplicamos la CPO:
+              El <strong>beneficio</strong> de una empresa es lo que ingresa menos lo que gasta:
             </p>
-            <FormulaDisplay math="\pi'(x) = p - CMg(x) = 0 \implies p = CMg(x)" />
+            <FormulaDisplay math="\pi(x) = \underbrace{p \cdot x}_{\text{ingresos}} - \underbrace{C(x)}_{\text{costes}}" />
             <p className="text-blue-900 dark:text-blue-100">
-              Esta es la condición fundamental de la oferta competitiva: <strong>produce
-              hasta que el precio iguale al coste marginal</strong>.
+              Donde <InlineMath math="p" /> es el precio de venta, <InlineMath math="x" /> es la cantidad que produce y <InlineMath math="C(x)" /> es el coste total de producir <InlineMath math="x" /> unidades.
             </p>
           </CardContent>
         </Card>
 
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
-          <CardContent className="p-4 text-sm space-y-2">
+          <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              ¿Por qué funciona?
+              Derivamos el beneficio para encontrar el máximo
             </p>
+            <div className="space-y-2 text-emerald-900 dark:text-emerald-100">
+              <p>Partimos de <InlineMath math="\pi(x) = p \cdot x - C(x)" /> y derivamos término a término:</p>
+              <div className="ml-2 space-y-1">
+                <p>Término 1: <InlineMath math="p \cdot x" /> → <InlineMath math="p" /> es un número fijo (la empresa no controla el precio), así que la derivada es simplemente <InlineMath math="p" /></p>
+                <p>Término 2: <InlineMath math="-C(x)" /> → la derivada de <InlineMath math="C(x)" /> es <InlineMath math="C'(x)" />, que llamamos <strong>Coste Marginal</strong> (<InlineMath math="CMg" />)</p>
+              </div>
+              <p>Juntamos:</p>
+              <FormulaDisplay math="\pi'(x) = p - CMg(x)" />
+              <p>Ahora aplicamos la CPO (igualar a cero):</p>
+              <FormulaDisplay math="p - CMg(x) = 0" />
+              <p>Sumamos <InlineMath math="CMg(x)" /> a ambos lados:</p>
+              <FormulaDisplay math="p = CMg(x)" />
+            </div>
             <p className="text-emerald-900 dark:text-emerald-100">
-              Si el precio es mayor que el CMg, te conviene producir una unidad más
-              (ganas más de lo que cuesta). Si el CMg supera al precio, esa unidad
-              te cuesta más de lo que ganas. El óptimo está donde se igualan.
+              Esta es la <strong>condición fundamental</strong>: produce hasta que el precio iguale al coste marginal.
             </p>
           </CardContent>
         </Card>
 
-        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+        <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 mt-3">
           <CardContent className="p-4 text-sm space-y-2">
+            <p className="font-semibold text-amber-800 dark:text-amber-200">
+              ¿Por qué funciona? Piénsalo así
+            </p>
+            <div className="text-amber-900 dark:text-amber-100 space-y-2">
+              <p>
+                Imagina que vendes limonada a 5€ el vaso. Si producir un vaso más te cuesta 3€ (<InlineMath math="CMg = 3" />), te conviene producirlo porque ganas 2€ extra. Seguirás produciendo mientras <InlineMath math="p > CMg" />.
+              </p>
+              <p>
+                Pero si producir un vaso más te cuesta 7€ (<InlineMath math="CMg = 7" />), pierdes 2€. Así que dejas de producir cuando <InlineMath math="p < CMg" />.
+              </p>
+              <p>
+                El punto óptimo es exactamente donde <InlineMath math="p = CMg" />: la última unidad ni gana ni pierde, y todas las anteriores sí ganaron.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              CSO: ¿seguro que es un máximo?
+              CSO: ¿seguro que es un máximo y no un mínimo?
             </p>
-            <FormulaDisplay math="\pi''(x) = -CMg'(x) < 0 \iff CMg'(x) > 0" />
-            <p className="text-emerald-900 dark:text-emerald-100">
-              El beneficio se maximiza donde el CMg es <strong>creciente</strong>.
-              Si el CMg fuera decreciente, no sería un máximo sino un mínimo del beneficio.
-            </p>
+            <div className="space-y-2 text-emerald-900 dark:text-emerald-100">
+              <p>Derivamos otra vez. Partimos de <InlineMath math="\pi'(x) = p - CMg(x)" />:</p>
+              <div className="ml-2 space-y-1">
+                <p>Término 1: <InlineMath math="p" /> → la derivada de un número fijo es 0</p>
+                <p>Término 2: <InlineMath math="-CMg(x)" /> → la derivada es <InlineMath math="-CMg'(x)" /></p>
+              </div>
+              <FormulaDisplay math="\pi''(x) = 0 - CMg'(x) = -CMg'(x)" />
+              <p>Para que sea un <strong>máximo</strong>, necesitamos <InlineMath math="\pi''(x) < 0" />:</p>
+              <FormulaDisplay math="-CMg'(x) < 0 \implies CMg'(x) > 0" />
+              <p>
+                Esto significa que el CMg debe ser <strong>creciente</strong> en ese punto. Si el CMg estuviera bajando, sería un mínimo del beneficio (lo peor), no un máximo.
+              </p>
+            </div>
           </CardContent>
         </Card>
       </StepCard>
@@ -298,30 +373,73 @@ export default function Optimizacion() {
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
               El método del Lagrangiano en 4 pasos
             </p>
-            <div className="space-y-3 text-emerald-900 dark:text-emerald-100">
-              <div className="border-b pb-2 border-emerald-200 dark:border-emerald-700">
+            <div className="space-y-4 text-emerald-900 dark:text-emerald-100">
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
                 <p className="font-medium">Paso 1: Plantear el problema</p>
-                <FormulaDisplay math="\min_{L,K} \; wL + rK \quad \text{sujeto a} \quad f(L,K) = q" />
+                <p className="text-xs text-muted-foreground mb-1">Queremos gastar lo mínimo en trabajo (<InlineMath math="L" />) y capital (<InlineMath math="K" />), pero produciendo exactamente <InlineMath math="q" /> unidades:</p>
+                <FormulaDisplay math="\min_{L,K} \; \underbrace{wL + rK}_{\text{coste total}} \quad \text{sujeto a} \quad \underbrace{f(L,K) = q}_{\text{producir q unidades}}" />
+                <p className="text-xs text-muted-foreground"><InlineMath math="w" /> = salario por trabajador, <InlineMath math="r" /> = coste por unidad de capital</p>
               </div>
-              <div className="border-b pb-2 border-emerald-200 dark:border-emerald-700">
+
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
                 <p className="font-medium">Paso 2: Escribir el Lagrangiano</p>
+                <p className="text-xs text-muted-foreground mb-1">Metemos la restricción dentro de la función usando un &laquo;ayudante&raquo; <InlineMath math="\lambda" /> (lambda):</p>
                 <FormulaDisplay math="\mathcal{L} = wL + rK - \lambda\left(f(L,K) - q\right)" />
-                <p className="text-xs">
-                  <InlineMath math="\lambda" /> (lambda) es un &laquo;ayudante&raquo; que nos garantiza que la restricción se cumple.
+                <p className="text-xs text-muted-foreground">
+                  ¿Por qué funciona? Si la restricción se cumple, <InlineMath math="f(L,K) - q = 0" /> y el último término desaparece. Lambda &laquo;castiga&raquo; las soluciones que no cumplen la restricción.
                 </p>
               </div>
-              <div className="border-b pb-2 border-emerald-200 dark:border-emerald-700">
-                <p className="font-medium">Paso 3: Derivar e igualar a cero (CPO)</p>
-                <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial L} = w - \lambda \cdot PMg_L = 0" />
-                <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial K} = r - \lambda \cdot PMg_K = 0" />
-                <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial \lambda} = f(L,K) - q = 0" />
+
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+                <p className="font-medium">Paso 3: Derivamos respecto a cada variable e igualamos a cero</p>
+                <p className="text-xs text-muted-foreground mb-2">Tenemos 3 variables (<InlineMath math="L, K, \lambda" />), así que derivamos 3 veces:</p>
+
+                <div className="ml-2 space-y-3">
+                  <div>
+                    <p className="text-xs font-medium">Derivada respecto a L (tratamos K y <InlineMath math="\lambda" /> como constantes):</p>
+                    <p className="text-xs ml-2">
+                      De <InlineMath math="wL" /> obtenemos <InlineMath math="w" /> (la derivada de <InlineMath math="L" /> es 1).{" "}
+                      De <InlineMath math="rK" /> obtenemos 0 (K es constante).{" "}
+                      De <InlineMath math="-\lambda \cdot f(L,K)" /> obtenemos <InlineMath math="-\lambda \cdot \frac{\partial f}{\partial L}" />, que es <InlineMath math="-\lambda \cdot PMg_L" />.
+                    </p>
+                    <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial L} = w - \lambda \cdot PMg_L = 0" />
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-medium">Derivada respecto a K (tratamos L y <InlineMath math="\lambda" /> como constantes):</p>
+                    <p className="text-xs ml-2">
+                      De <InlineMath math="wL" /> obtenemos 0 (L es constante).{" "}
+                      De <InlineMath math="rK" /> obtenemos <InlineMath math="r" />.{" "}
+                      De <InlineMath math="-\lambda \cdot f(L,K)" /> obtenemos <InlineMath math="-\lambda \cdot PMg_K" />.
+                    </p>
+                    <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial K} = r - \lambda \cdot PMg_K = 0" />
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-medium">Derivada respecto a <InlineMath math="\lambda" /> (tratamos L y K como constantes):</p>
+                    <p className="text-xs ml-2">
+                      De <InlineMath math="wL + rK" /> obtenemos 0. De <InlineMath math="-\lambda(f(L,K) - q)" />, la derivada respecto a <InlineMath math="\lambda" /> es simplemente <InlineMath math="-(f(L,K) - q)" />.
+                    </p>
+                    <FormulaDisplay math="\frac{\partial \mathcal{L}}{\partial \lambda} = -(f(L,K) - q) = 0 \implies f(L,K) = q" />
+                    <p className="text-xs text-muted-foreground">(Esto simplemente nos dice que la restricción se cumple)</p>
+                  </div>
+                </div>
               </div>
+
               <div>
-                <p className="font-medium">Paso 4: De las dos primeras ecuaciones:</p>
-                <FormulaDisplay math="\frac{w}{PMg_L} = \frac{r}{PMg_K} = \lambda \implies \frac{PMg_L}{PMg_K} = \frac{w}{r}" />
-                <p>
-                  Esta es la <strong>condición de tangencia</strong>: la RMST debe igualar la relación de precios
-                  de los factores. Es la condición fundamental del Tema 2.
+                <p className="font-medium">Paso 4: Despejamos lambda de las dos primeras ecuaciones</p>
+                <div className="ml-2 space-y-2">
+                  <p className="text-xs">De la primera ecuación, despejamos <InlineMath math="\lambda" />:</p>
+                  <FormulaDisplay math="w - \lambda \cdot PMg_L = 0 \implies w = \lambda \cdot PMg_L \implies \lambda = \frac{w}{PMg_L}" />
+                  <p className="text-xs">De la segunda ecuación, también despejamos <InlineMath math="\lambda" />:</p>
+                  <FormulaDisplay math="r - \lambda \cdot PMg_K = 0 \implies r = \lambda \cdot PMg_K \implies \lambda = \frac{r}{PMg_K}" />
+                  <p className="text-xs">Como ambas expresiones son iguales a <InlineMath math="\lambda" />, las igualamos entre sí:</p>
+                  <FormulaDisplay math="\frac{w}{PMg_L} = \frac{r}{PMg_K}" />
+                  <p className="text-xs">Reorganizamos (multiplicamos en cruz):</p>
+                  <FormulaDisplay math="w \cdot PMg_K = r \cdot PMg_L \implies \frac{PMg_L}{PMg_K} = \frac{w}{r}" />
+                </div>
+                <p className="mt-2">
+                  Esta es la <strong>condición de tangencia</strong>: la RMST debe igualar la relación de precios de los factores. Es la condición fundamental del Tema 2.
                 </p>
               </div>
             </div>
@@ -380,16 +498,44 @@ export default function Optimizacion() {
         </Card>
 
         <Card className="bg-gray-50 dark:bg-gray-800 border mt-3">
-          <CardContent className="p-4 text-sm space-y-2">
-            <p className="font-semibold">Ejemplo rápido</p>
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold">Ejemplo paso a paso</p>
             <p className="text-muted-foreground">
-              Si <InlineMath math="CMg = 2x + 4" /> y <InlineMath math="x^* = 3" />, <InlineMath math="p = 10" />:
+              Si <InlineMath math="CMg(x) = 2x + 4" />, la empresa produce <InlineMath math="x^* = 3" /> unidades al precio <InlineMath math="p = 10" />.
             </p>
-            <FormulaDisplay math="\int_0^3 (2x+4)\,dx = \left[x^2 + 4x\right]_0^3 = (9+12) - (0+0) = 21" />
-            <FormulaDisplay math="EP = 10 \cdot 3 - 21 = 30 - 21 = 9" />
-            <p className="text-muted-foreground">
-              Gráficamente, es el área del triángulo entre la recta de precio (p=10) y la curva CMg.
-            </p>
+
+            <div className="space-y-3">
+              <div className="border-b pb-2">
+                <p className="font-medium text-sm">Paso 1: Encontrar la antiderivada (integral indefinida)</p>
+                <p className="text-xs text-muted-foreground mb-1">Aplicamos la regla de la potencia al revés a cada término:</p>
+                <div className="ml-2 space-y-1 text-xs">
+                  <p>Término 1: <InlineMath math="2x = 2x^1" /> → sumamos 1 al exponente: <InlineMath math="x^{1+1} = x^2" />, dividimos por el nuevo exponente: <InlineMath math="\frac{x^2}{2}" />, multiplicamos por el 2 de delante: <InlineMath math="2 \cdot \frac{x^2}{2} = x^2" /></p>
+                  <p>Término 2: <InlineMath math="4 = 4x^0" /> → sumamos 1: <InlineMath math="x^{0+1} = x^1 = x" />, dividimos por 1: <InlineMath math="\frac{x}{1} = x" />, multiplicamos por el 4: <InlineMath math="4x" /></p>
+                </div>
+                <p className="text-xs mt-1">La antiderivada es:</p>
+                <FormulaDisplay math="\int (2x + 4)\,dx = x^2 + 4x" />
+              </div>
+
+              <div className="border-b pb-2">
+                <p className="font-medium text-sm">Paso 2: Evaluar entre los límites (de 0 a 3)</p>
+                <p className="text-xs text-muted-foreground mb-1">Sustituimos el límite superior (3) y le restamos el límite inferior (0):</p>
+                <FormulaDisplay math="\left[x^2 + 4x\right]_0^3 = \bigl(\underbrace{3^2 + 4 \cdot 3}_{\text{x = 3}}\bigr) - \bigl(\underbrace{0^2 + 4 \cdot 0}_{\text{x = 0}}\bigr)" />
+                <div className="ml-2 space-y-1 text-xs">
+                  <p>Con <InlineMath math="x = 3" />: <InlineMath math="3^2 = 9" /> y <InlineMath math="4 \cdot 3 = 12" />, así que <InlineMath math="9 + 12 = 21" /></p>
+                  <p>Con <InlineMath math="x = 0" />: <InlineMath math="0^2 = 0" /> y <InlineMath math="4 \cdot 0 = 0" />, así que <InlineMath math="0 + 0 = 0" /></p>
+                </div>
+                <FormulaDisplay math="\int_0^3 (2x+4)\,dx = 21 - 0 = 21" />
+              </div>
+
+              <div>
+                <p className="font-medium text-sm">Paso 3: Calcular el Excedente del Productor</p>
+                <p className="text-xs text-muted-foreground mb-1">EP = Ingresos totales menos el área bajo el CMg:</p>
+                <FormulaDisplay math="EP = \underbrace{p \cdot x^*}_{\text{ingresos}} - \underbrace{\int_0^{x^*} CMg\,dx}_{\text{coste variable}} = 10 \cdot 3 - 21 = 30 - 21 = 9" />
+                <p className="text-xs text-muted-foreground">
+                  Gráficamente, el EP es el área entre la línea horizontal de precio (p = 10) y la curva de CMg, desde 0 hasta <InlineMath math="x^*" />.
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </StepCard>
