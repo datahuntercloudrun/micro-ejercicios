@@ -399,6 +399,7 @@ export default function DerivadasParciales() {
               <p className="font-semibold">
                 1) <InlineMath math="f(L,K) = L^{0.5}K^{0.5}" /> (Tema 2)
               </p>
+              <p className="text-muted-foreground">Calcula <InlineMath math="\frac{\partial f}{\partial L}" /> y <InlineMath math="\frac{\partial f}{\partial K}" />.</p>
               <details className="mt-2">
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
@@ -428,6 +429,7 @@ export default function DerivadasParciales() {
               <p className="font-semibold">
                 2) <InlineMath math="f(L,K) = LK" /> (Tema 2, Ej.2)
               </p>
+              <p className="text-muted-foreground">Calcula <InlineMath math="\frac{\partial f}{\partial L}" /> y <InlineMath math="\frac{\partial f}{\partial K}" />.</p>
               <details className="mt-2">
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
@@ -457,6 +459,7 @@ export default function DerivadasParciales() {
               <p className="font-semibold">
                 3) <InlineMath math="f(L,K) = 2L^{1/4}K^{1/2}" /> (Tema 3)
               </p>
+              <p className="text-muted-foreground">Calcula <InlineMath math="\frac{\partial f}{\partial L}" /> y <InlineMath math="\frac{\partial f}{\partial K}" />.</p>
               <details className="mt-2">
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
