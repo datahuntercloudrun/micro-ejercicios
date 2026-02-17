@@ -206,12 +206,86 @@ export default function DerivadasParciales() {
           </p>
         </div>
 
+        {/* De la curva a la pregunta economica */}
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-emerald-800 dark:text-emerald-200">
+              ¿Que podemos hacer con esta curva?
+            </p>
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Con K={kFijo}, la funcion de dos variables se convierte en una de <strong>una sola variable</strong>:
+            </p>
+            <FormulaDisplay math={`f(L) = ${10 * kFijo}L^2`} />
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Y como ya solo depende de L, podemos hacerle una <strong>derivada normal</strong> (como en
+              la pagina anterior). Pero, ¿que nos dice esa derivada?
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Introduccion suave a PMgL */}
+        <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-blue-800 dark:text-blue-200">
+              La pregunta del empresario
+            </p>
+            <p className="text-blue-900 dark:text-blue-100">
+              Imagina que tienes una fabrica con {kFijo} maquinas y ya has contratado varios trabajadores.
+              Tu pregunta como empresario es: <strong>&laquo;Si contrato UN trabajador mas, ¿cuanta
+              produccion adicional gano?&raquo;</strong>
+            </p>
+            <p className="text-blue-900 dark:text-blue-100">
+              La respuesta es exactamente la <strong>derivada de la produccion respecto al
+              trabajo</strong>: mide la tasa a la que crece la produccion cuando anado un poquito
+              mas de L.
+            </p>
+            <p className="text-blue-900 dark:text-blue-100">
+              En economia, esta idea tiene nombre propio: se llama <strong>Productividad Marginal
+              del Trabajo</strong>, o abreviado <InlineMath math="PMg_L" />. Es simplemente la
+              derivada parcial <InlineMath math="\frac{\partial f}{\partial L}" /> con un nombre
+              mas descriptivo.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Calculo paso a paso */}
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-emerald-800 dark:text-emerald-200">
+              Calculemosla con K = {kFijo}
+            </p>
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Partimos de <InlineMath math={`f(L) = ${10 * kFijo}L^2`} /> y derivamos respecto a L
+              con la regla de la potencia:
+            </p>
+            <FormulaDisplay math={`PMg_L = \\frac{df}{dL} = ${10 * kFijo} \\cdot 2L^{2-1} = ${20 * kFijo}L`} />
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Fijate que usamos <InlineMath math="\frac{df}{dL}" /> (d recta, no rizada) porque al fijar
+              K ya solo queda <strong>una variable</strong>. Es una derivada completamente normal.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Interpretacion economica */}
         <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 mt-3">
-          <CardContent className="p-3 text-sm">
+          <CardContent className="p-4 text-sm space-y-3">
+            <p className="font-semibold text-amber-800 dark:text-amber-200">
+              ¿Que significa el resultado?
+            </p>
             <p className="text-amber-900 dark:text-amber-100">
-              Fijate: con K={kFijo}, la funcion se convierte en <InlineMath math={`f(L) = ${10 * kFijo}L^2`} />.
-              La derivada parcial respecto a L con K={kFijo} es <InlineMath math={`PMg_L = ${20 * kFijo}L`} />.
-              Es una derivada normal porque ya solo queda una variable.
+              <InlineMath math={`PMg_L = ${20 * kFijo}L`} /> nos dice que la produccion
+              extra de un trabajador adicional <strong>depende de cuantos trabajadores ya
+              tengas</strong>. Con K={kFijo}:
+            </p>
+            <ul className="list-disc pl-5 text-amber-900 dark:text-amber-100 space-y-1">
+              <li>Si tienes 1 trabajador: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 1 = ${20 * kFijo}`} /> unidades extra.</li>
+              <li>Si tienes 2: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 2 = ${40 * kFijo}`} /> unidades extra.</li>
+              <li>Si tienes 3: <InlineMath math={`PMg_L = ${20 * kFijo} \\cdot 3 = ${60 * kFijo}`} /> unidades extra.</li>
+            </ul>
+            <p className="text-amber-900 dark:text-amber-100">
+              En este caso, cada trabajador nuevo aporta <strong>mas que el anterior</strong>
+              (productividad marginal creciente). Mueve el slider de arriba y veras que con mas
+              maquinas, cada trabajador es aun mas productivo.
             </p>
           </CardContent>
         </Card>
