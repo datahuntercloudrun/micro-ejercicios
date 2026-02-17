@@ -221,12 +221,25 @@ export default function Optimizacion() {
               ¿Cuánto producir para ganar lo máximo?
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              El <strong>beneficio</strong> de una empresa es lo que ingresa menos lo que gasta:
+              El <strong>beneficio</strong> de una empresa es lo que ingresa menos lo que gasta.
+              En economía, al beneficio se le llama con la letra griega <InlineMath math="\pi" /> (pi).
             </p>
-            <FormulaDisplay math="\pi(x) = \underbrace{p \cdot x}_{\text{ingresos}} - \underbrace{C(x)}_{\text{costes}}" />
-            <p className="text-blue-900 dark:text-blue-100">
-              Donde <InlineMath math="p" /> es el precio de venta, <InlineMath math="x" /> es la cantidad que produce y <InlineMath math="C(x)" /> es el coste total de producir <InlineMath math="x" /> unidades.
-            </p>
+            <Card className="bg-blue-100/50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700 p-3">
+              <p className="text-xs text-blue-800 dark:text-blue-200">
+                <strong>¿Por qué la letra π?</strong> En inglés, beneficio se dice <em>profit</em>.
+                Los economistas usan la letra griega π (pi) como abreviatura, igual que usan <InlineMath math="p" /> para precio
+                o <InlineMath math="q" /> para cantidad. Es solo un nombre, como llamar &laquo;x&raquo; a una incógnita en matemáticas.
+                Cada vez que veas <InlineMath math="\pi" /> en este curso, léelo como &laquo;beneficio&raquo;.
+              </p>
+            </Card>
+            <p className="text-blue-900 dark:text-blue-100">La fórmula del beneficio es:</p>
+            <FormulaDisplay math="\underbrace{\pi(x)}_{\text{beneficio}} = \underbrace{p \cdot x}_{\text{ingresos}} - \underbrace{C(x)}_{\text{costes}}" />
+            <div className="text-blue-900 dark:text-blue-100 space-y-1 ml-2 text-xs">
+              <p><InlineMath math="p" /> = precio de venta de cada unidad (un número fijo, ej: 10€)</p>
+              <p><InlineMath math="x" /> = cantidad de unidades que produces</p>
+              <p><InlineMath math="p \cdot x" /> = ingresos totales (ej: si vendes 5 unidades a 10€, ingresas 50€)</p>
+              <p><InlineMath math="C(x)" /> = coste total de producir <InlineMath math="x" /> unidades</p>
+            </div>
           </CardContent>
         </Card>
 
@@ -235,20 +248,36 @@ export default function Optimizacion() {
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
               Derivamos el beneficio para encontrar el máximo
             </p>
-            <div className="space-y-2 text-emerald-900 dark:text-emerald-100">
-              <p>Partimos de <InlineMath math="\pi(x) = p \cdot x - C(x)" /> y derivamos término a término:</p>
-              <div className="ml-2 space-y-1">
-                <p>Término 1: <InlineMath math="p \cdot x" /> → <InlineMath math="p" /> es un número fijo (la empresa no controla el precio), así que la derivada es simplemente <InlineMath math="p" /></p>
-                <p>Término 2: <InlineMath math="-C(x)" /> → la derivada de <InlineMath math="C(x)" /> es <InlineMath math="C'(x)" />, que llamamos <strong>Coste Marginal</strong> (<InlineMath math="CMg" />)</p>
+            <div className="space-y-3 text-emerald-900 dark:text-emerald-100">
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+                <p className="font-medium">Paso 1: Derivar el beneficio</p>
+                <p>Partimos de <InlineMath math="\pi(x) = p \cdot x - C(x)" /> y derivamos término a término:</p>
+                <div className="ml-2 space-y-1 mt-1">
+                  <p>Término 1: <InlineMath math="p \cdot x" /> → <InlineMath math="p" /> es un número fijo (la empresa no controla el precio), así que la derivada es simplemente <InlineMath math="p" /></p>
+                  <p>Término 2: <InlineMath math="-C(x)" /> → la derivada de <InlineMath math="C(x)" /> es <InlineMath math="C'(x)" />, que llamamos <strong>Coste Marginal</strong> (<InlineMath math="CMg" />). Como tiene un signo menos delante, queda <InlineMath math="-CMg(x)" /></p>
+                </div>
+                <p className="mt-1">Juntamos los dos términos:</p>
+                <FormulaDisplay math="\pi'(x) = p - CMg(x)" />
               </div>
-              <p>Juntamos:</p>
-              <FormulaDisplay math="\pi'(x) = p - CMg(x)" />
-              <p>Ahora aplicamos la CPO (igualar a cero):</p>
-              <FormulaDisplay math="p - CMg(x) = 0" />
-              <p>Sumamos <InlineMath math="CMg(x)" /> a ambos lados:</p>
-              <FormulaDisplay math="p = CMg(x)" />
+
+              <div className="border-b pb-3 border-emerald-200 dark:border-emerald-700">
+                <p className="font-medium">Paso 2: Igualar la derivada a cero (CPO)</p>
+                <p className="text-xs text-muted-foreground mb-1">Si la derivada es cero, estamos en un máximo o mínimo:</p>
+                <FormulaDisplay math="p - CMg(x) = 0" />
+                <p className="text-xs text-muted-foreground">Esto dice: &laquo;el precio menos el coste marginal es igual a cero&raquo;.</p>
+              </div>
+
+              <div>
+                <p className="font-medium">Paso 3: Despejar — pasar CMg al otro lado</p>
+                <p className="text-xs text-muted-foreground mb-1">Queremos dejar <InlineMath math="p" /> solo en un lado. Ahora mismo tenemos:</p>
+                <FormulaDisplay math="p - CMg(x) = 0" />
+                <p>Para quitar el <InlineMath math="-CMg(x)" /> del lado izquierdo, <strong>sumamos</strong> <InlineMath math="CMg(x)" /> a <strong>ambos lados</strong> de la ecuación:</p>
+                <FormulaDisplay math="p - CMg(x) \; {\color{blue}+ \; CMg(x)} = 0 \; {\color{blue}+ \; CMg(x)}" />
+                <p>En el lado izquierdo, <InlineMath math="-CMg(x) + CMg(x)" /> se cancela (suman cero), y queda solo <InlineMath math="p" />:</p>
+                <FormulaDisplay math="p = CMg(x)" />
+              </div>
             </div>
-            <p className="text-emerald-900 dark:text-emerald-100">
+            <p className="text-emerald-900 dark:text-emerald-100 font-medium mt-1">
               Esta es la <strong>condición fundamental</strong>: produce hasta que el precio iguale al coste marginal.
             </p>
           </CardContent>
