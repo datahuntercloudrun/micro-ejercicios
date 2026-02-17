@@ -72,35 +72,35 @@ export default function Ejercicio1() {
       {/* ============ PASO 1: ¿Qué vamos a aprender? ============ */}
       <StepCard
         stepNumber={1}
-        title="¿Que vamos a aprender?"
+        title="¿Qué vamos a aprender?"
         variant="explanation"
       >
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-3 sm:p-4 text-sm space-y-2">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Las dos curvas mas importantes de la microeconomia
+              Las dos curvas más importantes de la microeconomía
             </p>
             <p>
-              El <strong>Coste Medio (CMe)</strong> responde a: &laquo;¿Cuanto me
+              El <strong>Coste Medio (CMe)</strong> responde a: &laquo;¿Cuánto me
               cuesta cada unidad en promedio?&raquo;
             </p>
             <p>
-              El <strong>Coste Marginal (CMg)</strong> responde a: &laquo;¿Cuanto
-              me cuesta producir UNA unidad mas?&raquo;
+              El <strong>Coste Marginal (CMg)</strong> responde a: &laquo;¿Cuánto
+              me cuesta producir UNA unidad más?&raquo;
             </p>
             <p>
-              La relacion entre ambas nos dice si la empresa se esta volviendo
-              mas eficiente o menos eficiente al producir mas.
+              La relación entre ambas nos dice si la empresa se está volviendo
+              más eficiente o menos eficiente al producir más.
             </p>
           </CardContent>
         </Card>
 
         <Card className="bg-gray-50 dark:bg-gray-800 border mt-3">
           <CardContent className="p-3 sm:p-4 text-sm space-y-2">
-            <p className="font-semibold">Analogia: Tu nota media</p>
+            <p className="font-semibold">Analogía: Tu nota media</p>
             <p className="text-muted-foreground">
               Imagina que tu nota media es un <strong>7</strong>. Si sacas un{" "}
-              <strong>9</strong> en el proximo examen (nota marginal = 9), tu
+              <strong>9</strong> en el próximo examen (nota marginal = 9), tu
               media <strong>sube</strong>. Si sacas un <strong>5</strong> (nota
               marginal = 5), tu media <strong>baja</strong>.
             </p>
@@ -108,7 +108,7 @@ export default function Ejercicio1() {
               Es exactamente igual con los costes:{" "}
               <strong>si CMg &lt; CMe, el CMe baja</strong>. Si{" "}
               <strong>CMg &gt; CMe, el CMe sube</strong>. Y cuando{" "}
-              <strong>CMg = CMe, el CMe esta en su minimo</strong>.
+              <strong>CMg = CMe, el CMe está en su mínimo</strong>.
             </p>
           </CardContent>
         </Card>
@@ -117,11 +117,11 @@ export default function Ejercicio1() {
       {/* ============ PASO 2: Fórmulas generales ============ */}
       <StepCard
         stepNumber={2}
-        title="Formulas generales"
+        title="Fórmulas generales"
         variant="explanation"
       >
         <p>
-          A partir de cualquier funcion de costes totales{" "}
+          A partir de cualquier función de costes totales{" "}
           <InlineMath math="C(x)" />, obtenemos:
         </p>
         <FormulaDisplay math="CMe(x) = \frac{C(x)}{x} \qquad CMg(x) = \frac{dC}{dx}" />
@@ -129,10 +129,10 @@ export default function Ejercicio1() {
         <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 mt-2">
           <CardContent className="p-3 text-sm">
             <p className="font-semibold text-amber-800 dark:text-amber-200">
-              Regla clave: CMg corta a CMe en su minimo
+              Regla clave: CMg corta a CMe en su mínimo
             </p>
             <p className="text-muted-foreground">
-              Esto ocurre siempre. Es una propiedad matematica: la derivada de
+              Esto ocurre siempre. Es una propiedad matemática: la derivada de
               CMe se anula exactamente cuando CMg = CMe.
             </p>
           </CardContent>
@@ -141,20 +141,20 @@ export default function Ejercicio1() {
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 mt-2">
           <CardContent className="p-3 text-sm space-y-1">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Relacion con rendimientos a escala
+              Relación con rendimientos a escala
             </p>
             <ul className="list-disc pl-4 text-muted-foreground space-y-1">
               <li>
                 <strong>CMg &lt; CMe (CMe decreciente):</strong> Rendimientos
-                crecientes. Cada unidad extra es mas barata que la media.
+                crecientes. Cada unidad extra es más barata que la media.
               </li>
               <li>
-                <strong>CMg = CMe (CMe constante o minimo):</strong>{" "}
+                <strong>CMg = CMe (CMe constante o mínimo):</strong>{" "}
                 Rendimientos constantes.
               </li>
               <li>
                 <strong>CMg &gt; CMe (CMe creciente):</strong> Rendimientos
-                decrecientes. Cada unidad extra es mas cara que la media.
+                decrecientes. Cada unidad extra es más cara que la media.
               </li>
             </ul>
           </CardContent>
@@ -164,7 +164,7 @@ export default function Ejercicio1() {
       {/* ============ PASO 3: Análisis de cada función ============ */}
       <StepCard
         stepNumber={3}
-        title="Analisis de cada funcion de costes"
+        title="Análisis de cada función de costes"
         variant="calculation"
       >
         <Tabs defaultValue="a" className="w-full">
@@ -205,13 +205,13 @@ export default function Ejercicio1() {
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-3 text-sm space-y-1">
                 <p className="font-semibold text-blue-800 dark:text-blue-200">
-                  ¿Que significa?
+                  ¿Qué significa?
                 </p>
                 <p className="text-muted-foreground">
                   Ambas curvas son <strong>rectas horizontales</strong> que se
                   superponen. Cada unidad cuesta exactamente lo mismo:{" "}
-                  <strong>2 euros</strong>. Es como una fabrica con capacidad
-                  ilimitada: da igual si produces 1 o 1 millon, el coste por
+                  <strong>2 euros</strong>. Es como una fábrica con capacidad
+                  ilimitada: da igual si produces 1 o 1 millón, el coste por
                   unidad no cambia.
                 </p>
               </CardContent>
@@ -273,16 +273,16 @@ export default function Ejercicio1() {
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-3 text-sm space-y-1">
                 <p className="font-semibold text-blue-800 dark:text-blue-200">
-                  ¿Que significa?
+                  ¿Qué significa?
                 </p>
                 <p className="text-muted-foreground">
                   Ambas curvas son <strong>rectas crecientes</strong> desde el
-                  origen, pero el CMg crece el doble de rapido. Como{" "}
+                  origen, pero el CMg crece el doble de rápido. Como{" "}
                   <InlineMath math="CMg > CMe" /> para todo{" "}
                   <InlineMath math="x > 0" />, el CMe{" "}
-                  <strong>siempre esta subiendo</strong>. Cada unidad adicional
-                  es mas cara que la anterior. Es la situacion de una empresa
-                  que se esta &laquo;ahogando&raquo;: cuanto mas produce, peor.
+                  <strong>siempre está subiendo</strong>. Cada unidad adicional
+                  es más cara que la anterior. Es la situación de una empresa
+                  que se está &laquo;ahogando&raquo;: cuanto más produce, peor.
                 </p>
               </CardContent>
             </Card>
@@ -342,14 +342,14 @@ export default function Ejercicio1() {
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-3 text-sm space-y-1">
                 <p className="font-semibold text-blue-800 dark:text-blue-200">
-                  ¿Que significa?
+                  ¿Qué significa?
                 </p>
                 <p className="text-muted-foreground">
                   Ambas curvas son <strong>decrecientes</strong>, y{" "}
                   <InlineMath math="CMg < CMe" /> para todo{" "}
                   <InlineMath math="x > 0" />. Cada unidad adicional es{" "}
-                  <strong>mas barata</strong> que la media anterior. Es como los
-                  descuentos por volumen: cuanto mas compras, mas barato te sale
+                  <strong>más barata</strong> que la media anterior. Es como los
+                  descuentos por volumen: cuanto más compras, más barato te sale
                   cada unidad. La empresa se beneficia de producir a gran
                   escala.
                 </p>
@@ -374,8 +374,8 @@ export default function Ejercicio1() {
                   <FormulaDisplay math="CMe(x) = \frac{x^3 - 2x^2 + 2x}{x} = x^2 - 2x + 2" />
                   <p>
                     Completando cuadrado:{" "}
-                    <InlineMath math="CMe = (x-1)^2 + 1" /> (una parabola con
-                    vertice en <InlineMath math="(1, 1)" />)
+                    <InlineMath math="CMe = (x-1)^2 + 1" /> (una parábola con
+                    vértice en <InlineMath math="(1, 1)" />)
                   </p>
                   <p className="mt-2">Coste Marginal:</p>
                   <FormulaDisplay math="CMg(x) = \frac{d(x^3 - 2x^2 + 2x)}{dx} = 3x^2 - 4x + 2" />
@@ -398,9 +398,9 @@ export default function Ejercicio1() {
             <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800">
               <CardContent className="p-3 sm:p-4 text-sm space-y-2">
                 <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-                  Verificacion: ¿CMg corta a CMe en su minimo?
+                  Verificación: ¿CMg corta a CMe en su mínimo?
                 </p>
-                <p>Minimo de CMe:</p>
+                <p>Mínimo de CMe:</p>
                 <FormulaDisplay math="CMe'(x) = 2x - 2 = 0 \implies x^* = 1" />
                 <FormulaDisplay math="CMe(1) = (1)^2 - 2(1) + 2 = 1" />
                 <p>CMg en ese punto:</p>
@@ -409,7 +409,7 @@ export default function Ejercicio1() {
                   <CardContent className="p-2 text-sm">
                     <p className="text-amber-800 dark:text-amber-200">
                       <InlineMath math="CMe(1) = CMg(1) = 1" /> . Confirmado: CMg
-                      corta a CMe exactamente en su minimo.
+                      corta a CMe exactamente en su mínimo.
                     </p>
                   </CardContent>
                 </Card>
@@ -433,24 +433,24 @@ export default function Ejercicio1() {
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-3 text-sm space-y-1">
                 <p className="font-semibold text-blue-800 dark:text-blue-200">
-                  ¿Que significa?
+                  ¿Qué significa?
                 </p>
                 <p className="text-muted-foreground">
-                  Este es el caso <strong>tipico</strong> de una empresa real.
+                  Este es el caso <strong>típico</strong> de una empresa real.
                   Las curvas tienen <strong>forma de U</strong>:
                 </p>
                 <ul className="list-disc pl-4 text-muted-foreground space-y-1">
                   <li>
-                    Para <InlineMath math="x < 1" />: el CMg esta por debajo del
-                    CMe, asi que el CMe <strong>baja</strong>. Rendimientos
+                    Para <InlineMath math="x < 1" />: el CMg está por debajo del
+                    CMe, así que el CMe <strong>baja</strong>. Rendimientos
                     crecientes (la empresa gana eficiencia).
                   </li>
                   <li>
                     En <InlineMath math="x = 1" />: CMg = CMe = 1. El CMe alcanza
-                    su <strong>minimo</strong>. Punto de maxima eficiencia.
+                    su <strong>mínimo</strong>. Punto de máxima eficiencia.
                   </li>
                   <li>
-                    Para <InlineMath math="x > 1" />: el CMg supera al CMe, asi
+                    Para <InlineMath math="x > 1" />: el CMg supera al CMe, así
                     que el CMe <strong>sube</strong>. Rendimientos decrecientes
                     (la empresa pierde eficiencia).
                   </li>
@@ -529,11 +529,11 @@ export default function Ejercicio1() {
               Recuerda para el examen
             </p>
             <p className="text-muted-foreground">
-              La clave esta en la relacion CMg vs CMe: si CMg &lt; CMe, hay
+              La clave está en la relación CMg vs CMe: si CMg &lt; CMe, hay
               rendimientos crecientes (eficiencia mejora). Si CMg &gt; CMe,
               rendimientos decrecientes (eficiencia empeora). El caso (d) es el
-              mas comun en la realidad: las empresas tienen un &laquo;tamano
-              optimo&raquo; donde los costes son minimos.
+              más común en la realidad: las empresas tienen un &laquo;tamaño
+              óptimo&raquo; donde los costes son mínimos.
             </p>
           </CardContent>
         </Card>

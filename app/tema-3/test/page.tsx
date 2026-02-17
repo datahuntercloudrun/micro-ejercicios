@@ -388,7 +388,7 @@ export default function TestTema3() {
       <Card className="bg-violet-50 dark:bg-violet-950/20 border-violet-200 dark:border-violet-800">
         <CardContent className="p-4 text-sm space-y-2">
           <p className="font-semibold text-violet-800 dark:text-violet-200">
-            Como te fue?
+            ¿Cómo te fue?
           </p>
           <p className="text-violet-900 dark:text-violet-100">
             Si acertaste 6-8 preguntas, dominas la oferta competitiva. Has

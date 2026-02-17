@@ -19,7 +19,7 @@ export default function Ejercicio4() {
       statement={
         <div className="space-y-2">
           <p>
-            Para una funci&oacute;n Cobb-Douglas, determine como ser&aacute;n los
+            Para una funci&oacute;n Cobb-Douglas, determine c&oacute;mo ser&aacute;n los
             rendimientos a escala (crecientes, decrecientes, constantes) si la
             productividad marginal del trabajo <InlineMath math="L" /> es:
           </p>

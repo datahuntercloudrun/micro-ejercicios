@@ -25,45 +25,45 @@ export default function Optimizacion() {
       {/* Header */}
       <div className="flex items-center gap-3">
         <Badge className="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 text-base px-3 py-1">
-          Kit Matematico
+          Kit Matemático
         </Badge>
-        <h1 className="text-xl sm:text-2xl font-bold">Optimizacion: maximos y minimos</h1>
+        <h1 className="text-xl sm:text-2xl font-bold">Optimización: máximos y mínimos</h1>
       </div>
       <p className="text-muted-foreground">
         Optimizar es encontrar el mejor resultado posible. Las empresas optimizan constantemente:
-        minimizan costes, maximizan beneficios. Aqui aprenderas las herramientas matematicas para hacerlo.
+        minimizan costes, maximizan beneficios. Aquí aprenderás las herramientas matemáticas para hacerlo.
       </p>
 
       {/* ========== PASO 1: Que es optimizar ========== */}
-      <StepCard stepNumber={1} title="Que es optimizar" variant="explanation">
+      <StepCard stepNumber={1} title="Qué es optimizar" variant="explanation">
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Analogia: el punto mas alto de una montana
+              Analogía: el punto más alto de una montaña
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Imagina que caminas por una montana y quieres llegar a la <strong>cima</strong> (maximo).
-              ¿Como sabes que estas en la cima? Porque si das un paso en <strong>cualquier direccion</strong>,
+              Imagina que caminas por una montaña y quieres llegar a la <strong>cima</strong> (máximo).
+              ¿Cómo sabes que estás en la cima? Porque si das un paso en <strong>cualquier dirección</strong>,
               bajas. La cima es el punto donde <strong>dejas de subir</strong>.
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Si buscas el <strong>valle</strong> (minimo), es lo contrario: el punto donde dejas de bajar.
-              En ambos casos, en el punto optimo, la <strong>pendiente es cero</strong>.
+              Si buscas el <strong>valle</strong> (mínimo), es lo contrario: el punto donde dejas de bajar.
+              En ambos casos, en el punto óptimo, la <strong>pendiente es cero</strong>.
             </p>
           </CardContent>
         </Card>
 
         <Card className="bg-gray-50 dark:bg-gray-800 border mt-3">
           <CardContent className="p-4 text-sm space-y-2">
-            <p className="font-semibold">En microeconomia buscamos:</p>
+            <p className="font-semibold">En microeconomía buscamos:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-muted-foreground">
               <div className="border rounded-lg p-3">
                 <p className="font-medium text-foreground">Maximizar beneficio</p>
-                <p>¿Cuantas unidades vender para ganar lo maximo?</p>
+                <p>¿Cuántas unidades vender para ganar lo máximo?</p>
               </div>
               <div className="border rounded-lg p-3">
                 <p className="font-medium text-foreground">Minimizar costes</p>
-                <p>¿Que combinacion de factores es la mas barata?</p>
+                <p>¿Qué combinación de factores es la más barata?</p>
               </div>
             </div>
           </CardContent>
@@ -71,19 +71,19 @@ export default function Optimizacion() {
       </StepCard>
 
       {/* ========== PASO 2: CPO ========== */}
-      <StepCard stepNumber={2} title="Condicion de Primer Orden (CPO): derivada = 0" variant="calculation">
+      <StepCard stepNumber={2} title="Condición de Primer Orden (CPO): derivada = 0" variant="calculation">
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              La regla de oro de la optimizacion
+              La regla de oro de la optimización
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Si la derivada es la <strong>pendiente</strong>, y en el maximo/minimo la pendiente
+              Si la derivada es la <strong>pendiente</strong>, y en el máximo/mínimo la pendiente
               es <strong>cero</strong>, entonces:
             </p>
             <FormulaDisplay math="\text{Para encontrar maximo o minimo: } f'(x) = 0" />
             <p className="text-blue-900 dark:text-blue-100">
-              Esto se llama <strong>Condicion de Primer Orden (CPO)</strong>. Igualamos la derivada
+              Esto se llama <strong>Condición de Primer Orden (CPO)</strong>. Igualamos la derivada
               a cero y despejamos x.
             </p>
           </CardContent>
@@ -92,10 +92,10 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              Ejemplo: encontrar el minimo de CMe
+              Ejemplo: encontrar el mínimo de CMe
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              Con <InlineMath math="CMe(x) = x^2 - 2x + 2" />, buscamos el minimo:
+              Con <InlineMath math="CMe(x) = x^2 - 2x + 2" />, buscamos el mínimo:
             </p>
             <div className="space-y-1">
               <p className="text-emerald-900 dark:text-emerald-100">Paso 1: Derivamos CMe:</p>
@@ -106,22 +106,22 @@ export default function Optimizacion() {
               <FormulaDisplay math="CMe(1) = 1^2 - 2(1) + 2 = 1" />
             </div>
             <p className="text-emerald-900 dark:text-emerald-100">
-              El coste medio minimo es <strong>1</strong>, y se alcanza produciendo <strong>1 unidad</strong>.
+              El coste medio mínimo es <strong>1</strong>, y se alcanza produciendo <strong>1 unidad</strong>.
             </p>
           </CardContent>
         </Card>
       </StepCard>
 
       {/* ========== PASO 3: CSO ========== */}
-      <StepCard stepNumber={3} title="Condicion de Segundo Orden (CSO): ¿maximo o minimo?" variant="calculation">
+      <StepCard stepNumber={3} title="Condición de Segundo Orden (CSO): ¿máximo o mínimo?" variant="calculation">
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              El problema: derivada = 0 no te dice si es maximo o minimo
+              El problema: derivada = 0 no te dice si es máximo o mínimo
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              La cima de una montana y el fondo de un valle tienen ambos pendiente cero.
-              ¿Como distinguirlos? Miramos la <strong>segunda derivada</strong> (la derivada de la derivada):
+              La cima de una montaña y el fondo de un valle tienen ambos pendiente cero.
+              ¿Cómo distinguirlos? Miramos la <strong>segunda derivada</strong> (la derivada de la derivada):
             </p>
             <FormulaDisplay math="f''(x) = \frac{d^2f}{dx^2} = \text{derivada de } f'(x)" />
           </CardContent>
@@ -138,19 +138,19 @@ export default function Optimizacion() {
                   <tr className="border-b">
                     <th className="text-left py-2 pr-4">Segunda derivada</th>
                     <th className="text-left py-2 pr-4">Tipo de punto</th>
-                    <th className="text-left py-2">Analogia</th>
+                    <th className="text-left py-2">Analogía</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b">
                     <td className="py-2 pr-4"><InlineMath math="f''(x^*) > 0" /></td>
-                    <td className="py-2 pr-4 font-medium">Minimo</td>
+                    <td className="py-2 pr-4 font-medium">Mínimo</td>
                     <td className="py-2">Fondo de un valle (curva hacia arriba)</td>
                   </tr>
                   <tr>
                     <td className="py-2 pr-4"><InlineMath math="f''(x^*) < 0" /></td>
-                    <td className="py-2 pr-4 font-medium">Maximo</td>
-                    <td className="py-2">Cima de una montana (curva hacia abajo)</td>
+                    <td className="py-2 pr-4 font-medium">Máximo</td>
+                    <td className="py-2">Cima de una montaña (curva hacia abajo)</td>
                   </tr>
                 </tbody>
               </table>
@@ -161,25 +161,25 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-2">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              Verificacion del ejemplo anterior
+              Verificación del ejemplo anterior
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
               <InlineMath math="CMe'(x) = 2x - 2" />, segunda derivada:
             </p>
             <FormulaDisplay math="CMe''(x) = 2 > 0 \implies \text{es un MINIMO}" />
             <p className="text-emerald-900 dark:text-emerald-100">
-              Confirmado: <InlineMath math="x^* = 1" /> es un minimo del CMe, no un maximo.
+              Confirmado: <InlineMath math="x^* = 1" /> es un mínimo del CMe, no un máximo.
             </p>
           </CardContent>
         </Card>
       </StepCard>
 
       {/* ========== PASO 4: Maximizar beneficio ========== */}
-      <StepCard stepNumber={4} title="Aplicacion: maximizar el beneficio (Tema 3)" variant="calculation">
+      <StepCard stepNumber={4} title="Aplicación: maximizar el beneficio (Tema 3)" variant="calculation">
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              ¿Cuanto producir para ganar lo maximo?
+              ¿Cuánto producir para ganar lo máximo?
             </p>
             <p className="text-blue-900 dark:text-blue-100">
               El beneficio es: <InlineMath math="\pi(x) = p \cdot x - C(x)" /> (ingresos menos costes).
@@ -187,7 +187,7 @@ export default function Optimizacion() {
             </p>
             <FormulaDisplay math="\pi'(x) = p - CMg(x) = 0 \implies p = CMg(x)" />
             <p className="text-blue-900 dark:text-blue-100">
-              Esta es la condicion fundamental de la oferta competitiva: <strong>produce
+              Esta es la condición fundamental de la oferta competitiva: <strong>produce
               hasta que el precio iguale al coste marginal</strong>.
             </p>
           </CardContent>
@@ -196,12 +196,12 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-2">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              ¿Por que funciona?
+              ¿Por qué funciona?
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              Si el precio es mayor que el CMg, te conviene producir una unidad mas
-              (ganas mas de lo que cuesta). Si el CMg supera al precio, esa unidad
-              te cuesta mas de lo que ganas. El optimo esta donde se igualan.
+              Si el precio es mayor que el CMg, te conviene producir una unidad más
+              (ganas más de lo que cuesta). Si el CMg supera al precio, esa unidad
+              te cuesta más de lo que ganas. El óptimo está donde se igualan.
             </p>
           </CardContent>
         </Card>
@@ -209,21 +209,21 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-2">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              CSO: ¿seguro que es un maximo?
+              CSO: ¿seguro que es un máximo?
             </p>
             <FormulaDisplay math="\pi''(x) = -CMg'(x) < 0 \iff CMg'(x) > 0" />
             <p className="text-emerald-900 dark:text-emerald-100">
               El beneficio se maximiza donde el CMg es <strong>creciente</strong>.
-              Si el CMg fuera decreciente, no seria un maximo sino un minimo del beneficio.
+              Si el CMg fuera decreciente, no sería un máximo sino un mínimo del beneficio.
             </p>
           </CardContent>
         </Card>
       </StepCard>
 
       {/* ========== PASO 5: Grafico interactivo beneficio ========== */}
-      <StepCard stepNumber={5} title="Visualizacion: el beneficio segun el precio" variant="explanation">
+      <StepCard stepNumber={5} title="Visualización: el beneficio según el precio" variant="explanation">
         <p className="text-sm text-muted-foreground mb-2">
-          Con <InlineMath math="C(x) = x^3 - 2x^2 + 2x" />, mueve el precio para ver como
+          Con <InlineMath math="C(x) = x^3 - 2x^2 + 2x" />, mueve el precio para ver cómo
           cambia el beneficio.
         </p>
 
@@ -241,7 +241,7 @@ export default function Optimizacion() {
           { label: "CMe (Coste Medio)", color: COLORS.blue },
           { label: "CMg (Coste Marginal)", color: COLORS.emerald },
           { label: `Precio p = ${pSlider}`, color: COLORS.rose, dashed: true },
-          { label: "Min CMe (1, 1) — punto de nivelación", color: COLORS.amber },
+          { label: "Mín CMe (1, 1) — punto de nivelación", color: COLORS.amber },
         ]} />
 
         <div className="px-1 mt-2">
@@ -263,11 +263,11 @@ export default function Optimizacion() {
           <CardContent className="p-3 text-sm">
             <p className="text-amber-900 dark:text-amber-100">
               {pSlider < 1 ? (
-                <>Con p = {pSlider}, el precio esta por debajo del minimo CMe (1). La empresa no produce.</>
+                <>Con p = {pSlider}, el precio está por debajo del mínimo CMe (1). La empresa no produce.</>
               ) : pSlider === 1 ? (
-                <>Con p = 1 = minimo CMe, la empresa tiene beneficio cero (punto de nivelacion).</>
+                <>Con p = 1 = mínimo CMe, la empresa tiene beneficio cero (punto de nivelación).</>
               ) : (
-                <>Con p = {pSlider} {`>`} 1 = minimo CMe, la empresa produce donde p = CMg y tiene beneficio positivo.</>
+                <>Con p = {pSlider} {`>`} 1 = mínimo CMe, la empresa produce donde p = CMg y tiene beneficio positivo.</>
               )}
             </p>
           </CardContent>
@@ -275,19 +275,19 @@ export default function Optimizacion() {
       </StepCard>
 
       {/* ========== PASO 6: Minimizar costes con restriccion ========== */}
-      <StepCard stepNumber={6} title="Optimizacion con restriccion: el Lagrangiano (Tema 2)" variant="calculation">
+      <StepCard stepNumber={6} title="Optimización con restricción: el Lagrangiano (Tema 2)" variant="calculation">
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Analogia: la dieta mas barata
+              Analogía: la dieta más barata
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Imagina que quieres la dieta mas barata que te de 2000 calorias. No puedes gastar
-              lo minimo posible sin restriccion (eso seria no comer). Necesitas <strong>gastar lo
-              minimo que cumpla la restriccion</strong> de las 2000 calorias.
+              Imagina que quieres la dieta más barata que te dé 2000 calorías. No puedes gastar
+              lo mínimo posible sin restricción (eso sería no comer). Necesitas <strong>gastar lo
+              mínimo que cumpla la restricción</strong> de las 2000 calorías.
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              En microeconomia: la empresa quiere <strong>minimizar el coste</strong> pero necesita
+              En microeconomía: la empresa quiere <strong>minimizar el coste</strong> pero necesita
               <strong> producir una cantidad q</strong>. El Lagrangiano es la herramienta para esto.
             </p>
           </CardContent>
@@ -296,7 +296,7 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-3">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              El metodo del Lagrangiano en 4 pasos
+              El método del Lagrangiano en 4 pasos
             </p>
             <div className="space-y-3 text-emerald-900 dark:text-emerald-100">
               <div className="border-b pb-2 border-emerald-200 dark:border-emerald-700">
@@ -307,7 +307,7 @@ export default function Optimizacion() {
                 <p className="font-medium">Paso 2: Escribir el Lagrangiano</p>
                 <FormulaDisplay math="\mathcal{L} = wL + rK - \lambda\left(f(L,K) - q\right)" />
                 <p className="text-xs">
-                  <InlineMath math="\lambda" /> (lambda) es un &laquo;ayudante&raquo; que nos garantiza que la restriccion se cumple.
+                  <InlineMath math="\lambda" /> (lambda) es un &laquo;ayudante&raquo; que nos garantiza que la restricción se cumple.
                 </p>
               </div>
               <div className="border-b pb-2 border-emerald-200 dark:border-emerald-700">
@@ -320,8 +320,8 @@ export default function Optimizacion() {
                 <p className="font-medium">Paso 4: De las dos primeras ecuaciones:</p>
                 <FormulaDisplay math="\frac{w}{PMg_L} = \frac{r}{PMg_K} = \lambda \implies \frac{PMg_L}{PMg_K} = \frac{w}{r}" />
                 <p>
-                  Esta es la <strong>condicion de tangencia</strong>: la RMST debe igualar la relacion de precios
-                  de los factores. Es la condicion fundamental del Tema 2.
+                  Esta es la <strong>condición de tangencia</strong>: la RMST debe igualar la relación de precios
+                  de los factores. Es la condición fundamental del Tema 2.
                 </p>
               </div>
             </div>
@@ -331,13 +331,13 @@ export default function Optimizacion() {
         <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 mt-3">
           <CardContent className="p-3 text-sm space-y-1">
             <p className="font-semibold text-amber-800 dark:text-amber-200">
-              ¿Que significa intuitivamente?
+              ¿Qué significa intuitivamente?
             </p>
             <p className="text-amber-900 dark:text-amber-100">
-              La empresa busca el punto donde la <strong>relacion de productividades</strong> de los
-              factores (cuanto produce cada uno) coincide con la <strong>relacion de precios</strong>
-              (cuanto cuesta cada uno). Si un factor es relativamente mas productivo que caro,
-              conviene usar mas de ese factor.
+              La empresa busca el punto donde la <strong>relación de productividades</strong> de los
+              factores (cuánto produce cada uno) coincide con la <strong>relación de precios</strong>
+              (cuánto cuesta cada uno). Si un factor es relativamente más productivo que caro,
+              conviene usar más de ese factor.
             </p>
           </CardContent>
         </Card>
@@ -351,8 +351,8 @@ export default function Optimizacion() {
               Solo necesitas esto para el Excedente del Productor (Tema 3)
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              La <strong>integral</strong> calcula el <strong>area</strong> bajo una curva.
-              Es la operacion &laquo;inversa&raquo; de la derivada.
+              La <strong>integral</strong> calcula el <strong>área</strong> bajo una curva.
+              Es la operación &laquo;inversa&raquo; de la derivada.
             </p>
             <p className="text-blue-900 dark:text-blue-100">
               Si la derivada de <InlineMath math="x^2" /> es <InlineMath math="2x" />,
@@ -364,16 +364,16 @@ export default function Optimizacion() {
         <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
           <CardContent className="p-4 text-sm space-y-2">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              La regla de la potencia al reves
+              La regla de la potencia al revés
             </p>
             <FormulaDisplay math="\int x^n \, dx = \frac{x^{n+1}}{n+1} + C" />
             <p className="text-emerald-900 dark:text-emerald-100">
               &laquo;Suma 1 al exponente y divide por el nuevo exponente&raquo;.
-              La C es una constante que no importa cuando calculamos areas definidas.
+              La C es una constante que no importa cuando calculamos áreas definidas.
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              Para el <strong>Excedente del Productor</strong>: EP = area entre la linea de
-              precio y la curva de CMg. En la practica, se calcula como:
+              Para el <strong>Excedente del Productor</strong>: EP = área entre la línea de
+              precio y la curva de CMg. En la práctica, se calcula como:
             </p>
             <FormulaDisplay math="EP = p \cdot x^* - \int_0^{x^*} CMg(x) \, dx" />
           </CardContent>
@@ -381,21 +381,21 @@ export default function Optimizacion() {
 
         <Card className="bg-gray-50 dark:bg-gray-800 border mt-3">
           <CardContent className="p-4 text-sm space-y-2">
-            <p className="font-semibold">Ejemplo rapido</p>
+            <p className="font-semibold">Ejemplo rápido</p>
             <p className="text-muted-foreground">
               Si <InlineMath math="CMg = 2x + 4" /> y <InlineMath math="x^* = 3" />, <InlineMath math="p = 10" />:
             </p>
             <FormulaDisplay math="\int_0^3 (2x+4)\,dx = \left[x^2 + 4x\right]_0^3 = (9+12) - (0+0) = 21" />
             <FormulaDisplay math="EP = 10 \cdot 3 - 21 = 30 - 21 = 9" />
             <p className="text-muted-foreground">
-              Graficamente, es el area del triangulo entre la recta de precio (p=10) y la curva CMg.
+              Gráficamente, es el área del triángulo entre la recta de precio (p=10) y la curva CMg.
             </p>
           </CardContent>
         </Card>
       </StepCard>
 
       {/* ========== Resumen final ========== */}
-      <StepCard stepNumber={8} title="Resumen: las 3 herramientas de optimizacion" variant="result">
+      <StepCard stepNumber={8} title="Resumen: las 3 herramientas de optimización" variant="result">
         <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
           <CardContent className="p-4 text-sm space-y-2">
             <div className="overflow-x-auto">
@@ -403,20 +403,20 @@ export default function Optimizacion() {
                 <thead>
                   <tr className="border-b">
                     <th className="text-left py-2 pr-4">Herramienta</th>
-                    <th className="text-left py-2 pr-4">¿Que hace?</th>
-                    <th className="text-left py-2">¿Donde se usa?</th>
+                    <th className="text-left py-2 pr-4">¿Qué hace?</th>
+                    <th className="text-left py-2">¿Dónde se usa?</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b">
                     <td className="py-2 pr-4 font-medium">CPO: f&apos;(x) = 0</td>
-                    <td className="py-2 pr-4">Encuentra maximos y minimos</td>
-                    <td className="py-2">Min CMe, Max beneficio</td>
+                    <td className="py-2 pr-4">Encuentra máximos y mínimos</td>
+                    <td className="py-2">Mín CMe, Máx beneficio</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 pr-4 font-medium">CSO: f&apos;&apos;(x)</td>
-                    <td className="py-2 pr-4">Distingue maximo de minimo</td>
-                    <td className="py-2">Verificar que p = CMg es maximo</td>
+                    <td className="py-2 pr-4">Distingue máximo de mínimo</td>
+                    <td className="py-2">Verificar que p = CMg es máximo</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-2 pr-4 font-medium">Lagrangiano</td>
@@ -425,7 +425,7 @@ export default function Optimizacion() {
                   </tr>
                   <tr>
                     <td className="py-2 pr-4 font-medium">Integral</td>
-                    <td className="py-2 pr-4">Calcula areas bajo curvas</td>
+                    <td className="py-2 pr-4">Calcula áreas bajo curvas</td>
                     <td className="py-2">Excedente del productor</td>
                   </tr>
                 </tbody>
@@ -440,9 +440,9 @@ export default function Optimizacion() {
               Ya tienes todo lo que necesitas
             </p>
             <p className="text-rose-900 dark:text-rose-100">
-              Con derivadas, derivadas parciales y estas herramientas de optimizacion,
+              Con derivadas, derivadas parciales y estas herramientas de optimización,
               puedes resolver <strong>cualquier ejercicio</strong> del curso. Ahora ve a los
-              temas y compruebalo.
+              temas y compruébalo.
             </p>
           </CardContent>
         </Card>
@@ -454,7 +454,7 @@ export default function Optimizacion() {
           <ArrowLeft className="h-4 w-4" /> Derivadas parciales
         </Link>
         <Link href="/tema-1" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-          Tema 1: Produccion <ArrowRight className="h-4 w-4" />
+          Tema 1: Producción <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </div>

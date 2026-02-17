@@ -27,19 +27,19 @@ const ejercicios = [
   { num: 2, titulo: "Rendimientos a escala", url: "/tema-1/ejercicio-2" },
   { num: 3, titulo: "Cobb-Douglas general", url: "/tema-1/ejercicio-3" },
   { num: 4, titulo: "Rendimientos y PMgL", url: "/tema-1/ejercicio-4" },
-  { num: 5, titulo: "Funci\u00f3n con par\u00e1metros", url: "/tema-1/ejercicio-5" },
+  { num: 5, titulo: "Función con parámetros", url: "/tema-1/ejercicio-5" },
 ];
 
 const mapaConceptual = [
   {
     concepto: "PMe (Productividad Media)",
     formula: "PMe_L = \\frac{x}{L}",
-    idea: "Cuantas unidades produce cada trabajador de media.",
+    idea: "Cuántas unidades produce cada trabajador de media.",
   },
   {
     concepto: "PMg (Productividad Marginal)",
     formula: "PMg_L = \\frac{\\partial x}{\\partial L}",
-    idea: "Cuanto sube la produccion al anadir un trabajador mas.",
+    idea: "Cuánto sube la producción al añadir un trabajador más.",
   },
   {
     concepto: "Isocuantas",
@@ -49,17 +49,17 @@ const mapaConceptual = [
   {
     concepto: "RMST",
     formula: "RMST = \\frac{PMg_L}{PMg_K}",
-    idea: "Cuanto capital puedes quitar si contratas un trabajador mas (sin cambiar la produccion).",
+    idea: "Cuánto capital puedes quitar si contratas un trabajador más (sin cambiar la producción).",
   },
   {
     concepto: "Rendimientos a escala",
     formula: "f(tL, tK) \\text{ vs } t \\cdot f(L,K)",
-    idea: "Si duplicas todos los ingredientes, se duplica la produccion?",
+    idea: "Si duplicas todos los ingredientes, ¿se duplica la producción?",
   },
   {
     concepto: "Cobb-Douglas",
     formula: "f(L,K) = A L^{\\alpha} K^{\\beta}",
-    idea: "La funcion de produccion estrella del curso. Los rendimientos dependen de alfa + beta.",
+    idea: "La función de producción estrella del curso. Los rendimientos dependen de alfa + beta.",
   },
 ];
 

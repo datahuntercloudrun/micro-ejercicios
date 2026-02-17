@@ -21,7 +21,7 @@ import Link from "next/link";
 
 const ejercicios = [
   { num: 1, titulo: "Funciones de coste (4 tipos)", url: "/tema-2/ejercicio-1" },
-  { num: 2, titulo: "Minimo CMe a largo plazo", url: "/tema-2/ejercicio-2" },
+  { num: 2, titulo: "Mínimo CMe a largo plazo", url: "/tema-2/ejercicio-2" },
   { num: 3, titulo: "Verdadero/Falso sobre costes", url: "/tema-2/ejercicio-3" },
 ];
 
@@ -50,49 +50,49 @@ export default function Tema2() {
         </div>
       </div>
 
-      {/* ── 1. De que trata este tema ── */}
+      {/* ── 1. De qué trata este tema ── */}
       <Card className="border-emerald-200 dark:border-emerald-800">
         <CardHeader className="pb-2">
           <CardTitle className="text-base sm:text-lg flex items-center gap-2">
             <Lightbulb className="h-5 w-5 text-emerald-500" />
-            De que trata este tema
+            De qué trata este tema
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm sm:text-base">
           <p>
-            En el Tema 1 aprendimos <strong>como produce</strong> una empresa:
+            En el Tema 1 aprendimos <strong>cómo produce</strong> una empresa:
             mezcla trabajo (L) y capital (K) para fabricar unidades de producto
-            (x). Ahora toca la pregunta mas importante para cualquier negocio:
+            (x). Ahora toca la pregunta más importante para cualquier negocio:
           </p>
           <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4 text-center">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200 text-base sm:text-lg">
-              &laquo;Cuanto me cuesta producir?&raquo;
+              &laquo;¿Cuánto me cuesta producir?&raquo;
             </p>
           </div>
           <p>
-            Saber producir no basta. Una panaderia puede hacer 1.000 barras al
-            dia, pero si cada barra le cuesta 5 euros y las vende a 2, esta
-            perdiendo dinero. La funcion de costes traduce la tecnologia (cuanto
-            necesito de cada factor) en dinero (cuanto me gasto).
+            Saber producir no basta. Una panadería puede hacer 1.000 barras al
+            día, pero si cada barra le cuesta 5 euros y las vende a 2, está
+            perdiendo dinero. La función de costes traduce la tecnología (cuánto
+            necesito de cada factor) en dinero (cuánto me gasto).
           </p>
           <p>
-            Este tema es el <strong>puente</strong> entre la produccion y la
-            oferta. Sin entender costes, no puedes decidir cuanto producir, ni a
-            que precio vender, ni si conviene abrir o cerrar.
+            Este tema es el <strong>puente</strong> entre la producción y la
+            oferta. Sin entender costes, no puedes decidir cuánto producir, ni a
+            qué precio vender, ni si conviene abrir o cerrar.
           </p>
         </CardContent>
       </Card>
 
-      {/* ── Formula central ── */}
+      {/* ── Fórmula central ── */}
       <Card className="bg-emerald-50/50 dark:bg-emerald-950/10 border-emerald-200 dark:border-emerald-800">
         <CardHeader className="pb-2">
-          <CardTitle className="text-sm">Formula central del tema</CardTitle>
+          <CardTitle className="text-sm">Fórmula central del tema</CardTitle>
         </CardHeader>
         <CardContent>
           <FormulaDisplay math="CT(x) = CF + CV(x) = w \cdot L^*(x) + r \cdot K^*(x)" />
           <p className="text-sm text-center text-muted-foreground mt-1">
             El coste total es lo que pagas por trabajo y capital para producir x
-            unidades de la forma mas barata posible
+            unidades de la forma más barata posible
           </p>
         </CardContent>
       </Card>
@@ -107,8 +107,8 @@ export default function Tema2() {
         </CardHeader>
         <CardContent className="space-y-4 text-sm sm:text-base">
           <p>
-            Antes de las formulas, hay que entender que no todos los gastos de
-            una empresa son iguales. La clasificacion mas importante es:
+            Antes de las fórmulas, hay que entender que no todos los gastos de
+            una empresa son iguales. La clasificación más importante es:
           </p>
 
           {/* Coste fijo */}
@@ -118,9 +118,9 @@ export default function Tema2() {
             </p>
             <p className="text-blue-900 dark:text-blue-100">
               Es como el <strong>alquiler</strong> de tu local. Produzcas 0 o
-              1.000 unidades, pagas lo mismo cada mes. Tambien entran aqui los
-              seguros, el salario del gerente, la amortizacion de maquinaria.
-              En la formula: <InlineMath math="CF = r \cdot \bar{K}" /> en el
+              1.000 unidades, pagas lo mismo cada mes. También entran aquí los
+              seguros, el salario del gerente, la amortización de maquinaria.
+              En la fórmula: <InlineMath math="CF = r \cdot \bar{K}" /> en el
               corto plazo, donde{" "}
               <InlineMath math="\bar{K}" /> es el capital fijo.
             </p>
@@ -129,13 +129,13 @@ export default function Tema2() {
           {/* Coste variable */}
           <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200 mb-1">
-              Coste variable (CV) &mdash; &laquo;Crece cuanto mas produces&raquo;
+              Coste variable (CV) &mdash; &laquo;Crece cuanto más produces&raquo;
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
               Son las <strong>materias primas</strong>, la electricidad de las
-              maquinas, los salarios de los operarios por hora. Si produces mas,
-              compras mas harina, usas mas luz, contratas mas horas. En la
-              formula: <InlineMath math="CV(x) = w \cdot L^*(x)" /> en el
+              máquinas, los salarios de los operarios por hora. Si produces más,
+              compras más harina, usas más luz, contratas más horas. En la
+              fórmula: <InlineMath math="CV(x) = w \cdot L^*(x)" /> en el
               corto plazo.
             </p>
           </div>
@@ -147,16 +147,16 @@ export default function Tema2() {
             </p>
             <p className="text-rose-900 dark:text-rose-100">
               Imagina que gastas 50.000 euros en <strong>I+D</strong> para
-              disenar un producto. Si luego decides no fabricarlo, ese dinero no
+              diseñar un producto. Si luego decides no fabricarlo, ese dinero no
               vuelve. Un coste hundido <strong>no debe influir</strong> en tus
-              decisiones futuras: lo que importa es lo que esta por venir, no lo
-              ya gastado. Es un error comun en empresas (y en la vida) seguir
+              decisiones futuras: lo que importa es lo que está por venir, no lo
+              ya gastado. Es un error común en empresas (y en la vida) seguir
               invirtiendo en algo solo porque &laquo;ya hemos gastado mucho&raquo;.
             </p>
           </div>
 
           <div className="bg-gray-50 dark:bg-gray-900/30 border border-gray-200 dark:border-gray-800 rounded-lg p-3 sm:p-4">
-            <p className="font-semibold mb-1">La formula clave:</p>
+            <p className="font-semibold mb-1">La fórmula clave:</p>
             <FormulaDisplay math="CT(x) = CF + CV(x)" />
             <p className="text-muted-foreground text-sm text-center">
               El coste total es siempre la suma de fijos y variables
@@ -165,30 +165,30 @@ export default function Tema2() {
         </CardContent>
       </Card>
 
-      {/* ── 3. De la produccion a los costes ── */}
+      {/* ── 3. De la producción a los costes ── */}
       <Card className="border-emerald-200 dark:border-emerald-800">
         <CardHeader className="pb-2">
           <CardTitle className="text-base sm:text-lg flex items-center gap-2">
             <GitCompareArrows className="h-5 w-5 text-emerald-500" />
-            De la produccion a los costes
+            De la producción a los costes
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm sm:text-base">
           <p>
-            En el Tema 1 tenias la funcion de produccion:{" "}
+            En el Tema 1 tenías la función de producción:{" "}
             <InlineMath math="x = f(L, K)" />. Ahora la pregunta cambia. Ya no
-            es &laquo;cuanto produzco con estos factores?&raquo;, sino:
+            es &laquo;¿cuánto produzco con estos factores?&raquo;, sino:
           </p>
           <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4 text-center">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-              &laquo;Dado que quiero producir x unidades, cual es la combinacion
-              de L y K que me sale mas barata?&raquo;
+              &laquo;Dado que quiero producir x unidades, ¿cuál es la combinación
+              de L y K que me sale más barata?&raquo;
             </p>
           </div>
           <p>
-            Es un problema de <strong>minimizacion</strong>. La empresa quiere
-            gastar lo minimo posible para alcanzar un nivel de produccion
-            objetivo. Matematicamente:
+            Es un problema de <strong>minimización</strong>. La empresa quiere
+            gastar lo mínimo posible para alcanzar un nivel de producción
+            objetivo. Matemáticamente:
           </p>
           <FormulaDisplay math="\min_{L,K} \; w \cdot L + r \cdot K \quad \text{sujeto a} \quad f(L,K) = x" />
           <p>
@@ -197,15 +197,15 @@ export default function Tema2() {
             (alquiler de maquinaria, por ejemplo).
           </p>
           <p>
-            La solucion de este problema nos da las{" "}
+            La solución de este problema nos da las{" "}
             <strong>demandas condicionadas</strong> de factores:{" "}
             <InlineMath math="L^*(x)" /> y <InlineMath math="K^*(x)" />
-            &mdash; es decir, cuanto trabajo y capital necesitas para cada
-            nivel de produccion, gastando lo minimo. Al sustituir en el coste:
+            &mdash; es decir, cuánto trabajo y capital necesitas para cada
+            nivel de producción, gastando lo mínimo. Al sustituir en el coste:
           </p>
           <FormulaDisplay math="C(x) = w \cdot L^*(x) + r \cdot K^*(x)" />
           <p>
-            Y asi nace la <strong>funcion de costes</strong>: una funcion que
+            Y así nace la <strong>función de costes</strong>: una función que
             solo depende de la cantidad producida x.
           </p>
         </CardContent>
@@ -216,14 +216,14 @@ export default function Tema2() {
         <CardHeader className="pb-2">
           <CardTitle className="text-base sm:text-lg flex items-center gap-2">
             <TrendingDown className="h-5 w-5 text-emerald-500" />
-            Isocostes: tu presupuesto en un grafico
+            Isocostes: tu presupuesto en un gráfico
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm sm:text-base">
           <p>
-            Recuerdas las <strong>isocuantas</strong> del Tema 1? Eran curvas
-            que unian todas las combinaciones (L, K) que producen lo mismo. Las
-            isocostes son su version para los costes:
+            ¿Recuerdas las <strong>isocuantas</strong> del Tema 1? Eran curvas
+            que unían todas las combinaciones (L, K) que producen lo mismo. Las
+            isocostes son su versión para los costes:
           </p>
           <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200 mb-2">
@@ -232,8 +232,8 @@ export default function Tema2() {
             <FormulaDisplay math="C = w \cdot L + r \cdot K \quad \Rightarrow \quad K = \frac{C}{r} - \frac{w}{r} \cdot L" />
           </div>
           <p>
-            <strong>Analogia:</strong> piensa en tu presupuesto mensual. Tienes
-            1.000 euros y puedes gastartelos en comida o en ocio. La recta de
+            <strong>Analogía:</strong> piensa en tu presupuesto mensual. Tienes
+            1.000 euros y puedes gastártelos en comida o en ocio. La recta de
             presupuesto te dice todas las combinaciones posibles. Si la comida
             sube de precio, la recta se &laquo;gira&raquo; y puedes comprar menos
             comida con el mismo dinero.
@@ -241,18 +241,18 @@ export default function Tema2() {
           <p>
             Con las isocostes pasa igual. Son rectas (no curvas) con pendiente{" "}
             <InlineMath math="-w/r" />. Si suben los salarios (w), la recta se
-            inclina: el trabajo se vuelve relativamente mas caro y la empresa
-            sustituira trabajo por capital.
+            inclina: el trabajo se vuelve relativamente más caro y la empresa
+            sustituirá trabajo por capital.
           </p>
           <p>
-            El <strong>optimo</strong> esta donde la isocoste mas baja posible
+            El <strong>óptimo</strong> está donde la isocoste más baja posible
             toca (es tangente a) la isocuanta objetivo. En ese punto:
           </p>
           <FormulaDisplay math="RMST = \frac{PMg_L}{PMg_K} = \frac{w}{r}" />
           <p className="text-muted-foreground text-sm">
-            Es decir, el ritmo al que puedes sustituir tecnicamente un factor
+            Es decir, el ritmo al que puedes sustituir técnicamente un factor
             por otro coincide exactamente con el ritmo al que el mercado te
-            &laquo;cobra&raquo; esa sustitucion.
+            &laquo;cobra&raquo; esa sustitución.
           </p>
         </CardContent>
       </Card>
@@ -273,7 +273,7 @@ export default function Tema2() {
               </p>
               <FormulaDisplay math="CMe(x) = \frac{CT(x)}{x}" />
               <p className="text-blue-900 dark:text-blue-100 text-sm">
-                &laquo;Cuanto me cuesta en promedio cada unidad?&raquo;
+                &laquo;¿Cuánto me cuesta en promedio cada unidad?&raquo;
               </p>
             </div>
             <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4">
@@ -282,14 +282,14 @@ export default function Tema2() {
               </p>
               <FormulaDisplay math="CMg(x) = \frac{dCT}{dx}" />
               <p className="text-emerald-900 dark:text-emerald-100 text-sm">
-                &laquo;Cuanto me cuesta producir una unidad mas?&raquo;
+                &laquo;¿Cuánto me cuesta producir una unidad más?&raquo;
               </p>
             </div>
           </div>
 
           <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3 sm:p-4">
             <p className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
-              La analogia de las notas del examen
+              La analogía de las notas del examen
             </p>
             <p className="text-amber-900 dark:text-amber-100">
               Imagina que llevas 4 examenes con media de 6,0 (CMe = 6). Ahora
@@ -308,7 +308,7 @@ export default function Tema2() {
                 <CheckCircle className="h-4 w-4 mt-0.5 shrink-0 text-rose-500" />
                 <span>
                   <strong>Sacas un 3 (CMg = 3 &lt; CMe):</strong> tu media
-                  baja a 5,4. Cuando la marginal esta por debajo, la media
+                  baja a 5,4. Cuando la marginal está por debajo, la media
                   baja.
                 </span>
               </li>
@@ -317,7 +317,7 @@ export default function Tema2() {
                 <span>
                   <strong>Sacas un 6 (CMg = CMe):</strong> tu media se queda en
                   6,0. Cuando la marginal iguala a la media, la media no cambia
-                  (esta en su minimo o maximo).
+                  (está en su mínimo o máximo).
                 </span>
               </li>
             </ul>
@@ -327,74 +327,74 @@ export default function Tema2() {
             <p className="font-semibold mb-2">La regla de oro CMe-CMg:</p>
             <ul className="space-y-1 text-sm">
               <li>
-                Si <InlineMath math="CMg < CMe" /> &rarr; el CMe esta
+                Si <InlineMath math="CMg < CMe" /> &rarr; el CMe está
                 bajando (cada unidad nueva &laquo;abarata&raquo; la media)
               </li>
               <li>
-                Si <InlineMath math="CMg > CMe" /> &rarr; el CMe esta
+                Si <InlineMath math="CMg > CMe" /> &rarr; el CMe está
                 subiendo (cada unidad nueva &laquo;encarece&raquo; la media)
               </li>
               <li>
-                Si <InlineMath math="CMg = CMe" /> &rarr; el CMe esta en su{" "}
-                <strong>minimo</strong> (punto de equilibrio)
+                Si <InlineMath math="CMg = CMe" /> &rarr; el CMe está en su{" "}
+                <strong>mínimo</strong> (punto de equilibrio)
               </li>
             </ul>
             <p className="text-sm text-muted-foreground mt-2">
-              Por eso el CMg siempre corta al CMe en su punto minimo. Esto se
+              Por eso el CMg siempre corta al CMe en su punto mínimo. Esto se
               cumple tanto en corto como en largo plazo.
             </p>
           </div>
 
           <p>
             <strong>Otro ejemplo:</strong> piensa en el consumo de gasolina de
-            un coche. Si llevas una media de 6 L/100km (CMe) y en el ultimo
-            tramo cuesta arriba gastas 10 L/100km (CMg), tu media subira. Si
+            un coche. Si llevas una media de 6 L/100km (CMe) y en el último
+            tramo cuesta arriba gastas 10 L/100km (CMg), tu media subirá. Si
             en el siguiente tramo cuesta abajo gastas 3 L/100km (CMg), tu media
-            bajara. El marginal siempre &laquo;tira&raquo; de la media hacia el.
+            bajará. El marginal siempre &laquo;tira&raquo; de la media hacia él.
           </p>
         </CardContent>
       </Card>
 
-      {/* ── 6. Senda de expansion y demandas condicionadas ── */}
+      {/* ── 6. Senda de expansión y demandas condicionadas ── */}
       <Card className="border-emerald-200 dark:border-emerald-800">
         <CardHeader className="pb-2">
           <CardTitle className="text-base sm:text-lg flex items-center gap-2">
             <MapPin className="h-5 w-5 text-emerald-500" />
-            Senda de expansion y demandas condicionadas
+            Senda de expansión y demandas condicionadas
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm sm:text-base">
           <p>
-            Ya sabemos que para cada nivel de produccion x hay una combinacion
-            optima de L y K (la tangencia isocoste-isocuanta). Si unimos todos
-            esos puntos optimos en un grafico, obtenemos una curva llamada{" "}
-            <strong>senda de expansion</strong>.
+            Ya sabemos que para cada nivel de producción x hay una combinación
+            óptima de L y K (la tangencia isocoste-isocuanta). Si unimos todos
+            esos puntos óptimos en un gráfico, obtenemos una curva llamada{" "}
+            <strong>senda de expansión</strong>.
           </p>
           <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 sm:p-4">
             <p className="font-semibold text-emerald-800 dark:text-emerald-200 mb-2">
-              Intuicion: el GPS de la empresa
+              Intuición: el GPS de la empresa
             </p>
             <p className="text-emerald-900 dark:text-emerald-100">
-              La senda de expansion es como la ruta optima de un GPS. Si
+              La senda de expansión es como la ruta óptima de un GPS. Si
               quieres ir de &laquo;producir 10&raquo; a &laquo;producir 100&raquo;, la senda te dice
-              exactamente cuanto trabajo y capital anadir en cada paso para que
-              el viaje sea lo mas barato posible. Cualquier otra ruta te saldra
-              mas cara.
+              exactamente cuánto trabajo y capital añadir en cada paso para que
+              el viaje sea lo más barato posible. Cualquier otra ruta te saldrá
+              más cara.
             </p>
           </div>
           <p>
             A lo largo de esta senda, cada punto nos da una pareja{" "}
             <InlineMath math="(L^*(x),\, K^*(x))" />. Estas son las{" "}
-            <strong>demandas condicionadas de factores</strong>: te dicen cuanto
-            de cada input necesitas para producir x al minimo coste. Se llaman
-            &laquo;condicionadas&raquo; porque dependen del nivel de produccion que
+            <strong>demandas condicionadas de factores</strong>: te dicen cuánto
+            de cada input necesitas para producir x al mínimo coste. Se llaman
+            &laquo;condicionadas&raquo; porque dependen del nivel de producción que
             quieres alcanzar.
           </p>
           <FormulaDisplay math="\text{Senda: } RMST(L,K) = \frac{w}{r} \quad \text{junto con} \quad f(L,K) = x" />
           <p className="text-muted-foreground text-sm">
             Resolviendo este sistema obtienes{" "}
             <InlineMath math="L^*(x)" /> y <InlineMath math="K^*(x)" />, y al
-            sustituir en <InlineMath math="C = wL + rK" /> llegas a la funcion
+            sustituir en <InlineMath math="C = wL + rK" /> llegas a la función
             de costes a largo plazo.
           </p>
         </CardContent>
@@ -415,10 +415,10 @@ export default function Tema2() {
                 Corto plazo (CP)
               </p>
               <p className="text-blue-900 dark:text-blue-100 text-sm">
-                Al menos un factor esta fijo (normalmente K). Solo puedes
+                Al menos un factor está fijo (normalmente K). Solo puedes
                 ajustar L. Es como cocinar con un solo horno: si necesitas
-                producir mas, contratas mas cocineros, pero no puedes comprar
-                otro horno de la noche a la manana.
+                producir más, contratas más cocineros, pero no puedes comprar
+                otro horno de la noche a la mañana.
               </p>
               <div className="mt-2">
                 <FormulaDisplay math="CT_{CP} = \underbrace{r\bar{K}}_{CF} + \underbrace{w \cdot L(x)}_{CV}" />
@@ -431,7 +431,7 @@ export default function Tema2() {
               <p className="text-emerald-900 dark:text-emerald-100 text-sm">
                 Todos los factores son variables. Puedes elegir L y K
                 libremente. Es como montar un restaurante desde cero: eliges
-                cuantos hornos comprar y cuantos cocineros contratar.
+                cuántos hornos comprar y cuántos cocineros contratar.
               </p>
               <div className="mt-2">
                 <FormulaDisplay math="CT_{LP} = w \cdot L^*(x) + r \cdot K^*(x)" />
@@ -441,28 +441,28 @@ export default function Tema2() {
 
           <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3 sm:p-4">
             <p className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
-              La envolvente: por que el LP siempre es mas barato (o igual)
+              La envolvente: por qué el LP siempre es más barato (o igual)
             </p>
             <p className="text-amber-900 dark:text-amber-100">
-              En el CP estas &laquo;atrapado&raquo; con un K fijo. Para cada valor
+              En el CP estás &laquo;atrapado&raquo; con un K fijo. Para cada valor
               posible de K, tienes una curva de CMe distinta (una
               &laquo;U&raquo; diferente). La curva de CMe del largo plazo es la{" "}
               <strong>envolvente inferior</strong> de todas esas Us: toca cada
               curva de CP en un punto y siempre queda por debajo.
             </p>
             <p className="text-amber-900 dark:text-amber-100 mt-2">
-              <strong>Analogia:</strong> imagina que tienes camisetas de 3
+              <strong>Analogía:</strong> imagina que tienes camisetas de 3
               tallas (S, M, L). Cada una te queda bien para un rango de
-              contextos. La &laquo;talla optima&raquo; cambia segun la situacion. La
+              contextos. La &laquo;talla óptima&raquo; cambia según la situación. La
               envolvente es como tener un guardarropa completo: para cada
-              ocasion, eliges la talla perfecta. En el CP, solo tienes una
-              talla y a veces te queda grande o pequena.
+              ocasión, eliges la talla perfecta. En el CP, solo tienes una
+              talla y a veces te queda grande o pequeña.
             </p>
           </div>
 
           <FormulaDisplay math="CMe_{LP}(x) = \min_{\bar{K}} \; CMe_{CP}(x, \bar{K})" />
           <p className="text-muted-foreground text-sm text-center">
-            El coste medio a largo plazo es el minimo de todos los costes medios
+            El coste medio a largo plazo es el mínimo de todos los costes medios
             a corto plazo posibles
           </p>
         </CardContent>
@@ -482,10 +482,10 @@ export default function Tema2() {
               {/* Nivel 1 */}
               <div className="text-center">
                 <Badge className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm px-3 py-1">
-                  Funcion de produccion f(L,K)
+                  Función de producción f(L,K)
                 </Badge>
                 <p className="text-muted-foreground text-xs mt-1">
-                  Tema 1: cuanto produces con cada combinacion
+                  Tema 1: cuánto produces con cada combinación
                 </p>
               </div>
               <div className="flex justify-center">
@@ -494,7 +494,7 @@ export default function Tema2() {
               {/* Nivel 2 */}
               <div className="text-center">
                 <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm px-3 py-1">
-                  Minimizacion de costes (RMST = w/r)
+                  Minimización de costes (RMST = w/r)
                 </Badge>
                 <p className="text-muted-foreground text-xs mt-1">
                   Tangencia isocoste-isocuanta
@@ -507,10 +507,10 @@ export default function Tema2() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div className="text-center">
                   <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm px-3 py-1">
-                    Senda de expansion
+                    Senda de expansión
                   </Badge>
                   <p className="text-muted-foreground text-xs mt-1">
-                    Ruta optima al crecer
+                    Ruta óptima al crecer
                   </p>
                 </div>
                 <div className="text-center">
@@ -518,7 +518,7 @@ export default function Tema2() {
                     Demandas condicionadas L*(x), K*(x)
                   </Badge>
                   <p className="text-muted-foreground text-xs mt-1">
-                    Cuanto de cada factor necesitas
+                    Cuánto de cada factor necesitas
                   </p>
                 </div>
               </div>
@@ -528,10 +528,10 @@ export default function Tema2() {
               {/* Nivel 4 */}
               <div className="text-center">
                 <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 text-sm px-3 py-1">
-                  Funcion de costes C(x) = wL* + rK*
+                  Función de costes C(x) = wL* + rK*
                 </Badge>
                 <p className="text-muted-foreground text-xs mt-1">
-                  Coste total segun produccion
+                  Coste total según producción
                 </p>
               </div>
               <div className="flex justify-center">
@@ -552,7 +552,7 @@ export default function Tema2() {
                     CMg = dC/dx
                   </Badge>
                   <p className="text-muted-foreground text-xs mt-1">
-                    Coste de una mas
+                    Coste de una más
                   </p>
                 </div>
                 <div className="text-center">
@@ -573,7 +573,7 @@ export default function Tema2() {
                   Oferta competitiva (Tema 3)
                 </Badge>
                 <p className="text-muted-foreground text-xs mt-1">
-                  Cuanto producir y a que precio vender
+                  Cuánto producir y a qué precio vender
                 </p>
               </div>
             </div>
@@ -581,29 +581,29 @@ export default function Tema2() {
         </CardContent>
       </Card>
 
-      {/* ── 9. Conexion con lo que viene ── */}
+      {/* ── 9. Conexión con lo que viene ── */}
       <Card className="border-violet-200 dark:border-violet-800">
         <CardHeader className="pb-2">
           <CardTitle className="text-base sm:text-lg flex items-center gap-2">
             <ArrowRight className="h-5 w-5 text-violet-500" />
-            Conexion con lo que viene (Tema 3)
+            Conexión con lo que viene (Tema 3)
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm sm:text-base">
           <p>
             Una vez que la empresa conoce sus costes, puede responder la
-            pregunta definitiva: <strong>cuanto producir?</strong>
+            pregunta definitiva: <strong>¿cuánto producir?</strong>
           </p>
           <p>
-            En el Tema 3 (Oferta Competitiva) veras que una empresa
+            En el Tema 3 (Oferta Competitiva) verás que una empresa
             precio-aceptante produce donde{" "}
             <InlineMath math="p = CMg(x)" /> &mdash; el precio iguala al coste
             marginal. Pero para eso necesitas conocer el CMg, y para eso
-            necesitas la funcion de costes de este tema.
+            necesitas la función de costes de este tema.
           </p>
           <div className="bg-violet-50 dark:bg-violet-950/20 border border-violet-200 dark:border-violet-800 rounded-lg p-3 sm:p-4">
             <p className="text-violet-900 dark:text-violet-100">
-              <strong>La cadena completa:</strong> Tecnologia (Tema 1) &rarr;
+              <strong>La cadena completa:</strong> Tecnología (Tema 1) &rarr;
               Costes (Tema 2) &rarr; Oferta (Tema 3). Cada pieza depende de la
               anterior. Sin dominar los costes, la oferta queda en el aire.
             </p>
@@ -637,7 +637,7 @@ export default function Tema2() {
         </div>
       </section>
 
-      {/* ── 11. Kit Matematico ── */}
+      {/* ── 11. Kit Matemático ── */}
       <Link href="/toolkit" className="group block">
         <div className="relative overflow-hidden rounded-xl border border-orange-200/40 dark:border-orange-800/40 bg-gradient-to-r from-orange-50/50 via-amber-50/30 to-transparent dark:from-orange-950/20 dark:via-amber-950/10 dark:to-transparent backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-orange-500/5 group-hover:-translate-y-0.5">
           <div className="absolute -right-8 -top-8 w-32 h-32 bg-orange-200/20 dark:bg-orange-800/10 rounded-full blur-2xl" />
@@ -657,7 +657,7 @@ export default function Tema2() {
         </div>
       </Link>
 
-      {/* ── 12. Test de autoevaluacion ── */}
+      {/* ── 12. Test de autoevaluación ── */}
       <Link href="/tema-2/test" className="group block">
         <div className="relative overflow-hidden rounded-xl border border-amber-200/40 dark:border-amber-800/40 bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/5 group-hover:-translate-y-0.5 group-hover:border-amber-300/60 dark:group-hover:border-amber-700/60">
           <div className="h-0.5 w-full bg-gradient-to-r from-amber-400 to-orange-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />

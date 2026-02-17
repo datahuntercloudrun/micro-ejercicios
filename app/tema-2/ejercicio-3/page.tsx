@@ -86,7 +86,7 @@ export default function Ejercicio3() {
       exerciseNumber={3}
       title="Verdadero o Falso sobre Costes"
       difficulty="Medio-Alto"
-      category="Teoria de costes"
+      category="Teoría de costes"
       statement={
         <p>
           Discuta ayud&aacute;ndose de gr&aacute;ficos, la veracidad de las
@@ -113,7 +113,7 @@ export default function Ejercicio3() {
       {/* ============ PASO 1: ¿Qué vamos a aprender? ============ */}
       <StepCard
         stepNumber={1}
-        title="¿Que vamos a aprender?"
+        title="¿Qué vamos a aprender?"
         variant="explanation"
       >
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
@@ -123,8 +123,8 @@ export default function Ejercicio3() {
             </p>
             <p>
               A corto plazo, hay <strong>tres curvas de costes</strong> clave
-              que debemos dominar. Entender como se relacionan es fundamental
-              para el analisis economico.
+              que debemos dominar. Entender cómo se relacionan es fundamental
+              para el análisis económico.
             </p>
           </CardContent>
         </Card>
@@ -151,8 +151,8 @@ export default function Ejercicio3() {
                 <p className="text-amber-800 dark:text-amber-200">
                   <strong>Propiedades clave:</strong> (1) CMe &gt; CVMe
                   siempre (porque CMe = CVMe + CF/x). (2) CMg corta a CVMe
-                  en su minimo. (3) CMg corta a CMe en su minimo. (4) El
-                  minimo de CVMe ocurre ANTES que el minimo de CMe.
+                  en su mínimo. (3) CMg corta a CMe en su mínimo. (4) El
+                  mínimo de CVMe ocurre ANTES que el mínimo de CMe.
                 </p>
               </CardContent>
             </Card>
@@ -163,38 +163,38 @@ export default function Ejercicio3() {
       {/* ============ PASO 2: Las 6 afirmaciones ============ */}
       <StepCard
         stepNumber={2}
-        title="Analisis de cada afirmacion"
+        title="Análisis de cada afirmación"
         variant="calculation"
       >
         <p className="text-sm text-muted-foreground mb-3">
-          Pulsa &laquo;Ver respuesta&raquo; para descubrir si cada afirmacion es
-          verdadera o falsa. Intenta razonarla tu primero.
+          Pulsa &laquo;Ver respuesta&raquo; para descubrir si cada afirmación es
+          verdadera o falsa. Intenta razonarla tú primero.
         </p>
 
         <div className="space-y-3">
           {/* a) Si CMe decreciente → CVMe decreciente? */}
           <VFCard
             id="a"
-            statement="Si el CMe es decreciente, el CVMe tambien lo es."
+            statement="Si el CMe es decreciente, el CVMe también lo es."
             answer="FALSO"
             explanation={
               <>
                 <p className="font-semibold text-rose-800 dark:text-rose-200">
-                  ¿Por que es falso?
+                  ¿Por qué es falso?
                 </p>
                 <p className="text-muted-foreground">
                   Recuerda que <InlineMath math="CMe = CVMe + \frac{CF}{x}" />.
-                  El CMe puede decrecer porque el termino{" "}
-                  <InlineMath math="\frac{CF}{x}" /> baja rapidamente (al
-                  repartir los costes fijos entre mas unidades), incluso si el
-                  CVMe ya esta subiendo.
+                  El CMe puede decrecer porque el término{" "}
+                  <InlineMath math="\frac{CF}{x}" /> baja rápidamente (al
+                  repartir los costes fijos entre más unidades), incluso si el
+                  CVMe ya está subiendo.
                 </p>
                 <p className="text-muted-foreground mt-1">
-                  <strong>Contraejemplo:</strong> Imagina que el CVMe ya esta
-                  en su tramo creciente (ha pasado su minimo), pero el CMe
-                  todavia baja porque el &laquo;reparto&raquo; de costes fijos
+                  <strong>Contraejemplo:</strong> Imagina que el CVMe ya está
+                  en su tramo creciente (ha pasado su mínimo), pero el CMe
+                  todavía baja porque el &laquo;reparto&raquo; de costes fijos
                   compensa la subida del CVMe. Esto ocurre en la zona entre el
-                  minimo de CVMe y el minimo de CMe.
+                  mínimo de CVMe y el mínimo de CMe.
                 </p>
               </>
             }
@@ -203,20 +203,20 @@ export default function Ejercicio3() {
           {/* b) Si CMe creciente → CVMe creciente? */}
           <VFCard
             id="b"
-            statement="Si el CMe es creciente, el CVMe tambien lo es."
+            statement="Si el CMe es creciente, el CVMe también lo es."
             answer="VERDADERO"
             explanation={
               <>
                 <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-                  ¿Por que es verdadero?
+                  ¿Por qué es verdadero?
                 </p>
                 <p className="text-muted-foreground">
-                  Sabemos que el minimo de CVMe ocurre <strong>antes</strong>{" "}
-                  que el minimo de CMe (a un x menor). Por tanto, si estamos
+                  Sabemos que el mínimo de CVMe ocurre <strong>antes</strong>{" "}
+                  que el mínimo de CMe (a un x menor). Por tanto, si estamos
                   en un punto donde CMe ya es creciente, significa que hemos
-                  superado el minimo de CMe, que esta a la{" "}
-                  <strong>derecha</strong> del minimo de CVMe. Asi que el CVMe
-                  ya paso su minimo hace rato y tambien esta creciendo.
+                  superado el mínimo de CMe, que está a la{" "}
+                  <strong>derecha</strong> del mínimo de CVMe. Así que el CVMe
+                  ya pasó su mínimo hace rato y también está creciendo.
                 </p>
                 <FormulaDisplay math="x_{min CVMe} < x_{min CMe}" />
                 <p className="text-muted-foreground">
@@ -231,24 +231,24 @@ export default function Ejercicio3() {
           {/* c) Min CMe > Min CVMe en producción */}
           <VFCard
             id="c"
-            statement="El nivel de produccion que minimiza CMe a corto plazo es mayor que el nivel de produccion donde CVMe es minimo."
+            statement="El nivel de producción que minimiza CMe a corto plazo es mayor que el nivel de producción donde CVMe es mínimo."
             answer="VERDADERO"
             explanation={
               <>
                 <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-                  ¿Por que es verdadero?
+                  ¿Por qué es verdadero?
                 </p>
                 <p className="text-muted-foreground">
-                  El CMg corta <strong>primero</strong> al CVMe (en su minimo) y{" "}
-                  <strong>despues</strong> al CMe (en su minimo). ¿Por que?
+                  El CMg corta <strong>primero</strong> al CVMe (en su mínimo) y{" "}
+                  <strong>después</strong> al CMe (en su mínimo). ¿Por qué?
                   Porque CMe = CVMe + CF/x, y CMe &gt; CVMe siempre. La curva
-                  CMg, que viene desde abajo, cruza primero la curva mas baja
-                  (CVMe) y luego la mas alta (CMe).
+                  CMg, que viene desde abajo, cruza primero la curva más baja
+                  (CVMe) y luego la más alta (CMe).
                 </p>
                 <FormulaDisplay math="x_{min CVMe} < x_{min CMe}" />
                 <p className="text-muted-foreground">
                   Dicho de otro modo: cuando CMg ya ha superado al CVMe (CVMe
-                  empieza a subir), el CMe todavia puede seguir bajando gracias
+                  empieza a subir), el CMe todavía puede seguir bajando gracias
                   a que CF/x sigue decreciendo.
                 </p>
               </>
@@ -258,21 +258,21 @@ export default function Ejercicio3() {
           {/* d) Si CMg creciente → CVMe creciente? */}
           <VFCard
             id="d"
-            statement="Si el CMg es creciente, el CVMe tambien lo es."
+            statement="Si el CMg es creciente, el CVMe también lo es."
             answer="FALSO"
             explanation={
               <>
                 <p className="font-semibold text-rose-800 dark:text-rose-200">
-                  ¿Por que es falso?
+                  ¿Por qué es falso?
                 </p>
                 <p className="text-muted-foreground">
-                  El CMg puede estar creciendo pero todavia estar{" "}
+                  El CMg puede estar creciendo pero todavía estar{" "}
                   <strong>por debajo</strong> del CVMe. En ese caso, aunque el
-                  CMg suba, cada unidad extra sigue siendo mas barata que la
-                  media variable, asi que el CVMe sigue bajando.
+                  CMg suba, cada unidad extra sigue siendo más barata que la
+                  media variable, así que el CVMe sigue bajando.
                 </p>
                 <p className="text-muted-foreground mt-1">
-                  <strong>Analogia:</strong> Si tu nota media es 7 y sacas un
+                  <strong>Analogía:</strong> Si tu nota media es 7 y sacas un
                   5.5, tu media baja. Si en el siguiente examen sacas un 6
                   (mejor que el 5.5, o sea &laquo;marginal creciente&raquo;), tu
                   media <strong>sigue bajando</strong> porque 6 &lt; 7. El
@@ -289,25 +289,25 @@ export default function Ejercicio3() {
           {/* e) Si CMg decreciente → CMe y CVMe decrecientes? */}
           <VFCard
             id="e"
-            statement="Si el CMg es decreciente, el CMe y el CVMe tambien lo son."
+            statement="Si el CMg es decreciente, el CMe y el CVMe también lo son."
             answer="VERDADERO"
             explanation={
               <>
                 <p className="font-semibold text-emerald-800 dark:text-emerald-200">
-                  ¿Por que es verdadero?
+                  ¿Por qué es verdadero?
                 </p>
                 <p className="text-muted-foreground">
-                  Si el CMg es decreciente, significa que todavia no ha
-                  alcanzado su minimo. El CMg corta al CVMe y al CMe en sus
-                  respectivos minimos, y esos minimos ocurren{" "}
-                  <strong>despues</strong> del minimo del CMg.
+                  Si el CMg es decreciente, significa que todavía no ha
+                  alcanzado su mínimo. El CMg corta al CVMe y al CMe en sus
+                  respectivos mínimos, y esos mínimos ocurren{" "}
+                  <strong>después</strong> del mínimo del CMg.
                 </p>
                 <FormulaDisplay math="x_{min CMg} < x_{min CVMe} < x_{min CMe}" />
                 <p className="text-muted-foreground">
-                  Si el CMg esta decreciendo, estamos a la izquierda de{" "}
-                  <InlineMath math="x_{min CMg}" />, que esta a la izquierda de
-                  los minimos de CVMe y CMe. Por tanto, tanto el CVMe como el
-                  CMe estan en su tramo decreciente.
+                  Si el CMg está decreciendo, estamos a la izquierda de{" "}
+                  <InlineMath math="x_{min CMg}" />, que está a la izquierda de
+                  los mínimos de CVMe y CMe. Por tanto, tanto el CVMe como el
+                  CMe están en su tramo decreciente.
                 </p>
                 <p className="text-muted-foreground mt-1">
                   Intuitivamente: si cada unidad adicional cuesta menos que la
@@ -326,18 +326,18 @@ export default function Ejercicio3() {
             explanation={
               <>
                 <p className="font-semibold text-rose-800 dark:text-rose-200">
-                  ¿Por que es falso? Es exactamente al reves.
+                  ¿Por qué es falso? Es exactamente al revés.
                 </p>
                 <p className="text-muted-foreground">
-                  Con rendimientos crecientes a escala, producir mas es cada vez{" "}
-                  <strong>mas eficiente</strong>. Eso significa que el CMe es
+                  Con rendimientos crecientes a escala, producir más es cada vez{" "}
+                  <strong>más eficiente</strong>. Eso significa que el CMe es
                   decreciente, lo que implica que{" "}
-                  <InlineMath math="CMg < CMe" />, no al reves.
+                  <InlineMath math="CMg < CMe" />, no al revés.
                 </p>
                 <Card className="bg-rose-50 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800 mt-2">
                   <CardContent className="p-2 text-sm">
                     <p className="text-rose-800 dark:text-rose-200">
-                      <strong>Cuidado con esta trampa:</strong> La afirmacion
+                      <strong>Cuidado con esta trampa:</strong> La afirmación
                       invierte la desigualdad. Lo correcto es:
                     </p>
                     <ul className="list-disc pl-4 text-rose-700 dark:text-rose-300 mt-1">
@@ -361,19 +361,19 @@ export default function Ejercicio3() {
       {/* ============ PASO 3: Resumen visual ============ */}
       <StepCard
         stepNumber={3}
-        title="Resumen: orden de los minimos"
+        title="Resumen: orden de los mínimos"
         variant="result"
       >
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-3 sm:p-4 text-sm space-y-2">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Orden de los minimos en curvas con forma de U
+              Orden de los mínimos en curvas con forma de U
             </p>
             <FormulaDisplay math="x_{min\,CMg} \;<\; x_{min\,CVMe} \;<\; x_{min\,CMe}" />
             <p className="text-muted-foreground">
-              El CMg alcanza su minimo primero, luego el CVMe, y por ultimo el
+              El CMg alcanza su mínimo primero, luego el CVMe, y por último el
               CMe. El CMg &laquo;corta&raquo; a cada curva de medios en su
-              minimo respectivo.
+              mínimo respectivo.
             </p>
           </CardContent>
         </Card>
@@ -393,7 +393,7 @@ export default function Ejercicio3() {
           </Card>
           <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
             <CardContent className="p-3 text-sm text-center">
-              <p className="font-bold text-amber-800 dark:text-amber-200">Patron</p>
+              <p className="font-bold text-amber-800 dark:text-amber-200">Patrón</p>
               <p className="text-muted-foreground">Alternado: F V V F V F</p>
             </CardContent>
           </Card>
@@ -402,14 +402,14 @@ export default function Ejercicio3() {
         <Card className="bg-rose-50 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800 mt-3">
           <CardContent className="p-3 text-sm space-y-1">
             <p className="font-semibold text-rose-800 dark:text-rose-200">
-              Error mas comun en examen
+              Error más común en examen
             </p>
             <p className="text-muted-foreground">
-              Confundir la direccion de la relacion. Recuerda: &laquo;CMg
+              Confundir la dirección de la relación. Recuerda: &laquo;CMg
               creciente&raquo; NO implica &laquo;CVMe creciente&raquo; (puede
               estar debajo de la media). Pero &laquo;CMg decreciente&raquo; SI
-              implica &laquo;CMe y CVMe decrecientes&raquo; (porque aun no ha
-              llegado a ningun minimo).
+              implica &laquo;CMe y CVMe decrecientes&raquo; (porque aún no ha
+              llegado a ningún mínimo).
             </p>
           </CardContent>
         </Card>
