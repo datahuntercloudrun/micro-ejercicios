@@ -27,18 +27,25 @@ const ejercicios = [
 
 export default function Tema2() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
       {/* ── Header ── */}
-      <div className="flex items-center gap-3">
-        <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/20">
-          <DollarSign className="h-6 w-6 text-emerald-500" />
-        </div>
-        <div>
-          <h1 className="text-xl sm:text-2xl font-bold">
-            Tema 2: La Funcion de Costes
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Guia completa &mdash; desde cero hasta la envolvente
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 dark:from-emerald-950/30 dark:via-teal-950/20 dark:to-green-950/30 border border-white/50 dark:border-white/5 p-6 sm:p-8">
+        <div className="absolute -top-20 -right-20 w-60 h-60 bg-emerald-300/20 dark:bg-emerald-700/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-teal-300/20 dark:bg-teal-700/10 rounded-full blur-3xl" />
+        <div className="relative space-y-3">
+          <Badge className="bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs backdrop-blur-sm">
+            Tema 2 de 3
+          </Badge>
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm shadow-sm">
+              <DollarSign className="h-6 w-6 text-emerald-500" />
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 dark:from-emerald-300 dark:via-teal-300 dark:to-green-300 bg-clip-text text-transparent">
+              La Funci&oacute;n de Costes
+            </h1>
+          </div>
+          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
+            Gu&iacute;a completa &mdash; desde cero hasta la envolvente
           </p>
         </div>
       </div>
@@ -605,67 +612,68 @@ export default function Tema2() {
       </Card>
 
       {/* ── 10. Ejercicios resueltos ── */}
-      <div>
-        <h2 className="text-base sm:text-lg font-semibold mb-3 flex items-center gap-2">
+      <section className="space-y-3">
+        <div className="flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-emerald-500" />
-          Ejercicios resueltos
-        </h2>
-        <div className="space-y-2">
+          <h2 className="text-base sm:text-lg font-semibold">Ejercicios resueltos</h2>
+        </div>
+        <div className="space-y-3">
           {ejercicios.map((ej) => (
-            <Link key={ej.num} href={ej.url}>
-              <Card className="border hover:shadow-sm hover:bg-muted/30 transition-all cursor-pointer">
-                <CardContent className="flex items-center justify-between p-3">
+            <Link key={ej.num} href={ej.url} className="group block">
+              <div className="relative overflow-hidden rounded-xl border border-emerald-200/40 dark:border-emerald-800/40 bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/5 group-hover:-translate-y-0.5 group-hover:border-emerald-300/60 dark:group-hover:border-emerald-700/60">
+                <div className="h-0.5 w-full bg-gradient-to-r from-emerald-400 to-teal-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="flex items-center justify-between p-3.5 sm:p-4">
                   <div className="flex items-center gap-3">
-                    <Badge className="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200">
-                      Ej.{ej.num}
-                    </Badge>
-                    <span className="text-sm font-medium">{ej.titulo}</span>
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white text-xs font-bold shadow-sm">
+                      {ej.num}
+                    </div>
+                    <span className="font-medium text-sm sm:text-base group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">{ej.titulo}</span>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                </CardContent>
-              </Card>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-emerald-500 group-hover:translate-x-0.5" />
+                </div>
+              </div>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
 
       {/* ── 11. Kit Matematico ── */}
-      <Link href="/toolkit">
-        <Card className="border border-orange-200 dark:border-orange-800 hover:shadow-sm hover:bg-muted/30 transition-all cursor-pointer mt-2">
-          <CardContent className="flex items-center justify-between p-3">
+      <Link href="/toolkit" className="group block">
+        <div className="relative overflow-hidden rounded-xl border border-orange-200/40 dark:border-orange-800/40 bg-gradient-to-r from-orange-50/50 via-amber-50/30 to-transparent dark:from-orange-950/20 dark:via-amber-950/10 dark:to-transparent backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-orange-500/5 group-hover:-translate-y-0.5">
+          <div className="absolute -right-8 -top-8 w-32 h-32 bg-orange-200/20 dark:bg-orange-800/10 rounded-full blur-2xl" />
+          <div className="h-0.5 w-full bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative flex items-center justify-between p-4 sm:p-5">
             <div className="flex items-center gap-3">
-              <Calculator className="h-5 w-5 text-orange-500" />
+              <div className="p-2 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30">
+                <Calculator className="h-5 w-5 text-orange-500" />
+              </div>
               <div>
-                <p className="text-sm font-medium">Kit Matematico</p>
-                <p className="text-xs text-muted-foreground">
-                  Derivadas, parciales y optimizacion &mdash; lo que necesitas
-                  para este tema
-                </p>
+                <span className="font-medium text-sm sm:text-base group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">Kit Matem&aacute;tico</span>
+                <p className="text-xs text-muted-foreground">Derivadas, parciales y optimizaci&oacute;n desde cero</p>
               </div>
             </div>
-            <ArrowRight className="h-4 w-4 text-muted-foreground" />
-          </CardContent>
-        </Card>
+            <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-orange-500 group-hover:translate-x-0.5" />
+          </div>
+        </div>
       </Link>
 
       {/* ── 12. Test de autoevaluacion ── */}
-      <Link href="/tema-2/test">
-        <Card className="border border-amber-200 dark:border-amber-800 hover:shadow-sm hover:bg-muted/30 transition-all cursor-pointer">
-          <CardContent className="flex items-center justify-between p-3">
+      <Link href="/tema-2/test" className="group block">
+        <div className="relative overflow-hidden rounded-xl border border-amber-200/40 dark:border-amber-800/40 bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/5 group-hover:-translate-y-0.5 group-hover:border-amber-300/60 dark:group-hover:border-amber-700/60">
+          <div className="h-0.5 w-full bg-gradient-to-r from-amber-400 to-orange-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="flex items-center justify-between p-3.5 sm:p-4">
             <div className="flex items-center gap-3">
-              <Badge className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200">
-                Test
-              </Badge>
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-xs font-bold shadow-sm">
+                <CheckCircle className="h-4 w-4" />
+              </div>
               <div>
-                <p className="text-sm font-medium">Test de autoevaluacion</p>
-                <p className="text-xs text-muted-foreground">
-                  8 preguntas para comprobar que dominas los costes
-                </p>
+                <span className="font-medium text-sm sm:text-base group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Test de autoevaluaci&oacute;n</span>
+                <p className="text-xs text-muted-foreground">8 preguntas para comprobar que dominas los costes</p>
               </div>
             </div>
-            <ArrowRight className="h-4 w-4 text-muted-foreground" />
-          </CardContent>
-        </Card>
+            <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-amber-500 group-hover:translate-x-0.5" />
+          </div>
+        </div>
       </Link>
     </div>
   );

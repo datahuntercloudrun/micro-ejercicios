@@ -38,18 +38,25 @@ const ejercicios = [
 
 export default function Tema3() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
       {/* ===== CABECERA ===== */}
-      <div className="flex items-center gap-3">
-        <div className="p-2 rounded-lg bg-violet-50 dark:bg-violet-950/20">
-          <TrendingUp className="h-6 w-6 text-violet-500" />
-        </div>
-        <div>
-          <h1 className="text-xl sm:text-2xl font-bold">
-            Tema 3: La Oferta Competitiva
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Guia completa &mdash; desde cero hasta el examen
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 dark:from-violet-950/30 dark:via-purple-950/20 dark:to-fuchsia-950/30 border border-white/50 dark:border-white/5 p-6 sm:p-8">
+        <div className="absolute -top-20 -right-20 w-60 h-60 bg-violet-300/20 dark:bg-violet-700/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-purple-300/20 dark:bg-purple-700/10 rounded-full blur-3xl" />
+        <div className="relative space-y-3">
+          <Badge className="bg-violet-100/80 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 text-xs backdrop-blur-sm">
+            Tema 3 de 3
+          </Badge>
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-white/60 dark:bg-white/5 backdrop-blur-sm shadow-sm">
+              <TrendingUp className="h-6 w-6 text-violet-500" />
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 dark:from-violet-300 dark:via-purple-300 dark:to-fuchsia-300 bg-clip-text text-transparent">
+              La Oferta Competitiva
+            </h1>
+          </div>
+          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl leading-relaxed">
+            Gu&iacute;a completa &mdash; desde cero hasta el examen
           </p>
         </div>
       </div>
@@ -657,65 +664,65 @@ export default function Tema3() {
       <section className="space-y-3">
         <div className="flex items-center gap-2">
           <BookOpen className="h-5 w-5 text-violet-500" />
-          <h2 className="text-base sm:text-lg font-semibold">
-            Ejercicios resueltos
-          </h2>
+          <h2 className="text-base sm:text-lg font-semibold">Ejercicios resueltos</h2>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {ejercicios.map((ej) => (
-            <Link key={ej.num} href={ej.url}>
-              <Card className="border hover:shadow-sm hover:bg-muted/30 transition-all cursor-pointer">
-                <CardContent className="flex items-center justify-between p-3">
+            <Link key={ej.num} href={ej.url} className="group block">
+              <div className="relative overflow-hidden rounded-xl border border-violet-200/40 dark:border-violet-800/40 bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-violet-500/5 group-hover:-translate-y-0.5 group-hover:border-violet-300/60 dark:group-hover:border-violet-700/60">
+                <div className="h-0.5 w-full bg-gradient-to-r from-violet-400 to-purple-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="flex items-center justify-between p-3.5 sm:p-4">
                   <div className="flex items-center gap-3">
-                    <Badge className="bg-violet-100 dark:bg-violet-900/30 text-violet-800 dark:text-violet-200">
-                      Ej.{ej.num}
-                    </Badge>
-                    <span className="text-sm font-medium">{ej.titulo}</span>
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-500 text-white text-xs font-bold shadow-sm">
+                      {ej.num}
+                    </div>
+                    <span className="font-medium text-sm sm:text-base group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors">{ej.titulo}</span>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                </CardContent>
-              </Card>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-violet-500 group-hover:translate-x-0.5" />
+                </div>
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
       {/* ===== KIT MATEMATICO ===== */}
-      <Link href="/toolkit">
-        <Card className="border-orange-200 dark:border-orange-800 bg-orange-50/30 dark:bg-orange-950/10 hover:shadow-sm hover:bg-orange-50/60 dark:hover:bg-orange-950/20 transition-all cursor-pointer">
-          <CardContent className="flex items-center justify-between p-3">
+      <Link href="/toolkit" className="group block">
+        <div className="relative overflow-hidden rounded-xl border border-orange-200/40 dark:border-orange-800/40 bg-gradient-to-r from-orange-50/50 via-amber-50/30 to-transparent dark:from-orange-950/20 dark:via-amber-950/10 dark:to-transparent backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-orange-500/5 group-hover:-translate-y-0.5">
+          <div className="absolute -right-8 -top-8 w-32 h-32 bg-orange-200/20 dark:bg-orange-800/10 rounded-full blur-2xl" />
+          <div className="h-0.5 w-full bg-gradient-to-r from-orange-400 to-amber-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="relative flex items-center justify-between p-4 sm:p-5">
             <div className="flex items-center gap-3">
-              <Calculator className="h-5 w-5 text-orange-500" />
+              <div className="p-2 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30">
+                <Calculator className="h-5 w-5 text-orange-500" />
+              </div>
               <div>
-                <p className="text-sm font-medium">Kit Matematico</p>
-                <p className="text-xs text-muted-foreground">
-                  Derivadas, optimizacion e integrales explicados desde cero
-                </p>
+                <span className="font-medium text-sm sm:text-base group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">Kit Matem&aacute;tico</span>
+                <p className="text-xs text-muted-foreground">Derivadas, optimizaci&oacute;n e integrales desde cero</p>
               </div>
             </div>
-            <ArrowRight className="h-4 w-4 text-muted-foreground" />
-          </CardContent>
-        </Card>
+            <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-orange-500 group-hover:translate-x-0.5" />
+          </div>
+        </div>
       </Link>
 
       {/* ===== TEST AUTOEVALUACION ===== */}
-      <Link href="/tema-3/test">
-        <Card className="border-amber-200 dark:border-amber-800 hover:shadow-sm hover:bg-muted/30 transition-all cursor-pointer">
-          <CardContent className="flex items-center justify-between p-3">
+      <Link href="/tema-3/test" className="group block">
+        <div className="relative overflow-hidden rounded-xl border border-amber-200/40 dark:border-amber-800/40 bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/5 group-hover:-translate-y-0.5 group-hover:border-amber-300/60 dark:group-hover:border-amber-700/60">
+          <div className="h-0.5 w-full bg-gradient-to-r from-amber-400 to-orange-400 opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="flex items-center justify-between p-3.5 sm:p-4">
             <div className="flex items-center gap-3">
-              <Badge className="bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200">
-                Test
-              </Badge>
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-xs font-bold shadow-sm">
+                <ShieldCheck className="h-4 w-4" />
+              </div>
               <div>
-                <p className="text-sm font-medium">Test de autoevaluacion</p>
-                <p className="text-xs text-muted-foreground">
-                  8 preguntas tipo examen para comprobar que dominas el tema
-                </p>
+                <span className="font-medium text-sm sm:text-base group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Test de autoevaluaci&oacute;n</span>
+                <p className="text-xs text-muted-foreground">8 preguntas tipo examen para dominar el tema</p>
               </div>
             </div>
-            <ArrowRight className="h-4 w-4 text-muted-foreground" />
-          </CardContent>
-        </Card>
+            <ArrowRight className="h-4 w-4 text-muted-foreground/40 transition-all duration-300 group-hover:text-amber-500 group-hover:translate-x-0.5" />
+          </div>
+        </div>
       </Link>
     </div>
   );
