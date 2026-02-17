@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { FormulaDisplay, InlineMath } from "@/components/stats/formula-display";
 import { StepCard } from "@/components/stats/step-card";
 import { Plot, Text, Point, Line } from "mafs";
-import { EconChart, COLORS } from "@/components/charts/econ-chart";
+import { EconChart, COLORS, ChartLegend } from "@/components/charts/econ-chart";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -232,10 +232,17 @@ export default function Optimizacion() {
           <Plot.OfX y={cmg} color={COLORS.emerald} weight={2.5} />
           <Plot.OfX y={() => pSlider} color={COLORS.rose} weight={2} style="dashed" />
           <Point x={1} y={1} color={COLORS.amber} />
+          <Text x={1.3} y={0.2} size={12} color={COLORS.amber}>Min CMe</Text>
           <Text x={3} y={cme(3) + 0.5} size={12} color={COLORS.blue}>CMe</Text>
           <Text x={2.5} y={cmg(2.5) + 0.5} size={12} color={COLORS.emerald}>CMg</Text>
           <Text x={3.5} y={pSlider + 0.5} size={12} color={COLORS.rose}>p = {pSlider}</Text>
         </EconChart>
+        <ChartLegend items={[
+          { label: "CMe (Coste Medio)", color: COLORS.blue },
+          { label: "CMg (Coste Marginal)", color: COLORS.emerald },
+          { label: `Precio p = ${pSlider}`, color: COLORS.rose, dashed: true },
+          { label: "Min CMe (1, 1) — punto de nivelación", color: COLORS.amber },
+        ]} />
 
         <div className="px-1 mt-2">
           <p className="font-semibold mb-2">

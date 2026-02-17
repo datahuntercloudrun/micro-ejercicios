@@ -2,7 +2,7 @@
 
 import { Mafs, Coordinates } from "mafs";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ReactNode, useRef, useCallback } from "react";
+import { ReactNode, useRef, useCallback, useMemo } from "react";
 
 export const COLORS = {
   blue: "#3b82f6",
@@ -14,6 +14,19 @@ export const COLORS = {
   slate: "#64748b",
   indigo: "#6366f1",
 };
+
+/** Calculate a "nice" grid interval for a given range */
+function niceInterval(min: number, max: number): number {
+  const range = max - min;
+  if (range <= 0) return 1;
+  const rough = range / 6;
+  const mag = Math.pow(10, Math.floor(Math.log10(rough)));
+  const res = rough / mag;
+  if (res <= 1.5) return mag;
+  if (res <= 3.5) return 2 * mag;
+  if (res <= 7.5) return 5 * mag;
+  return 10 * mag;
+}
 
 interface EconChartProps {
   children: ReactNode;
@@ -37,6 +50,12 @@ export function EconChart({
   const isMobile = useIsMobile();
   const h = height ?? (isMobile ? 280 : 380);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const axisConfig = useMemo(() => {
+    const xLines = niceInterval(xRange[0], xRange[1]);
+    const yLines = niceInterval(yRange[0], yRange[1]);
+    return { xLines, yLines };
+  }, [xRange, yRange]);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -68,7 +87,10 @@ export function EconChart({
         preserveAspectRatio={false}
         pan={false}
       >
-        <Coordinates.Cartesian />
+        <Coordinates.Cartesian
+          xAxis={{ lines: axisConfig.xLines, subdivisions: false }}
+          yAxis={{ lines: axisConfig.yLines, subdivisions: false }}
+        />
         {children}
       </Mafs>
     </div>
