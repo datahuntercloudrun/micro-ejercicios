@@ -618,15 +618,28 @@ export default function Derivadas() {
 
           {/* Rule 3: constant disappears */}
           <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800">
-            <CardContent className="p-4 text-sm space-y-2">
+            <CardContent className="p-4 text-sm space-y-3">
               <p className="font-semibold text-emerald-800 dark:text-emerald-200">
                 Regla 3: Las constantes sueltas desaparecen
               </p>
               <FormulaDisplay math="\frac{d}{dx}\left(f(x) + c\right) = f'(x)" />
               <p className="text-emerald-900 dark:text-emerald-100">
                 Ejemplo: <InlineMath math="\frac{d}{dx}(x^2 + 4x + 4) = 2x + 4" />.
-                El &laquo;+4&raquo; suelto desaparece. Los costes fijos no afectan al coste marginal.
+                El &laquo;+4&raquo; suelto desaparece.
               </p>
+              <div className="bg-white/60 dark:bg-white/5 rounded-lg p-3 space-y-2 border border-emerald-200/50 dark:border-emerald-700/30">
+                <p className="font-medium text-emerald-800 dark:text-emerald-200">¿Por que las constantes desaparecen al derivar?</p>
+                <p className="text-emerald-900 dark:text-emerald-100 leading-relaxed">
+                  La derivada mide <strong>cuanto cambia</strong> la funcion cuando x varia. Una constante, por definicion, <strong>no cambia nunca</strong>: vale lo mismo cuando x = 1 que cuando x = 1000. Si algo no cambia, su tasa de cambio es cero.
+                </p>
+                <p className="font-medium text-emerald-800 dark:text-emerald-200 pt-1">¿Y que tiene que ver con los costes fijos?</p>
+                <p className="text-emerald-900 dark:text-emerald-100 leading-relaxed">
+                  Imagina que alquilas un local por 500 &euro;/mes. Produzcas 1 unidad o 10.000, el alquiler es el mismo: 500 &euro;. Ese coste fijo no cambia al producir una unidad mas, asi que cuando calculas el <strong>coste marginal</strong> (= derivada del coste total), el alquiler desaparece. Solo influyen los costes que <em>si</em> varian con la cantidad: materias primas, horas extra, electricidad de las maquinas...
+                </p>
+                <p className="text-emerald-900/70 dark:text-emerald-100/70 text-xs italic">
+                  Por eso en microeconomia la decision de &laquo;¿produzco una unidad mas?&raquo; solo depende de los costes variables, nunca de los fijos.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
