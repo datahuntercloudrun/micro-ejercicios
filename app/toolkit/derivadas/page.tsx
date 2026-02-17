@@ -8,7 +8,188 @@ import { StepCard } from "@/components/stats/step-card";
 import { Plot, Text, Point, Line } from "mafs";
 import { EconChart, COLORS } from "@/components/charts/econ-chart";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
+
+const quizData = [
+  {
+    id: 1,
+    funcion: "C(x) = 2x",
+    contexto: "Tema 2, Ej.1a",
+    opciones: ["CMg = 2", "CMg = 2x", "CMg = x", "CMg = 0"],
+    correcta: 0,
+    explicacion: "Tenemos 2x = 2·x¹. Baja el 1, resta 1 al exponente: 2·1·x⁰ = 2. El coste marginal es constante.",
+  },
+  {
+    id: 2,
+    funcion: "C(x) = 2\\sqrt{x} = 2x^{0.5}",
+    contexto: "Tema 2, Ej.1c",
+    opciones: ["CMg = \\frac{1}{\\sqrt{x}}", "CMg = \\sqrt{x}", "CMg = \\frac{2}{\\sqrt{x}}", "CMg = x^{-1.5}"],
+    correcta: 0,
+    explicacion: "Regla de la potencia: 2·0.5·x^(0.5-1) = x^(-0.5) = 1/√x. El CMg disminuye con x.",
+  },
+  {
+    id: 3,
+    funcion: "f(L) = 40L^2",
+    contexto: "Tema 1, Ej.1 corto plazo",
+    opciones: ["PMg_L = 80L", "PMg_L = 40L", "PMg_L = 20L^2", "PMg_L = 80L^2"],
+    correcta: 0,
+    explicacion: "Baja el 2, resta 1: 40·2·L^(2-1) = 80L. Rendimientos crecientes del factor trabajo.",
+  },
+  {
+    id: 4,
+    funcion: "C(x) = x^3 - 2x^2 + 2x",
+    contexto: "Tema 2, Ej.1d",
+    opciones: ["CMg = 3x^2 - 4x + 2", "CMg = 3x^2 - 2x + 2", "CMg = x^2 - 4x + 2", "CMg = 3x^2 - 4x"],
+    correcta: 0,
+    explicacion: "Derivamos término a término: 3x² de x³, -4x de -2x², y 2 de 2x. Resultado: 3x²-4x+2.",
+  },
+  {
+    id: 5,
+    funcion: "C(x) = x^2 + 4x + 4",
+    contexto: "Tema 3, Ej.2",
+    opciones: ["CMg = 2x + 4", "CMg = 2x + 4x", "CMg = x + 4", "CMg = 2x + 8"],
+    correcta: 0,
+    explicacion: "De x² sale 2x, de 4x sale 4, y la constante 4 desaparece. El coste fijo no afecta al marginal.",
+  },
+];
+
+function QuizPractica() {
+  const [respuestas, setRespuestas] = useState<Record<number, number | null>>({});
+
+  const handleSelect = (preguntaId: number, opcionIdx: number) => {
+    if (respuestas[preguntaId] !== undefined && respuestas[preguntaId] !== null) return;
+    setRespuestas((prev) => ({ ...prev, [preguntaId]: opcionIdx }));
+  };
+
+  const acertadas = quizData.filter((q) => respuestas[q.id] === q.correcta).length;
+  const respondidas = Object.values(respuestas).filter((v) => v !== null).length;
+
+  return (
+    <div className="space-y-4">
+      <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+        <CardContent className="p-4 text-sm">
+          <p className="font-semibold text-blue-800 dark:text-blue-200">
+            Selecciona la derivada correcta de cada funci&oacute;n.
+          </p>
+          <p className="text-blue-900 dark:text-blue-100 mt-1">
+            Intenta razonar antes de pulsar. No hay truco: aplica la regla de la potencia.
+          </p>
+        </CardContent>
+      </Card>
+
+      {quizData.map((q) => {
+        const seleccion = respuestas[q.id] ?? null;
+        const respondida = seleccion !== null;
+        const esCorrecta = seleccion === q.correcta;
+
+        return (
+          <Card
+            key={q.id}
+            className={`border transition-colors ${
+              respondida
+                ? esCorrecta
+                  ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50/30 dark:bg-emerald-950/10"
+                  : "border-rose-300 dark:border-rose-700 bg-rose-50/30 dark:bg-rose-950/10"
+                : "border-gray-200 dark:border-gray-800"
+            }`}
+          >
+            <CardContent className="p-4 text-sm space-y-3">
+              <div className="flex items-start justify-between gap-2">
+                <p className="font-semibold">
+                  {q.id}) <InlineMath math={q.funcion} />{" "}
+                  <span className="text-muted-foreground font-normal">({q.contexto})</span>
+                </p>
+                {respondida && (
+                  <div className={`flex items-center gap-1 shrink-0 text-xs font-bold px-2 py-1 rounded-full ${
+                    esCorrecta
+                      ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300"
+                      : "bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300"
+                  }`}>
+                    {esCorrecta ? <Check className="h-3 w-3" /> : <X className="h-3 w-3" />}
+                    {esCorrecta ? "Correcto" : "Incorrecto"}
+                  </div>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {q.opciones.map((op, idx) => {
+                  const esEstaCorrecta = idx === q.correcta;
+                  const esEstaSeleccionada = seleccion === idx;
+                  let estilo = "border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50/50 dark:hover:bg-blue-950/20 cursor-pointer";
+
+                  if (respondida) {
+                    if (esEstaCorrecta) {
+                      estilo = "border-emerald-400 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 ring-1 ring-emerald-400/50";
+                    } else if (esEstaSeleccionada && !esEstaCorrecta) {
+                      estilo = "border-rose-400 dark:border-rose-600 bg-rose-50 dark:bg-rose-950/30 ring-1 ring-rose-400/50";
+                    } else {
+                      estilo = "border-gray-200 dark:border-gray-800 opacity-50";
+                    }
+                  }
+
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleSelect(q.id, idx)}
+                      disabled={respondida}
+                      className={`w-full text-left border rounded-lg px-3 py-2.5 text-sm transition-all ${estilo} ${respondida ? "cursor-default" : ""}`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className={`flex items-center justify-center w-5 h-5 rounded-full text-xs font-bold shrink-0 ${
+                          respondida && esEstaCorrecta
+                            ? "bg-emerald-500 text-white"
+                            : respondida && esEstaSeleccionada
+                            ? "bg-rose-500 text-white"
+                            : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+                        }`}>
+                          {respondida && esEstaCorrecta ? <Check className="h-3 w-3" /> : respondida && esEstaSeleccionada ? <X className="h-3 w-3" /> : String.fromCharCode(97 + idx)}
+                        </span>
+                        <InlineMath math={op} />
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {respondida && (
+                <div className={`text-xs leading-relaxed p-2.5 rounded-lg ${
+                  esCorrecta
+                    ? "bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-200"
+                    : "bg-rose-100/50 dark:bg-rose-900/20 text-rose-800 dark:text-rose-200"
+                }`}>
+                  {q.explicacion}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        );
+      })}
+
+      {respondidas === quizData.length && (
+        <Card className={`border-2 ${
+          acertadas === quizData.length
+            ? "border-emerald-400 dark:border-emerald-600 bg-emerald-50/50 dark:bg-emerald-950/20"
+            : acertadas >= 3
+            ? "border-amber-400 dark:border-amber-600 bg-amber-50/50 dark:bg-amber-950/20"
+            : "border-rose-400 dark:border-rose-600 bg-rose-50/50 dark:bg-rose-950/20"
+        }`}>
+          <CardContent className="p-4 text-center space-y-1">
+            <p className="text-2xl font-bold">
+              {acertadas}/{quizData.length}
+            </p>
+            <p className="text-sm text-muted-foreground">
+              {acertadas === quizData.length
+                ? "Perfecto. Dominas la regla de la potencia."
+                : acertadas >= 3
+                ? "Casi. Repasa las que fallaste arriba."
+                : "Vuelve a leer los pasos 3-5 y repite."}
+            </p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
 
 export default function Derivadas() {
   const [tangentX, setTangentX] = useState(2);
@@ -394,120 +575,7 @@ export default function Derivadas() {
 
       {/* ========== PASO 6: Practica con funciones del curso ========== */}
       <StepCard stepNumber={6} title="Practica: funciones que aparecen en el curso" variant="result">
-        <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-          <CardContent className="p-4 text-sm space-y-2">
-            <p className="font-semibold text-blue-800 dark:text-blue-200">
-              Ahora toca practicar. Intenta derivar estas funciones antes de mirar la solucion.
-            </p>
-          </CardContent>
-        </Card>
-
-        <div className="space-y-4 mt-3">
-          {/* Practice 1 */}
-          <Card className="border">
-            <CardContent className="p-4 text-sm space-y-2">
-              <p className="font-semibold">
-                1) <InlineMath math="C(x) = 2x" /> (Tema 2, Ej.1a)
-              </p>
-              <details className="mt-2">
-                <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
-                  Ver solucion paso a paso
-                </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Tenemos <InlineMath math="2x = 2 \cdot x^1" /></p>
-                  <p>Regla: baja el 1, resta 1 al exponente:</p>
-                  <FormulaDisplay math="CMg = 2 \cdot 1 \cdot x^{1-1} = 2 \cdot x^0 = 2" />
-                  <p>El coste marginal es constante: cada unidad extra cuesta 2.</p>
-                </div>
-              </details>
-            </CardContent>
-          </Card>
-
-          {/* Practice 2 */}
-          <Card className="border">
-            <CardContent className="p-4 text-sm space-y-2">
-              <p className="font-semibold">
-                2) <InlineMath math="C(x) = 2\sqrt{x} = 2x^{0.5}" /> (Tema 2, Ej.1c)
-              </p>
-              <details className="mt-2">
-                <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
-                  Ver solucion paso a paso
-                </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Tenemos <InlineMath math="2x^{0.5}" /></p>
-                  <p>Regla de la potencia con factor constante:</p>
-                  <FormulaDisplay math="CMg = 2 \cdot 0.5 \cdot x^{0.5-1} = x^{-0.5} = \frac{1}{\sqrt{x}}" />
-                  <p>El coste marginal disminuye: cuanto mas produces, mas barata es cada unidad extra.</p>
-                </div>
-              </details>
-            </CardContent>
-          </Card>
-
-          {/* Practice 3 */}
-          <Card className="border">
-            <CardContent className="p-4 text-sm space-y-2">
-              <p className="font-semibold">
-                3) <InlineMath math="f(L) = 40L^2" /> (Tema 1, Ej.1 corto plazo)
-              </p>
-              <details className="mt-2">
-                <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
-                  Ver solucion paso a paso
-                </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Tenemos <InlineMath math="40L^2" /></p>
-                  <p>Derivamos respecto a L (baja el 2, resta 1):</p>
-                  <FormulaDisplay math="PMg_L = 40 \cdot 2 \cdot L^{2-1} = 80L" />
-                  <p>La productividad marginal del trabajo crece con L (rendimientos crecientes del factor).</p>
-                </div>
-              </details>
-            </CardContent>
-          </Card>
-
-          {/* Practice 4 */}
-          <Card className="border">
-            <CardContent className="p-4 text-sm space-y-2">
-              <p className="font-semibold">
-                4) <InlineMath math="C(x) = x^3 - 2x^2 + 2x" /> (Tema 2, Ej.1d)
-              </p>
-              <details className="mt-2">
-                <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
-                  Ver solucion paso a paso
-                </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Derivamos cada termino por separado:</p>
-                  <FormulaDisplay math="\frac{d}{dx}(x^3) = 3x^2" />
-                  <FormulaDisplay math="\frac{d}{dx}(-2x^2) = -2 \cdot 2x = -4x" />
-                  <FormulaDisplay math="\frac{d}{dx}(2x) = 2" />
-                  <p>Sumamos:</p>
-                  <FormulaDisplay math="CMg = 3x^2 - 4x + 2" />
-                </div>
-              </details>
-            </CardContent>
-          </Card>
-
-          {/* Practice 5 */}
-          <Card className="border">
-            <CardContent className="p-4 text-sm space-y-2">
-              <p className="font-semibold">
-                5) <InlineMath math="C(x) = x^2 + 4x + 4" /> (Tema 3, Ej.2)
-              </p>
-              <details className="mt-2">
-                <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
-                  Ver solucion paso a paso
-                </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-1">
-                  <p>Derivamos cada termino:</p>
-                  <FormulaDisplay math="\frac{d}{dx}(x^2) = 2x" />
-                  <FormulaDisplay math="\frac{d}{dx}(4x) = 4" />
-                  <FormulaDisplay math="\frac{d}{dx}(4) = 0 \quad \text{(constante, desaparece)}" />
-                  <p>Sumamos:</p>
-                  <FormulaDisplay math="CMg = 2x + 4" />
-                  <p>El &laquo;4&raquo; suelto (coste fijo) no aparece en el marginal.</p>
-                </div>
-              </details>
-            </CardContent>
-          </Card>
-        </div>
+        <QuizPractica />
       </StepCard>
 
       {/* ========== PASO 7: Resumen ========== */}
