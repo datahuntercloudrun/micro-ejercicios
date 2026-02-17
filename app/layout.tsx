@@ -41,9 +41,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SidebarProvider>
             <AppSidebar />
-            <SidebarInset className="min-h-svh overflow-x-hidden">
+            <SidebarInset className="h-svh !block overflow-y-auto overflow-x-hidden">
               <AppHeader />
-              <main className="flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-4 md:p-6 relative">
+              <main className="p-3 sm:p-4 md:p-6 relative">
                 {children}
               </main>
             </SidebarInset>
