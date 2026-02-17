@@ -404,17 +404,32 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
-                  <div>
-                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos K como constante):</p>
-                    <p>Tenemos <InlineMath math="L^{0.5}" />. Bajamos el 0.5 y restamos 1 al exponente: <InlineMath math="0.5 \cdot L^{0.5-1} = 0.5 \cdot L^{-0.5}" />.</p>
-                    <p>La constante <InlineMath math="K^{0.5}" /> no se toca:</p>
-                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 0.5 \cdot L^{-0.5} \cdot K^{0.5} = \frac{K^{0.5}}{2L^{0.5}} = \frac{1}{2}\sqrt{\frac{K}{L}}" />
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-4">
+                  <div className="space-y-2">
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos <InlineMath math="K^{0.5}" /> como constante):</p>
+                    <p><strong>Paso 1:</strong> Aplicamos la regla de la potencia a <InlineMath math="L^{0.5}" />: bajamos el 0.5 y restamos 1 al exponente.</p>
+                    <FormulaDisplay math="0.5 \cdot L^{0.5-1} = 0.5 \cdot L^{-0.5}" />
+                    <p><strong>Paso 2:</strong> Multiplicamos por la constante <InlineMath math="K^{0.5}" /> (que no se toca):</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 0.5 \cdot L^{-0.5} \cdot K^{0.5}" />
+                    <p className="text-muted-foreground text-xs">Ya está. Este es el resultado. Lo que sigue es solo simplificar, que es opcional:</p>
+                    <Card className="bg-gray-50 dark:bg-gray-800/50 border p-3 space-y-2">
+                      <p className="text-xs"><strong>Simplificación paso a paso</strong> (no obligatoria, pero te la piden a veces):</p>
+                      <p className="text-xs">1. <InlineMath math="0.5 = \frac{1}{2}" />, así que el 0.5 pasa como un 2 al denominador.</p>
+                      <p className="text-xs">2. <InlineMath math="L^{-0.5} = \frac{1}{L^{0.5}}" /> (exponente negativo = pasa abajo).</p>
+                      <p className="text-xs">3. Juntando todo: <InlineMath math="\frac{1}{2} \cdot \frac{1}{L^{0.5}} \cdot K^{0.5} = \frac{K^{0.5}}{2L^{0.5}}" /></p>
+                      <p className="text-xs">4. Como <InlineMath math="x^{0.5} = \sqrt{x}" />, podemos escribirlo como <InlineMath math="\frac{\sqrt{K}}{2\sqrt{L}} = \frac{1}{2}\sqrt{\frac{K}{L}}" /></p>
+                    </Card>
                   </div>
-                  <div>
-                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos L como constante):</p>
-                    <p>Ahora <InlineMath math="L^{0.5}" /> es la constante. Derivamos <InlineMath math="K^{0.5}" />: bajamos el 0.5 y restamos 1.</p>
-                    <FormulaDisplay math="\frac{\partial f}{\partial K} = L^{0.5} \cdot 0.5 \cdot K^{-0.5} = \frac{L^{0.5}}{2K^{0.5}} = \frac{1}{2}\sqrt{\frac{L}{K}}" />
+                  <div className="space-y-2">
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos <InlineMath math="L^{0.5}" /> como constante):</p>
+                    <p><strong>Paso 1:</strong> Regla de la potencia a <InlineMath math="K^{0.5}" />:</p>
+                    <FormulaDisplay math="0.5 \cdot K^{0.5-1} = 0.5 \cdot K^{-0.5}" />
+                    <p><strong>Paso 2:</strong> Multiplicamos por la constante <InlineMath math="L^{0.5}" />:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial K} = L^{0.5} \cdot 0.5 \cdot K^{-0.5}" />
+                    <Card className="bg-gray-50 dark:bg-gray-800/50 border p-3 space-y-2">
+                      <p className="text-xs"><strong>Simplificación:</strong> misma lógica que antes &mdash; <InlineMath math="0.5 = \frac{1}{2}" /> y <InlineMath math="K^{-0.5} = \frac{1}{K^{0.5}}" />:</p>
+                      <p className="text-xs"><InlineMath math="\frac{L^{0.5}}{2K^{0.5}} = \frac{\sqrt{L}}{2\sqrt{K}} = \frac{1}{2}\sqrt{\frac{L}{K}}" /></p>
+                    </Card>
                   </div>
                   <p className="text-xs text-muted-foreground">
                     Fíjate que ambas derivadas son simétricas: si intercambias L y K en una, obtienes la otra. Esto pasa porque los exponentes son iguales (0.5 y 0.5).
@@ -434,16 +449,19 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
-                  <p>Primero, reescribimos para ver los exponentes: <InlineMath math="f = L^1 \cdot K^1" /> (es decir, <InlineMath math="\alpha = 1, \beta = 1" />).</p>
-                  <div>
-                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (K es constante):</p>
-                    <p>Bajamos el exponente de L (que es 1) y le restamos 1: <InlineMath math="1 \cdot L^{1-1} = L^0 = 1" />. Multiplicamos por la constante K:</p>
-                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 1 \cdot K = K" />
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-4">
+                  <p>Primero, reescribimos para ver los exponentes: <InlineMath math="LK = L^1 \cdot K^1" />.</p>
+                  <div className="space-y-2">
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos K como constante):</p>
+                    <p><strong>Paso 1:</strong> Regla de la potencia a <InlineMath math="L^1" />: bajamos el 1 y restamos 1 al exponente.</p>
+                    <FormulaDisplay math="1 \cdot L^{1-1} = 1 \cdot L^0" />
+                    <p><strong>Paso 2:</strong> <InlineMath math="L^0 = 1" /> (cualquier cosa elevada a 0 es 1). Multiplicamos por la constante K:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 1 \cdot 1 \cdot K = K" />
                   </div>
-                  <div>
-                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (L es constante):</p>
-                    <p>Lo mismo pero con K: <InlineMath math="1 \cdot K^{1-1} = K^0 = 1" />. Multiplicamos por la constante L:</p>
+                  <div className="space-y-2">
+                    <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos L como constante):</p>
+                    <p><strong>Paso 1:</strong> Regla de la potencia a <InlineMath math="K^1" />: bajamos el 1, restamos 1: <InlineMath math="1 \cdot K^{1-1} = 1 \cdot K^0 = 1" />.</p>
+                    <p><strong>Paso 2:</strong> Multiplicamos por la constante L:</p>
                     <FormulaDisplay math="\frac{\partial f}{\partial K} = L \cdot 1 = L" />
                   </div>
                   <p className="text-xs text-muted-foreground">
@@ -464,20 +482,38 @@ export default function DerivadasParciales() {
                 <summary className="cursor-pointer text-blue-600 dark:text-blue-400 font-medium">
                   Ver solución
                 </summary>
-                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-3">
-                  <p>Aquí <InlineMath math="A=2" />, <InlineMath math="\alpha = 1/4" />, <InlineMath math="\beta = 1/2" />.</p>
-                  <div>
+                <div className="mt-2 pl-4 border-l-2 border-blue-200 dark:border-blue-700 space-y-4">
+                  <p>Identificamos: <InlineMath math="A=2" />, <InlineMath math="\alpha = 1/4" /> (exponente de L), <InlineMath math="\beta = 1/2" /> (exponente de K).</p>
+                  <div className="space-y-2">
                     <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a L (tratamos <InlineMath math="2K^{1/2}" /> como constante):</p>
-                    <p>Bajamos <InlineMath math="1/4" /> y restamos 1 al exponente: <InlineMath math="\frac{1}{4} - 1 = -\frac{3}{4}" />.</p>
-                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 2 \cdot \tfrac{1}{4} \cdot L^{-3/4} \cdot K^{1/2} = \frac{1}{2} \cdot L^{-3/4} \cdot K^{1/2} = \frac{K^{1/2}}{2L^{3/4}}" />
+                    <p><strong>Paso 1:</strong> Regla de la potencia a <InlineMath math="L^{1/4}" />: bajamos el <InlineMath math="\frac{1}{4}" /> y restamos 1 al exponente.</p>
+                    <FormulaDisplay math="\tfrac{1}{4} - 1 = \tfrac{1}{4} - \tfrac{4}{4} = -\tfrac{3}{4}" />
+                    <p>Nos queda: <InlineMath math="\frac{1}{4} \cdot L^{-3/4}" /></p>
+                    <p><strong>Paso 2:</strong> Multiplicamos por las constantes <InlineMath math="2" /> y <InlineMath math="K^{1/2}" />:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial L} = 2 \cdot \tfrac{1}{4} \cdot L^{-3/4} \cdot K^{1/2}" />
+                    <p><strong>Paso 3:</strong> Simplificamos los números: <InlineMath math="2 \cdot \frac{1}{4} = \frac{2}{4} = \frac{1}{2}" /></p>
+                    <FormulaDisplay math="= \tfrac{1}{2} \cdot L^{-3/4} \cdot K^{1/2}" />
+                    <Card className="bg-gray-50 dark:bg-gray-800/50 border p-3 space-y-2">
+                      <p className="text-xs"><strong>Simplificación opcional:</strong> <InlineMath math="L^{-3/4} = \frac{1}{L^{3/4}}" /> (exponente negativo = pasa abajo).</p>
+                      <p className="text-xs">Entonces: <InlineMath math="\frac{1}{2} \cdot \frac{1}{L^{3/4}} \cdot K^{1/2} = \frac{K^{1/2}}{2L^{3/4}}" /></p>
+                    </Card>
                   </div>
-                  <div>
+                  <div className="space-y-2">
                     <p className="font-medium text-emerald-700 dark:text-emerald-300">Derivada respecto a K (tratamos <InlineMath math="2L^{1/4}" /> como constante):</p>
-                    <p>Bajamos <InlineMath math="1/2" /> y restamos 1: <InlineMath math="\frac{1}{2} - 1 = -\frac{1}{2}" />.</p>
-                    <FormulaDisplay math="\frac{\partial f}{\partial K} = 2 \cdot L^{1/4} \cdot \tfrac{1}{2} \cdot K^{-1/2} = L^{1/4} \cdot K^{-1/2} = \frac{L^{1/4}}{K^{1/2}}" />
+                    <p><strong>Paso 1:</strong> Regla de la potencia a <InlineMath math="K^{1/2}" />: bajamos el <InlineMath math="\frac{1}{2}" /> y restamos 1.</p>
+                    <FormulaDisplay math="\tfrac{1}{2} - 1 = \tfrac{1}{2} - \tfrac{2}{2} = -\tfrac{1}{2}" />
+                    <p>Nos queda: <InlineMath math="\frac{1}{2} \cdot K^{-1/2}" /></p>
+                    <p><strong>Paso 2:</strong> Multiplicamos por las constantes <InlineMath math="2" /> y <InlineMath math="L^{1/4}" />:</p>
+                    <FormulaDisplay math="\frac{\partial f}{\partial K} = 2 \cdot L^{1/4} \cdot \tfrac{1}{2} \cdot K^{-1/2}" />
+                    <p><strong>Paso 3:</strong> Simplificamos: <InlineMath math="2 \cdot \frac{1}{2} = 1" />, así que el 2 y el <InlineMath math="\frac{1}{2}" /> se cancelan.</p>
+                    <FormulaDisplay math="= L^{1/4} \cdot K^{-1/2}" />
+                    <Card className="bg-gray-50 dark:bg-gray-800/50 border p-3 space-y-2">
+                      <p className="text-xs"><strong>Simplificación opcional:</strong> <InlineMath math="K^{-1/2} = \frac{1}{K^{1/2}} = \frac{1}{\sqrt{K}}" /></p>
+                      <p className="text-xs">Entonces: <InlineMath math="\frac{L^{1/4}}{K^{1/2}} = \frac{L^{1/4}}{\sqrt{K}}" /></p>
+                    </Card>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Recuerda: exponente negativo = pasa al denominador. Por eso <InlineMath math="L^{-3/4} = \frac{1}{L^{3/4}}" />.
+                    Patrón: siempre es lo mismo &mdash; baja el exponente, réstale 1, y multiplica por lo que no tocas.
                   </p>
                 </div>
               </details>
