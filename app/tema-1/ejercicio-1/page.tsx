@@ -32,6 +32,14 @@ export default function Ejercicio1() {
   const rmst160 = (2 * K160) / explorerL;
   // Producción en corto plazo (K̄=4): x = 40L²
   const prodCP = 40 * explorerL * explorerL;
+  // Para demostrar que la RMST es una tasa instantánea (no vale para cambios grandes)
+  const demoStep = 0.1;
+  const K40afterStep = 4 / ((explorerL + demoStep) * (explorerL + demoStep));
+  const rmstPredDK = rmst40 * demoStep;
+  const actualDK = K40 - K40afterStep;
+  // Cambio grande (ΔL = 1) para mostrar que falla
+  const K40after1 = 4 / ((explorerL + 1) * (explorerL + 1));
+  const actualDK1 = K40 - K40after1;
 
   return (
     <ExerciseLayout
@@ -480,16 +488,51 @@ export default function Ejercicio1() {
               </tbody>
             </table>
             <p className="text-muted-foreground">
-              Fij&aacute;te: al principio (cuando tienes muchas m&aacute;quinas) el ahorro es grande.
+              F&iacute;jate: al principio (cuando tienes muchas m&aacute;quinas) el ahorro es grande.
               Pero cuando ya tienes pocas m&aacute;quinas, a&ntilde;adir un trabajador apenas ahorra nada.
             </p>
+            <p className="text-muted-foreground">
+              Ese ahorro de la tabla es un <strong>cambio discreto</strong> (de L=1 a L=2 de golpe).
+              La RMST, que veremos en el apartado c), es otra cosa: una <strong>tasa instant&aacute;nea</strong> que
+              solo funciona para cambios muy peque&ntilde;os, no para a&ntilde;adir un trabajador entero.
+            </p>
+            <p className="text-muted-foreground">
+              Por ejemplo, con L=1, K=4: la RMST vale 8, pero el ahorro real al pasar a L=2
+              fue solo 3 m&aacute;quinas. La RMST exagera porque &Delta;L=1 no es &ldquo;peque&ntilde;o&rdquo;.
+            </p>
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
-              <CardContent className="p-3">
+              <CardContent className="p-3 space-y-2">
                 <p className="text-blue-900 dark:text-blue-100">
-                  <strong>En tu punto actual</strong> ({explorerL.toFixed(2)} trabajadores, {K40.toFixed(2)} m&aacute;quinas para 40 uds.),
-                  la <strong>RMST = {rmst40.toFixed(2)}</strong>.
-                  Esto es la pendiente de la curva azul justo ah&iacute;: por cada trabajador
-                  extra que a&ntilde;adas, te &ldquo;ahorrar&iacute;as&rdquo; unas {rmst40.toFixed(2)} m&aacute;quinas.
+                  <strong>En tu punto actual</strong> (L&nbsp;=&nbsp;{explorerL.toFixed(2)},
+                  K&nbsp;=&nbsp;{K40.toFixed(2)} para 40 uds.),
+                  la <strong>RMST&nbsp;=&nbsp;{rmst40.toFixed(2)}</strong>.
+                </p>
+                <p className="text-blue-900 dark:text-blue-100">
+                  Esto es la pendiente (en valor absoluto) de la curva azul <em>justo en ese punto</em>.
+                  Es como el veloc&iacute;metro de un coche: te dice la velocidad <em>ahora mismo</em>,
+                  no cu&aacute;nto recorrer&aacute;s en la pr&oacute;xima hora.
+                </p>
+                <p className="text-blue-900 dark:text-blue-100">
+                  <strong>Cambio peque&ntilde;o</strong> (&Delta;L&nbsp;=&nbsp;{demoStep}):
+                  la RMST predice que K baja &asymp;&nbsp;{rmstPredDK.toFixed(3)}.
+                  En realidad baja {actualDK.toFixed(3)}.
+                  &iexcl;Casi igual! Para cambios peque&ntilde;os, funciona bien.
+                </p>
+                <p className="text-blue-900 dark:text-blue-100">
+                  <strong>Cambio grande</strong> (&Delta;L&nbsp;=&nbsp;1):
+                  la RMST &ldquo;predice&rdquo; que K baja {rmst40.toFixed(2)},
+                  pero en realidad baja {actualDK1.toFixed(2)}.
+                  {rmst40 > K40 && (
+                    <span className="text-rose-700 dark:text-rose-300 font-medium">
+                      {" "}&iexcl;La RMST predice m&aacute;s ahorro ({rmst40.toFixed(2)}) del capital
+                      que tienes ({K40.toFixed(2)})! Absurdo: la curva no es recta.
+                    </span>
+                  )}
+                  {rmst40 <= K40 && (
+                    <span>
+                      {" "}La diferencia es grande porque la isocuanta es curva, no recta.
+                    </span>
+                  )}
                 </p>
               </CardContent>
             </Card>
@@ -652,38 +695,177 @@ export default function Ejercicio1() {
         title="c) RMST (Relaci&oacute;n Marginal de Sustituci&oacute;n T&eacute;cnica)"
         variant="calculation"
       >
+        {/* Qué mide */}
         <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
           <CardContent className="p-3 sm:p-4 text-sm space-y-2">
             <p className="font-semibold text-blue-800 dark:text-blue-200">
               &iquest;Qu&eacute; mide la RMST?
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Responde a la pregunta: &quot;&iquest;Cu&aacute;ntas unidades de capital{" "}
-              <InlineMath math="K" /> puedo <strong>dejar de usar</strong>{" "}
-              si contrato <strong>una unidad m&aacute;s</strong> de trabajo{" "}
-              <InlineMath math="L" />, sin que cambie la producci&oacute;n?&quot;
+              La RMST es la <strong>pendiente de la isocuanta</strong> en un punto concreto.
+              Mide la <strong>tasa instant&aacute;nea</strong> a la que puedes intercambiar capital
+              por trabajo manteniendo la producci&oacute;n constante.
             </p>
             <p className="text-blue-900 dark:text-blue-100">
-              Es la <strong>pendiente de la isocuanta</strong> (con signo cambiado).
+              &laquo;Instant&aacute;nea&raquo; es la palabra clave. Piensa en el veloc&iacute;metro de un coche:
+              marca 120 km/h, pero eso no significa que vayas a recorrer 120 km en la
+              pr&oacute;xima hora (puedes frenar, acelerar...). Del mismo modo, la RMST te dice
+              a qu&eacute; <em>ritmo</em> cambiar&iacute;a K por cada unidad de L
+              {" "}<strong>en ese punto exacto</strong>, no cu&aacute;nto cambia K
+              si a&ntilde;ades un trabajador entero.
             </p>
           </CardContent>
         </Card>
 
-        <FormulaDisplay math="RMST_{L,K} = \frac{PMg_L}{PMg_K} = \frac{20LK}{10L^2} = \frac{2K}{L}" />
-
-        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-2">
-          <CardContent className="p-3 text-sm space-y-1">
-            <p className="font-semibold text-emerald-800 dark:text-emerald-200">Verificaci&oacute;n</p>
-            <p className="text-emerald-900 dark:text-emerald-100">
-              Tambi&eacute;n podemos obtenerla diferenciando la isocuanta impl&iacute;citamente:
+        {/* Derivación formal con diferencial total */}
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+          <CardContent className="p-3 sm:p-4 text-sm space-y-2">
+            <p className="font-semibold text-emerald-800 dark:text-emerald-200">
+              &iquest;De d&oacute;nde sale la f&oacute;rmula? (diferencial total)
             </p>
-            <FormulaDisplay math="\frac{dK}{dL}\bigg|_{x=cte} = -\frac{\partial x/\partial L}{\partial x/\partial K} = -\frac{20LK}{10L^2} = -\frac{2K}{L}" />
             <p className="text-emerald-900 dark:text-emerald-100">
-              La RMST es el valor absoluto: <InlineMath math="RMST = \frac{2K}{L}" />
+              La producci&oacute;n depende de <InlineMath math="L" /> y <InlineMath math="K" />.
+              Si ambos cambian simult&aacute;neamente un poquito (<InlineMath math="dL" /> y{" "}
+              <InlineMath math="dK" />), la producci&oacute;n cambia en:
             </p>
           </CardContent>
         </Card>
 
+        <FormulaDisplay math="dq = PMg_L \cdot dL + PMg_K \cdot dK" />
+
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-1">
+          <CardContent className="p-3 text-sm space-y-2">
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Esto se lee: &laquo;el cambio en la producci&oacute;n = lo que aporta el
+              cambio en L + lo que aporta el cambio en K&raquo;.
+            </p>
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Sobre la <strong>isocuanta</strong>, la producci&oacute;n no cambia
+              (<InlineMath math="dq = 0" />), as&iacute; que:
+            </p>
+          </CardContent>
+        </Card>
+
+        <FormulaDisplay math="PMg_L \cdot dL + PMg_K \cdot dK = 0" />
+
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-1">
+          <CardContent className="p-3 text-sm">
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Despejamos <InlineMath math="dK/dL" /> (la pendiente de la isocuanta):
+            </p>
+          </CardContent>
+        </Card>
+
+        <FormulaDisplay math="PMg_L \cdot dL = -PMg_K \cdot dK \quad\Longrightarrow\quad \frac{dK}{dL}\bigg|_{q=cte} = -\frac{PMg_L}{PMg_K}" />
+
+        <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 mt-2">
+          <CardContent className="p-3 text-sm space-y-2">
+            <p className="font-semibold text-blue-800 dark:text-blue-200">
+              &iquest;Por qu&eacute; el signo negativo?
+            </p>
+            <p className="text-blue-900 dark:text-blue-100">
+              Porque la isocuanta tiene pendiente negativa: cuando <InlineMath math="L" /> sube,{" "}
+              <InlineMath math="K" /> baja (para mantener la producci&oacute;n constante).
+              Trabajamos con el <strong>valor absoluto</strong> para hablar de
+              &laquo;cu&aacute;ntas unidades de K por unidad de L&raquo;:
+            </p>
+          </CardContent>
+        </Card>
+
+        <FormulaDisplay math="|RMST| = \frac{PMg_L}{PMg_K}" />
+
+        {/* Aplicación a nuestro caso */}
+        <p className="text-sm font-medium mt-3">Aplicando a <InlineMath math="x = 10L^2K" />:</p>
+
+        <FormulaDisplay math="|RMST| = \frac{PMg_L}{PMg_K} = \frac{20LK}{10L^2} = \frac{2K}{L}" />
+
+        {/* Conexión con K = f(L) */}
+        <Card className="bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 mt-3">
+          <CardContent className="p-3 sm:p-4 text-sm space-y-2">
+            <p className="font-semibold text-emerald-800 dark:text-emerald-200">
+              Conexi&oacute;n con el despeje <InlineMath math="K = f(L)" />
+            </p>
+            <p className="text-emerald-900 dark:text-emerald-100">
+              Ahora ves <strong>por qu&eacute;</strong> en el apartado a) despejamos K en funci&oacute;n de L.
+              No fue solo para dibujar la isocuanta: la RMST <strong>es</strong> la derivada{" "}
+              <InlineMath math="dK/dL" />, as&iacute; que tener{" "}
+              <InlineMath math="K = \frac{x_0}{10L^2}" /> nos permite
+              calcularla directamente derivando:
+            </p>
+          </CardContent>
+        </Card>
+
+        <FormulaDisplay math="K = \frac{x_0}{10}\cdot L^{-2} \quad\Longrightarrow\quad \frac{dK}{dL} = \frac{x_0}{10}\cdot(-2)\cdot L^{-3} = -\frac{2x_0}{10L^3}" />
+
+        <details className="text-sm border rounded-lg p-3 bg-gray-50 dark:bg-gray-800 mt-1">
+          <summary className="cursor-pointer font-medium text-blue-700 dark:text-blue-300">
+            &iquest;Esto coincide con <InlineMath math="-PMg_L/PMg_K" />?
+          </summary>
+          <div className="mt-2 space-y-2 text-muted-foreground">
+            <p>
+              Sustituyendo <InlineMath math="K = x_0/(10L^2)" /> en la f&oacute;rmula{" "}
+              <InlineMath math="2K/L" />:
+            </p>
+            <FormulaDisplay math="\frac{2K}{L} = \frac{2 \cdot \frac{x_0}{10L^2}}{L} = \frac{2x_0}{10L^3}" />
+            <p>
+              Es exactamente el valor absoluto de <InlineMath math="dK/dL" />.
+              Los dos m&eacute;todos dan el mismo resultado.
+            </p>
+          </div>
+        </details>
+
+        {/* Por qué «marginal» */}
+        <Card className="bg-rose-50 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800 mt-3">
+          <CardContent className="p-3 sm:p-4 text-sm space-y-2">
+            <p className="font-semibold text-rose-800 dark:text-rose-200">
+              &iquest;Por qu&eacute; &laquo;marginal&raquo; y no &laquo;total&raquo;?
+            </p>
+            <p className="text-rose-900 dark:text-rose-100">
+              La RMST solo es exacta para cambios <strong>infinitesimales</strong> (infinitamente peque&ntilde;os).
+              Para cambios grandes, la predicci&oacute;n falla porque la isocuanta es <strong>curva</strong>.
+            </p>
+            <p className="text-rose-900 dark:text-rose-100">
+              <strong>Ejemplo:</strong> en la isocuanta <InlineMath math="x = 40" />,
+              partiendo de <InlineMath math="L = 1" />, <InlineMath math="K = 4" /> (donde RMST = 8):
+            </p>
+            <div className="border rounded-lg overflow-hidden mt-1">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b bg-rose-100/50 dark:bg-rose-900/20">
+                    <th className="text-left p-2">Cambio en L</th>
+                    <th className="text-left p-2">RMST predice</th>
+                    <th className="text-left p-2">Cambio real en K</th>
+                  </tr>
+                </thead>
+                <tbody className="text-muted-foreground">
+                  <tr className="border-b">
+                    <td className="p-2">+0.01</td>
+                    <td className="p-2">&minus;0.08</td>
+                    <td className="p-2">&minus;0.079 (casi igual)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-2">+0.1</td>
+                    <td className="p-2">&minus;0.80</td>
+                    <td className="p-2">&minus;0.69 (parecido)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 font-medium">+1 (entero)</td>
+                    <td className="p-2 font-medium">&minus;8.00</td>
+                    <td className="p-2 font-medium">&minus;3.00 (&iexcl;muy lejos!)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-rose-900 dark:text-rose-100">
+              Con <InlineMath math="\Delta L = 1" />, la RMST de 8 predice un ahorro
+              de 8 m&aacute;quinas... &iexcl;pero solo tienes 4! La predicci&oacute;n es
+              absurda porque la isocuanta es curva, no recta. La RMST solo vale
+              como aproximaci&oacute;n para cambios peque&ntilde;os.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* RMST decreciente */}
         <Card className="bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 mt-2">
           <CardContent className="p-3 text-sm space-y-1">
             <p className="font-semibold text-amber-800 dark:text-amber-200">
@@ -691,7 +873,7 @@ export default function Ejercicio1() {
             </p>
             <p className="text-amber-900 dark:text-amber-100">
               La RMST es <strong>decreciente</strong>: a medida que usamos m&aacute;s trabajo (L sube)
-              y menos capital (K baja), la RMST disminuye. Esto significa que cada vez es m&aacute;s dif&iacute;cil
+              y menos capital (K baja), la RMST disminuye. Cada vez es m&aacute;s dif&iacute;cil
               sustituir capital por trabajo. Las isocuantas son convexas precisamente por esto.
             </p>
           </CardContent>
